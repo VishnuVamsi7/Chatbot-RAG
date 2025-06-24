@@ -1,0 +1,104 @@
+{
+  "name": "Sai Vishnu Vamsi Senagasetty",
+  "title": "Graduate Student | AI & Data Science Enthusiast",
+  "summary": "Graduate student in Computer Science passionate about solving real-world problems using AI, Data Science, and Software Engineering. I'm also an active stock trader on a mission to integrate AI into trading to maximize profits and uncover smarter market strategies. My diverse projects span from AI-driven journalism detection to voice-based ride booking apps and real-time object detection for night environments.",
+  "skills": {
+    "programming_languages": [
+      "Python",
+      "C++",
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "R",
+      "SQL",
+      "Dart (Flutter)"
+    ],
+    "tools_and_platforms": [
+      "VS Code",
+      "Jupyter",
+      "Git",
+      "GitHub",
+      "Docker",
+      "Google Cloud",
+      "Azure",
+      "MATLAB"
+    ],
+    "analytics_modeling": [
+      "ML Frameworks",
+      "Web Scraping",
+      "ETL Pipelines",
+      "Model Tuning",
+      "Visual Analytics",
+      "Text Processing",
+      "Topic Modeling",
+      "Time-Series Modeling",
+      "Predictive Analytics",
+      "Statistical Research",
+      "Business Intelligence"
+    ]
+  },
+  "education": [
+    {
+      "school": "University of Houston",
+      "degree": "Master of Science in Computer Science",
+      "dates": "Aug 2023 \u2013 May 2025",
+      "gpa": "3.296/4.0"
+    },
+    {
+      "school": "SRM University, A.P.",
+      "degree": "Bachelor of Technology in Computer Science",
+      "dates": "Aug 2019 \u2013 May 2023",
+      "gpa": "8.48/10"
+    }
+  ],
+  "certifications": [
+    "Machine Learning A-Z\u2122",
+    "Excel Skills \u2013 JPMorgan",
+    "Marketing Campaigns \u2013 Pandas",
+    "SQL Data Manipulation"
+  ],
+  "projects": [
+    {
+      "name": "Energy Provider Churn Analysis",
+      "goal": "Identify customers at high risk of leaving and the factors driving their decision.",
+      "outcome": "Developed strategies like pricing adjustments and contract offers to reduce churn using Random Forest with 90.36% accuracy.",
+      "description": "This project focused on identifying customers at risk of leaving an energy provider using machine learning. Data preprocessing involved cleaning customer records and engineering features such as contract type, monthly charges, and service history. A Random Forest model was trained, achieving an accuracy of 90.36%. The insights were used to recommend retention strategies including customized offers and loyalty programs. Feature importance analysis helped identify factors like contract length and customer support interaction frequency as key churn drivers."
+    },
+    {
+      "name": "Pink Slime Journalism Detection",
+      "goal": "Detect biased 'pink slime' news using NLP and clustering.",
+      "outcome": "Revealed clear linguistic separation in Flesch and sentiment scores, enabling bias identification.",
+      "description": "A Natural Language Processing (NLP) project aimed at detecting misleading 'pink slime' journalism. Used clustering and dimensionality reduction techniques such as Truncated SVD and t-SNE to visualize text patterns. Articles were analyzed using metrics like Flesch Reading Ease, sentiment polarity, and passive voice count. K-Means clustering separated articles by writing style and revealed that pink slime content was overly simplistic and emotionally biased compared to legitimate news sources."
+    },
+    {
+      "name": "Utility Forecasting in Oil & Gas",
+      "goal": "Forecast revenue and demand using ML for utility datasets in oil and gas sector.",
+      "outcome": "Built accurate models (R\u00b2 = 0.99), segmented users, visualized data in Tableau.",
+      "description": "This data-driven analysis explored utility performance in the oil and gas sector by segmenting customer data and forecasting key metrics. Exploratory data analysis identified regional trends and segment profitability (Residential, Commercial, etc.). Predictive models, including Linear Regression and Random Forest, were applied to forecast revenue and demand. Tableau dashboards were built for visual storytelling. Notably, Texas and California were highlighted as top-performing regions. Investor-owned utilities were found to be dominant revenue contributors."
+    },
+    {
+      "name": "Text-to-Image Generation with Transformers",
+      "goal": "Create images from prompts using modified UNet_SD with Stable Diffusion.",
+      "outcome": "Achieved 23% boost in FID score, implemented transformer-based attention and cross-attention blocks.",
+      "description": "Implemented a Text2Image generation pipeline using a custom UNet_SD architecture infused with transformer-based attention blocks. Leveraged Stable Diffusion's pre-trained weights and fine-tuned them to improve text-to-image generation accuracy. Key modules included ResBlocks, cross-attention mechanisms, and time modulation layers. Fine-tuning led to a 23% improvement in FID score, demonstrating enhanced image realism. Trained using PyTorch and HuggingFace\u2019s diffusers library."
+    },
+    {
+      "name": "Whisper AI Transcription Pipeline",
+      "goal": "Build a pipeline to extract and transcribe video audio with Whisper on Google Colab.",
+      "outcome": "Successfully transcribed JavaScript tutorial video with 95% accuracy.",
+      "description": "Built an end-to-end pipeline using OpenAI\u2019s Whisper AI in Google Colab to extract and transcribe audio from video files. The process included connecting to Google Drive, extracting audio using MoviePy, and then transcribing using Whisper\u2019s medium.en model. Transcription output included timestamps and near-human level accuracy (95%). Sample use case included extracting learning content from a JavaScript educational video. Future scope includes adding keyword extraction and multi-language support."
+    },
+    {
+      "name": "Night Time Object Detection with YOLOv5",
+      "goal": "Detect pedestrians and vehicles in low-light conditions using YOLOv5.",
+      "outcome": "Trained a custom model to improve object detection in dark scenes, showing significant accuracy improvement in nighttime environments.",
+      "description": "Implemented YOLOv5 for nighttime surveillance scenarios. Custom-trained the model on low-light images to detect people, vehicles, and objects effectively. Project emphasizes real-time inference and safety applications for smart cities."
+    },
+    {
+      "name": "Flutter-Based Driver App with Voice-to-Ride Booking",
+      "goal": "Develop a ride-booking app with voice commands using Flutter and speech-to-text.",
+      "outcome": "Implemented chatbot pop-up and speech recognition to transcribe and book rides with dynamic request updates.",
+      "description": "Developed a driver companion app using Flutter with speech recognition integration. Users can book rides using voice commands which are transcribed in real-time and processed into structured trip requests. Designed for offline and low-latency environments."
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+flask
+flask-cors
+langchain
+langchain-community
+langchain-core
+langchain-huggingface
+sentence-transformers
+faiss-cpu
+openai
