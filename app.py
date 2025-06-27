@@ -22,8 +22,9 @@ together_client = OpenAI(
 )
 
 # LLM Wrapper
+# LLM Wrapper using Together.ai - Gemma 3 1B IT
 class TogetherLLM(LLM, Runnable):
-    model_name: str = "mistralai/Mistral-7B-Instruct-v0.1"
+    model_name: str = "google/gemma-1.1-1b-it"
 
     def _call(self, prompt: str, stop: Optional[List[str]] = None, **kwargs) -> str:
         response = together_client.chat.completions.create(
@@ -40,6 +41,7 @@ class TogetherLLM(LLM, Runnable):
     @property
     def _llm_type(self) -> str:
         return "together-ai"
+
 
 # Step 1: Load your personal info
 loader = TextLoader("myinfo.txt", encoding="utf-8")
