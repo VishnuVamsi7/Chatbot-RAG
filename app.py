@@ -44,7 +44,7 @@ class TogetherLLM(LLM, Runnable):
 
 
 # Step 1: Load your personal info
-loader = TextLoader("myinfo.txt", encoding="utf-8")
+loader = TextLoader("Knowledge.yaml", encoding="utf-8")
 documents = loader.load()
 
 # Step 2: Embed the documents using HuggingFace
