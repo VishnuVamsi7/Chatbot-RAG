@@ -7,7 +7,8 @@ from langchain_core.language_models.llms import LLM
 from langchain_core.runnables import Runnable
 from langchain.prompts import PromptTemplate
 from langchain.chains import RetrievalQA
-from langchain_community.document_loaders import Document
+from langchain_core.documents import Document
+
 
 from openai import OpenAI
 from typing import Optional, List
