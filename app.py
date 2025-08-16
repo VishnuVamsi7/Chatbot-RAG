@@ -1,30 +1,30 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 
-from langchain_community.document_loaders import TextLoader
 from langchain_community.vectorstores import FAISS
 from langchain_huggingface.embeddings import HuggingFaceEmbeddings
 from langchain_core.language_models.llms import LLM
 from langchain_core.runnables import Runnable
-from langchain.chains import RetrievalQA    
+from langchain.prompts import PromptTemplate
+from langchain.chains import RetrievalQA
+from langchain_community.document_loaders import Document
 
 from openai import OpenAI
 from typing import Optional, List
-from pydantic import Field
 import os
+import dotenv
+dotenv.load_dotenv()
 
 
-# Set Together API Key
-os.environ["OPENAI_API_KEY"] = "37023c695b45a31148940bc754ea0cf6199373b64c5816987c9d8239939e314e"
+hf_token = os.getenv("HF_API_KEY")
 together_client = OpenAI(
-    base_url="https://api.together.xyz/v1",
-    api_key=os.environ["OPENAI_API_KEY"]
+    base_url="https://router.huggingface.co/v1",
+    api_key=hf_token
 )
 
-# LLM Wrapper
-# LLM Wrapper using Together.ai - Gemma 3 1B IT
+# LLM Wrapper using Together.ai
 class TogetherLLM(LLM, Runnable):
-    model_name: str = "google/gemma-1.1-1b-it"
+    model_name: str = "mistralai/Mistral-7B-Instruct-v0.2:featherless-ai"
 
     def _call(self, prompt: str, stop: Optional[List[str]] = None, **kwargs) -> str:
         response = together_client.chat.completions.create(
@@ -42,21 +42,35 @@ class TogetherLLM(LLM, Runnable):
     def _llm_type(self) -> str:
         return "together-ai"
 
+# Load prompt and context from file
+with open("myinfo.txt", "r", encoding="utf-8") as f:
+    content = f.read()
 
-# Step 1: Load your personal info
-loader = TextLoader("myinfo.txt", encoding="utf-8")
-documents = loader.load()
+prompt_text = content.split("---PROMPT---")[1].split("---END---")[0].strip()
+context_text = content.split("---CONTEXT---")[1].strip()
 
-# Step 2: Embed the documents using HuggingFace
-embedding_model = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
+# Create prompt template
+rag_prompt = PromptTemplate(
+    input_variables=["context", "question"],
+    template=prompt_text
+)
+
+# Embed context
+documents = [Document(page_content=context_text)]
+embedding_model = HuggingFaceEmbeddings(model_name="sentence-transformers/paraphrase-MiniLM-L3-v2")
 db = FAISS.from_documents(documents, embedding_model)
 retriever = db.as_retriever()
+
+# Build RetrievalQA chain
 llm = TogetherLLM()
-qa = RetrievalQA.from_chain_type(
+qa_chain = RetrievalQA.from_chain_type(
     llm=llm,
     retriever=retriever,
-    chain_type="stuff"
+    chain_type="stuff",
+    chain_type_kwargs={"prompt": rag_prompt}
 )
+
+# Flask app
 app = Flask(__name__)
 CORS(app)
 
@@ -66,10 +80,9 @@ def chat():
     question = data.get("question", "")
     if not question:
         return jsonify({"error": "No question provided"}), 400
-    answer = qa.invoke(question)
+    answer = qa_chain.invoke(question)
     return jsonify({"answer": answer})
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
-
-
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
