@@ -55,11 +55,12 @@ rag_prompt = PromptTemplate(
     input_variables=["context", "question"],
     template=prompt_text
 )
+OpenAIEmbeddings(model="text-embedding-3-small")  # or "text-embedding-3-large"
 
 # Embed context
 documents = [Document(page_content=context_text)]
 embedding_model = OpenAIEmbeddings(
-    model="intfloat/multilingual-e5-small",   # remote HF embedding model
+    model="text-embedding-3-small",   # remote HF embedding model
     api_key=os.getenv("HF_API_KEY"),
     base_url="https://router.huggingface.co/v1"
 )
