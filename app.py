@@ -84,23 +84,5 @@ def chat():
         return jsonify({"error": "Failed to generate answer"}), 500
 
 if __name__ == "__main__":
-    import sys
-
-    # Check if running in terminal mode
-    if len(sys.argv) > 1 and sys.argv[1] == "cli":
-        print("🧠 Terminal Chatbot (type 'exit' to quit)")
-        while True:
-            question = input("You: ").strip()
-            if question.lower() in ["exit", "quit"]:
-                print("👋 Goodbye!")
-                break
-            try:
-                answer = qa_chain.invoke({"context": context_text, "question": question})
-                print("Bot:", answer)
-            except Exception as e:
-                print("⚠️ Error:", e)
-    else:
-        # Run Flask app
-        port = int(os.environ.get("PORT", 5000))
-
-        app.run(host="0.0.0.0", port=port)
+    port = int(os.environ.get("PORT", 5000))  # Render sets PORT env var
+    app.run(host="0.0.0.0", port=port)
