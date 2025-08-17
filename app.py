@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from langchain_openai import OpenAIEmbeddings
+# Import HuggingFaceEmbeddings instead of HuggingFaceHubEmbeddings
+from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
 from langchain_core.language_models.llms import LLM
 from langchain_core.runnables import Runnable
@@ -9,21 +10,35 @@ from langchain.chains import RetrievalQA
 from langchain_core.documents import Document
 from langchain.embeddings.base import Embeddings
 
-from huggingface_hub import InferenceClient
+# Remove InferenceClient and OpenAI import as they are no longer needed for embeddings
+# from huggingface_hub import InferenceClient
 from openai import OpenAI
 from typing import Optional, List
 import os
 import dotenv
 import logging
 
+# Install necessary libraries
+
+
+# Set the environment variable for HuggingFaceHub (if still needed for LLM, though TogetherLLM uses OpenAI client)
+# os.environ["HUGGINGFACEHUB_API_TOKEN"] = HF_API_KEY
+
+# Load environment variables
 dotenv.load_dotenv()
+
+# Get Hugging Face API key securely
+HF_API_KEY = os.getenv("HF_API_KEY")
+if not HF_API_KEY:
+    raise ValueError("❌ HF_API_KEY not found in environment variables.")
+
 logging.basicConfig(level=logging.INFO)
 
 # Initialize Together.ai client
-hf_token = os.getenv("HF_API_KEY")
+# Ensure the HF_API_KEY variable is used directly
 together_client = OpenAI(
     base_url="https://router.huggingface.co/v1",
-    api_key=hf_token
+    api_key=HF_API_KEY  # Use the defined variable directly
 )
 
 # LLM Wrapper using Together.ai
@@ -46,32 +61,9 @@ class TogetherLLM(LLM, Runnable):
     def _llm_type(self) -> str:
         return "together-ai"
 
-# Hosted embedding class using Hugging Face Inference API
-class HFHostedEmbeddings(Embeddings):
-    def __init__(self, model_name="intfloat/e5-small-v2"):
-        self.client = InferenceClient(
-            provider="hf-inference",
-            api_key=os.getenv("HF_API_KEY")
-        )
-        self.model_name = model_name
-
-    def _embed(self, text: str) -> List[float]:
-        if not text.startswith("query:"):
-            text = "query: " + text
-        result = self.client.sentence_embedding(
-            text,
-            model=self.model_name
-        )
-        return result.embedding
-
-    def embed_documents(self, texts: List[str]) -> List[List[float]]:
-        return [self._embed(text) for text in texts]
-
-    def embed_query(self, text: str) -> List[float]:
-        return self._embed(text)
 
 # Load prompt and context from file
-with open("myinfo.txt", "r", encoding="utf-8") as f:
+with open("/content/myinfo.txt", "r", encoding="utf-8") as f:
     content = f.read()
 
 prompt_text = content.split("---PROMPT---")[1].split("---END---")[0].strip()
@@ -83,13 +75,14 @@ rag_prompt = PromptTemplate(
     template=prompt_text
 )
 
-# Embed context using hosted embedding model
+# Embed context using HuggingFaceEmbeddings (using sentence-transformers)
 documents = [Document(page_content=context_text)]
-remote_embedding_model = OpenAIEmbeddings(
-    model="intfloat/e5-small-v2",
-    api_key=hf_token,
-    base_url="https://router.huggingface.co/v1"
+# Use HuggingFaceEmbeddings with the desired model name
+remote_embedding_model = HuggingFaceEmbeddings(
+    model_name="intfloat/e5-small-v2"
 )
+
+
 vector_db = FAISS.from_documents(documents, remote_embedding_model)
 retriever = vector_db.as_retriever()
 

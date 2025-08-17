@@ -1,9 +1,8 @@
 flask
 flask-cors
-langchain==0.2.2
-langchain-openai
+langchain
 langchain-community
+sentence-transformers
 faiss-cpu
-python-dotenv
 openai
-huggingface_hub
+python-dotenv
