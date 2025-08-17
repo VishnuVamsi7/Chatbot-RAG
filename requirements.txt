@@ -6,3 +6,5 @@ langchain-community
 faiss-cpu
 python-dotenv
 openai
+torch==2.3.0+cpu
+transformers==4.40.0

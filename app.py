@@ -1,13 +1,14 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from langchain_openai import OpenAIEmbeddings
 from langchain_community.vectorstores import FAISS
 from langchain_core.language_models.llms import LLM
 from langchain_core.runnables import Runnable
 from langchain.prompts import PromptTemplate
 from langchain.chains import RetrievalQA
 from langchain_core.documents import Document
+from langchain.embeddings.base import Embeddings
 
+from huggingface_hub import InferenceClient
 from openai import OpenAI
 from typing import Optional, List
 import os
@@ -41,6 +42,30 @@ class TogetherLLM(LLM, Runnable):
     def _llm_type(self) -> str:
         return "together-ai"
 
+# Hosted embedding class using Hugging Face Inference API
+class HFHostedEmbeddings(Embeddings):
+    def __init__(self, model_name="intfloat/e5-small-v2"):
+        self.client = InferenceClient(
+            provider="hf-inference",
+            api_key=os.getenv("HF_API_KEY")
+        )
+        self.model_name = model_name
+
+    def _embed(self, text: str) -> List[float]:
+        if not text.startswith("query:"):
+            text = "query: " + text
+        result = self.client.sentence_embedding(
+            text,
+            model=self.model_name
+        )
+        return result.embedding
+
+    def embed_documents(self, texts: List[str]) -> List[List[float]]:
+        return [self._embed(text) for text in texts]
+
+    def embed_query(self, text: str) -> List[float]:
+        return self._embed(text)
+
 # Load prompt and context from file
 with open("myinfo.txt", "r", encoding="utf-8") as f:
     content = f.read()
@@ -54,14 +79,10 @@ rag_prompt = PromptTemplate(
     template=prompt_text
 )
 
-# Embed context using hosted embedding model
+# Embed context using hosted embeddings
 documents = [Document(page_content=context_text)]
-remote_embedding_model = OpenAIEmbeddings(
-    model="intfloat/e5-small-v2",
-    api_key=hf_token,
-    base_url="https://router.huggingface.co/v1"
-)
-vector_db = FAISS.from_documents(documents, remote_embedding_model)
+embedding_model = HFHostedEmbeddings()
+vector_db = FAISS.from_documents(documents, embedding_model)
 retriever = vector_db.as_retriever()
 
 # Build RetrievalQA chain
@@ -87,5 +108,22 @@ def chat():
     return jsonify({"answer": answer})
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host="0.0.0.0", port=port)
+    import sys
+
+    # Check if running in terminal mode
+    if len(sys.argv) > 1 and sys.argv[1] == "cli":
+        print("🧠 Terminal Chatbot (type 'exit' to quit)")
+        while True:
+            question = input("You: ").strip()
+            if question.lower() in ["exit", "quit"]:
+                print("👋 Goodbye!")
+                break
+            try:
+                answer = qa_chain.invoke(question)
+                print("Bot:", answer)
+            except Exception as e:
+                print("⚠️ Error:", e)
+    else:
+        # Run Flask app
+        port = int(os.environ.get("PORT", 5000))
+        app.run(host="0.0.0.0", port=port)
