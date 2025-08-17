@@ -6,3 +6,4 @@ faiss-cpu
 langchain-core
 langchain-community
 langchain-openai
+sentence-transformers

@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_openai import OpenAIEmbeddings
 from langchain_community.vectorstores import FAISS
 from langchain_core.language_models.llms import LLM
 from langchain_core.runnables import Runnable
@@ -8,15 +8,13 @@ from langchain.prompts import PromptTemplate
 from langchain.chains import RetrievalQA
 from langchain_core.documents import Document
 
-from langchain_openai import OpenAIEmbeddings
-
 from openai import OpenAI
 from typing import Optional, List
 import os
 import dotenv
 dotenv.load_dotenv()
 
-
+# Initialize Together.ai client
 hf_token = os.getenv("HF_API_KEY")
 together_client = OpenAI(
     base_url="https://router.huggingface.co/v1",
@@ -56,14 +54,15 @@ rag_prompt = PromptTemplate(
     template=prompt_text
 )
 
-# Embed context
+# Embed context using hosted embedding model
 documents = [Document(page_content=context_text)]
-embedding_model =  HuggingFaceEmbeddings(
-    model_name="intfloat/e5-small-v2",
-    model_kwargs={"device": "cpu"}
+remote_embedding_model = OpenAIEmbeddings(
+    model="intfloat/e5-small-v2",
+    api_key=hf_token,
+    base_url="https://router.huggingface.co/v1"
 )
-db = FAISS.from_documents(documents, embedding_model)
-retriever = db.as_retriever()
+vector_db = FAISS.from_documents(documents, remote_embedding_model)
+retriever = vector_db.as_retriever()
 
 # Build RetrievalQA chain
 llm = TogetherLLM()
