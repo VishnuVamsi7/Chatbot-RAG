@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from langchain_openai import OpenAIEmbeddings
+from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
 from langchain_core.language_models.llms import LLM
 from langchain_core.runnables import Runnable
@@ -12,7 +12,10 @@ from openai import OpenAI
 from typing import Optional, List
 import os
 import dotenv
+import logging
+
 dotenv.load_dotenv()
+logging.basicConfig(level=logging.INFO)
 
 # Initialize Together.ai client
 hf_token = os.getenv("HF_API_KEY")
@@ -54,15 +57,19 @@ rag_prompt = PromptTemplate(
     template=prompt_text
 )
 
-# Embed context using hosted embedding model
+# Embed context using Hugging Face embeddings
 documents = [Document(page_content=context_text)]
-remote_embedding_model = OpenAIEmbeddings(
-    model="intfloat/e5-small-v2",
-    api_key=hf_token,
-    base_url="https://router.huggingface.co/v1"
-)
-vector_db = FAISS.from_documents(documents, remote_embedding_model)
-retriever = vector_db.as_retriever()
+
+try:
+    remote_embedding_model = HuggingFaceEmbeddings(
+        model_name="intfloat/e5-small-v2"
+    )
+    vector_db = FAISS.from_documents(documents, remote_embedding_model)
+    retriever = vector_db.as_retriever()
+    logging.info("✅ FAISS vector DB created successfully.")
+except Exception as e:
+    logging.error("❌ Failed to create FAISS vector DB.", exc_info=True)
+    retriever = None
 
 # Build RetrievalQA chain
 llm = TogetherLLM()
@@ -83,8 +90,14 @@ def chat():
     question = data.get("question", "")
     if not question:
         return jsonify({"error": "No question provided"}), 400
-    answer = qa_chain.invoke(question)
-    return jsonify({"answer": answer})
+    if not retriever:
+        return jsonify({"error": "Retriever not initialized"}), 500
+    try:
+        answer = qa_chain.invoke(question)
+        return jsonify({"answer": answer})
+    except Exception as e:
+        logging.error("❌ Error during QA invocation", exc_info=True)
+        return jsonify({"error": "Failed to generate answer"}), 500
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
