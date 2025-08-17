@@ -9,6 +9,7 @@ from langchain.prompts import PromptTemplate
 from langchain.chains import RetrievalQA
 from langchain_core.documents import Document
 
+from langchain_openai import OpenAIEmbeddings
 
 from openai import OpenAI
 from typing import Optional, List
@@ -58,7 +59,11 @@ rag_prompt = PromptTemplate(
 
 # Embed context
 documents = [Document(page_content=context_text)]
-embedding_model = HuggingFaceEmbeddings(model_name="sentence-transformers/paraphrase-MiniLM-L3-v2")
+embedding_model = OpenAIEmbeddings(
+    model="intfloat/multilingual-e5-small",   # remote HF embedding model
+    api_key=os.getenv("HF_API_KEY"),
+    base_url="https://router.huggingface.co/v1"
+)
 db = FAISS.from_documents(documents, embedding_model)
 retriever = db.as_retriever()
 
