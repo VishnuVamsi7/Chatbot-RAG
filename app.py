@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-
+from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
 from langchain_core.language_models.llms import LLM
 from langchain_core.runnables import Runnable
@@ -55,14 +55,12 @@ rag_prompt = PromptTemplate(
     input_variables=["context", "question"],
     template=prompt_text
 )
-OpenAIEmbeddings(model="text-embedding-3-small")  # or "text-embedding-3-large"
 
 # Embed context
 documents = [Document(page_content=context_text)]
-embedding_model = OpenAIEmbeddings(
-    model="text-embedding-3-small",   # remote HF embedding model
-    api_key=os.getenv("HF_API_KEY"),
-    base_url="https://router.huggingface.co/v1"
+embedding_model =  HuggingFaceEmbeddings(
+    model_name="intfloat/e5-small-v2",
+    model_kwargs={"device": "cpu"}
 )
 db = FAISS.from_documents(documents, embedding_model)
 retriever = db.as_retriever()
