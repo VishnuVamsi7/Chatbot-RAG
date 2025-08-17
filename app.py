@@ -1,28 +1,14 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-# Import HuggingFaceEmbeddings instead of HuggingFaceHubEmbeddings
-from langchain_community.embeddings import HuggingFaceEmbeddings
-from langchain_community.vectorstores import FAISS
 from langchain_core.language_models.llms import LLM
 from langchain_core.runnables import Runnable
 from langchain.prompts import PromptTemplate
-from langchain.chains import RetrievalQA
-from langchain_core.documents import Document
-from langchain.embeddings.base import Embeddings
-
-# Remove InferenceClient and OpenAI import as they are no longer needed for embeddings
-# from huggingface_hub import InferenceClient
+from langchain_core.chains import LLMChain
 from openai import OpenAI
 from typing import Optional, List
 import os
 import dotenv
 import logging
-
-# Install necessary libraries
-
-
-# Set the environment variable for HuggingFaceHub (if still needed for LLM, though TogetherLLM uses OpenAI client)
-# os.environ["HUGGINGFACEHUB_API_TOKEN"] = HF_API_KEY
 
 # Load environment variables
 dotenv.load_dotenv()
@@ -35,10 +21,9 @@ if not HF_API_KEY:
 logging.basicConfig(level=logging.INFO)
 
 # Initialize Together.ai client
-# Ensure the HF_API_KEY variable is used directly
 together_client = OpenAI(
     base_url="https://router.huggingface.co/v1",
-    api_key=HF_API_KEY  # Use the defined variable directly
+    api_key=HF_API_KEY
 )
 
 # LLM Wrapper using Together.ai
@@ -61,7 +46,6 @@ class TogetherLLM(LLM, Runnable):
     def _llm_type(self) -> str:
         return "together-ai"
 
-
 # Load prompt and context from file
 with open("/content/myinfo.txt", "r", encoding="utf-8") as f:
     content = f.read()
@@ -75,24 +59,11 @@ rag_prompt = PromptTemplate(
     template=prompt_text
 )
 
-# Embed context using HuggingFaceEmbeddings (using sentence-transformers)
-documents = [Document(page_content=context_text)]
-# Use HuggingFaceEmbeddings with the desired model name
-remote_embedding_model = HuggingFaceEmbeddings(
-    model_name="intfloat/e5-small-v2"
-)
-
-
-vector_db = FAISS.from_documents(documents, remote_embedding_model)
-retriever = vector_db.as_retriever()
-
-# Build RetrievalQA chain
+# Build LLMChain
 llm = TogetherLLM()
-qa_chain = RetrievalQA.from_chain_type(
+qa_chain = LLMChain(
     llm=llm,
-    retriever=retriever,
-    chain_type="stuff",
-    chain_type_kwargs={"prompt": rag_prompt}
+    prompt=rag_prompt
 )
 
 # Flask app
@@ -105,10 +76,8 @@ def chat():
     question = data.get("question", "")
     if not question:
         return jsonify({"error": "No question provided"}), 400
-    if not retriever:
-        return jsonify({"error": "Retriever not initialized"}), 500
     try:
-        answer = qa_chain.invoke(question)
+        answer = qa_chain.invoke({"context": context_text, "question": question})
         return jsonify({"answer": answer})
     except Exception as e:
         logging.error("❌ Error during QA invocation", exc_info=True)
@@ -126,7 +95,7 @@ if __name__ == "__main__":
                 print("👋 Goodbye!")
                 break
             try:
-                answer = qa_chain.invoke(question)
+                answer = qa_chain.invoke({"context": context_text, "question": question})
                 print("Bot:", answer)
             except Exception as e:
                 print("⚠️ Error:", e)
