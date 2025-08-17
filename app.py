@@ -47,7 +47,7 @@ class TogetherLLM(LLM, Runnable):
         return "together-ai"
 
 # Load prompt and context from file
-with open("/content/myinfo.txt", "r", encoding="utf-8") as f:
+with open("myinfo.txt", "r", encoding="utf-8") as f:
     content = f.read()
 
 prompt_text = content.split("---PROMPT---")[1].split("---END---")[0].strip()
@@ -102,4 +102,5 @@ if __name__ == "__main__":
     else:
         # Run Flask app
         port = int(os.environ.get("PORT", 5000))
+
         app.run(host="0.0.0.0", port=port)
