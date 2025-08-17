@@ -1,9 +1,8 @@
 flask
 flask-cors
-python-dotenv
-openai            # still needed for Together/HF API
-faiss-cpu
-langchain-core
-langchain-community
+langchain==0.2.2
 langchain-openai
-sentence-transformers
+langchain-community
+faiss-cpu
+python-dotenv
+openai
