@@ -3,7 +3,7 @@ from flask_cors import CORS
 from langchain_core.language_models.llms import LLM
 from langchain_core.runnables import Runnable
 from langchain.prompts import PromptTemplate
-from langchain_core.chains import LLMChain
+from langchain.chains import LLMChain
 from openai import OpenAI
 from typing import Optional, List
 import os
