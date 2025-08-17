@@ -2,7 +2,6 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 
 from langchain_community.vectorstores import FAISS
-from langchain_huggingface.embeddings import HuggingFaceEmbeddings
 from langchain_core.language_models.llms import LLM
 from langchain_core.runnables import Runnable
 from langchain.prompts import PromptTemplate
