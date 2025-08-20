@@ -73,15 +73,30 @@ CORS(app)
 @app.route("/chat", methods=["POST"])
 def chat():
     data = request.get_json()
-    question = data.get("question", "")
+    question = data.get("question", "").strip()
     if not question:
         return jsonify({"error": "No question provided"}), 400
+
     try:
-        answer = qa_chain.invoke({"context": context_text, "question": question})
+        formatted_prompt = rag_prompt.format(context=context_text, question=question)
+        logging.info(f"🧠 Prompt:\n{formatted_prompt}")
+        answer = llm.invoke(formatted_prompt)
         return jsonify({"answer": answer})
     except Exception as e:
-        logging.error("❌ Error during QA invocation", exc_info=True)
-        return jsonify({"error": "Failed to generate answer"}), 500
+        logging.error("❌ Error during LLM invocation", exc_info=True)
+        return jsonify({"error": str(e)}), 500
+
+@app.route("/debug", methods=["POST"])
+def debug():
+    data = request.get_json()
+    question = data.get("question", "").strip()
+    prompt = rag_prompt.format(context=context_text, question=question)
+    try:
+        response = llm.invoke(prompt)
+        return jsonify({"prompt": prompt, "response": response})
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))  # Render sets PORT env var
