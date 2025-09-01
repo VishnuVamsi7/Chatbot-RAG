@@ -1,6 +1,6 @@
 flask
 flask-cors
 langchain
-openai
-werkzeug
+groq
 python-dotenv
+httpx

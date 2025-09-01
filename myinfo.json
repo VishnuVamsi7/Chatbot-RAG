@@ -1,0 +1,121 @@
+{
+  "summary": "Graduate AI Engineer with expertise in cloud-native LLM applications, modular RAG pipelines, and secure deployments. Passionate about building scalable, user-centric AI systems.",
+  "location": "Houston, TX",
+  "education": [
+    {
+      "degree": "Master of Science in Computer Science",
+      "institution": "University of Houston",
+      "year": "2025",
+      "focus": ["AI", "Cloud Computing", "Data Science"]
+    },
+    {
+      "degree": "Bachelor of Technology in Computer Science",
+      "institution": "SRM University",
+      "year": "2022"
+    }
+  ],
+  "certifications": [
+    "Machine Learning Specialization – Coursera",
+    "SQL for Data Analysis – Mode Analytics",
+    "Marketing Analytics – University of Virginia"
+  ],
+  "skills": [
+    "Python", "Flask", "FastAPI", "ReactJS", "LangChain", "LangGraph",
+    "Groq LLMs", "FAISS", "ChromaDB", "Prompt Engineering",
+    "CI/CD", "Cloud Secret Management", "Semantic Chunking",
+    "Vector Search", "ONNX", "Zapier", "Power BI"
+  ],
+  "experience": [
+    {
+      "role": "AI Engineer",
+      "company": "Independent Projects",
+      "year": "2024–2025",
+      "responsibilities": [
+        "Architected modular RAG pipelines with Groq LLM integration",
+        "Deployed secure Flask-based chatbots to Render",
+        "Built automation flows using Python and Zapier"
+      ]
+    },
+    {
+      "role": "ML Intern",
+      "company": "Mobility App Startup",
+      "year": "2024",
+      "responsibilities": [
+        "Built voice-to-ride booking pipeline using speech-to-text",
+        "Improved cross-platform UX with Flutter and NLP"
+      ]
+    }
+  ],
+  "projects": [
+  {
+    "id": "proj1",
+    "title": "RAG Chatbot: Personal Portfolio Assistant",
+    "description": "Developed a Retrieval-Augmented Generation chatbot using LangChain and Together.ai API. Engineered custom embeddings and vector similarity search. Integrated Replit frontend with Render backend. Achieved <1s response time and 98% accuracy.",
+    "skills": ["LangChain", "Together.ai", "Vector Search", "Flask", "Replit", "Render"],
+    "role": "AI Engineer",
+    "year": 2025
+  },
+  {
+    "id": "proj2",
+    "title": "Benchmarking Model Deployment",
+    "description": "Benchmarked CNN and RNN models using TorchServe and TensorFlow Serving. Built REST API load simulator. Used Azure ML SDK v2 for deployment. Achieved 11.6% lower latency with TorchServe.",
+    "skills": ["TorchServe", "TensorFlow Serving", "Azure ML", "REST APIs", "Multithreading"],
+    "role": "ML Engineer",
+    "year": 2025
+  },
+  {
+    "id": "proj3",
+    "title": "Customer Churn Prediction & Retention Analytics",
+    "description": "Built XGBoost pipeline to predict churn with 85% ROC-AUC. Used SHAP for interpretability. Designed Power BI dashboards for marketing insights. Projected 12–15% increase in customer lifetime value.",
+    "skills": ["XGBoost", "SHAP", "Power BI", "Predictive Modeling", "Marketing Analytics"],
+    "role": "Data Scientist",
+    "year": 2025
+  },
+  {
+    "id": "proj4",
+    "title": "Pink Slime Journalism Detection",
+    "description": "Analyzed 600k+ news sentences to detect deceptive patterns. Built NLP pipeline with TF-IDF, clustering, and stylistic feature extraction. Revealed exaggerated sentiment and low linguistic diversity in pink slime articles.",
+    "skills": ["NLP", "TF-IDF", "Clustering", "Text Classification", "Visualization"],
+    "role": "NLP Research Assistant",
+    "year": 2024
+  },
+  {
+    "id": "proj5",
+    "title": "Voice-to-Ride Booking Pipeline",
+    "description": "Engineered ML-based voice booking system using speech-to-text and NLP. Enabled hands-free ride scheduling in Flutter-based mobility app. Improved cross-platform performance and reduced UI/UX issues by 25%.",
+    "skills": ["Speech-to-Text", "NLP", "Flutter", "Mobile ML", "Automation"],
+    "role": "AI/ML Intern",
+    "year": 2024
+  },
+  {
+    "id": "proj6",
+    "title": "Nighttime Object Detection",
+    "description": "Published research on object detection in low-light conditions using deep learning. Improved detection accuracy for nighttime patrolling systems.",
+    "skills": ["Object Detection", "Deep Learning", "Low-Light Imaging"],
+    "role": "Researcher",
+    "year": 2023
+  },
+  {
+    "id": "proj7",
+    "title": "Battery Health Estimation via GPR",
+    "description": "Presented regression model using Gaussian Process Regression to estimate lithium-ion battery health. Published at ICAIA and ATCON-1.",
+    "skills": ["Gaussian Process Regression", "Battery Health", "Time-Series Analysis"],
+    "role": "Researcher",
+    "year": 2021
+  }
+],
+  "research": [
+    {
+      "title": "Nighttime Object Detection",
+      "description": "Published research on improving object detection in low-light conditions using deep learning.",
+      "year": "2023"
+    },
+    {
+      "title": "Battery Health Estimation via GPR",
+      "description": "Presented Gaussian Process Regression model for lithium-ion battery health estimation.",
+      "year": "2021",
+      "conferences": ["ICAIA", "ATCON-1"]
+    }
+  ],
+  "languages": ["English", "Telugu", "Hindi"]
+}

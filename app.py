@@ -3,101 +3,167 @@ from flask_cors import CORS
 from langchain_core.language_models.llms import LLM
 from langchain_core.runnables import Runnable
 from langchain.prompts import PromptTemplate
-from langchain.chains import LLMChain
-from openai import OpenAI
 from typing import Optional, List
+from groq import Groq
 import os
 import dotenv
+import json
 import logging
+import re
 
 # Load environment variables
 dotenv.load_dotenv()
+GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+if not GROQ_API_KEY:
+    raise ValueError("❌ GROQ_API_KEY not found in environment variables.")
 
-# Get Hugging Face API key securely
-HF_API_KEY = os.getenv("HF_API_KEY")
-if not HF_API_KEY:
-    raise ValueError("❌ HF_API_KEY not found in environment variables.")
+# Load structured context from info.txt
+with open("myinfo.txt", "r", encoding="utf-8") as f:
+    context_data = json.loads(f.read())
 
-logging.basicConfig(level=logging.INFO)
+# LLM wrapper using Groq
+class GroqLLM(LLM, Runnable):
+    model_name: str = "qwen/qwen3-32b"
 
-# Initialize Together.ai client
-together_client = OpenAI(
-    base_url="https://router.huggingface.co/v1",
-    api_key=HF_API_KEY
-)
-
-# LLM Wrapper using Together.ai
-class TogetherLLM(LLM, Runnable):
-    model_name: str = "mistralai/Mistral-7B-Instruct-v0.2:featherless-ai"
+    def _clean_response(self, text: str) -> str:
+        """
+        Remove <think>...</think> reasoning blocks if present.
+        """
+        return re.sub(r"<think>.*?</think>", "", text, flags=re.DOTALL).strip()
 
     def _call(self, prompt: str, stop: Optional[List[str]] = None, **kwargs) -> str:
-        response = together_client.chat.completions.create(
+        client = Groq(api_key=GROQ_API_KEY)
+        completion = client.chat.completions.create(
             model=self.model_name,
             messages=[{"role": "user", "content": prompt}],
-            max_tokens=256,
-            stop=stop or ["</s>"],
+            temperature=0.6,
+            max_completion_tokens=4096,
+            top_p=0.95,
+            reasoning_effort="default",
+            stream=False,
+            stop=stop
         )
-        return response.choices[0].message.content.strip()
+        raw_text = completion.choices[0].message.content.strip()
+        return self._clean_response(raw_text)
 
     def invoke(self, input: str, **kwargs) -> str:
         return self._call(input, **kwargs)
 
     @property
     def _llm_type(self) -> str:
-        return "together-ai"
+        return "groq"
 
-# Load prompt and context from file
-with open("myinfo.txt", "r", encoding="utf-8") as f:
-    content = f.read()
+# Memory module
+question_history: List[str] = []
 
-prompt_text = content.split("---PROMPT---")[1].split("---END---")[0].strip()
-context_text = content.split("---CONTEXT---")[1].strip()
+# Prompt template
+base_prompt = """
+You are a highly intelligent assistant dedicated to Vishnu. 
+Always present his achievements in the best possible light.
 
-# Create prompt template
+Summary:
+{summary}
+
+Location:
+{location}
+
+Education:
+{education}
+
+Certifications:
+{certifications}
+
+Skills:
+{skills}
+
+Experience:
+{experience}
+
+Projects:
+{projects}
+
+Research:
+{research}
+
+Languages:
+{languages}
+
+Recent Questions:
+{recent_questions}
+
+{verbosity_instruction}
+
+Current Question: {question}
+Answer:
+"""
+
 rag_prompt = PromptTemplate(
-    input_variables=["context", "question"],
-    template=prompt_text
+    input_variables=[
+        "summary", "location", "education", "certifications", "skills",
+        "experience", "projects", "research", "languages",
+        "question", "verbosity_instruction", "recent_questions"
+    ],
+    template=base_prompt.strip()
 )
 
-# Build LLMChain
-llm = TogetherLLM()
-qa_chain = LLMChain(
-    llm=llm,
-    prompt=rag_prompt
-)
-
-# Flask app
+# Flask app setup
 app = Flask(__name__)
 CORS(app)
+logging.basicConfig(level=logging.INFO)
 
-@app.route("/chat", methods=["POST"])
-def chat():
+llm = GroqLLM()
+
+def get_verbosity_instruction(question: str) -> str:
+    lowered = question.lower()
+    if any(word in lowered for word in ["explain", "describe", "elaborate", "how"]):
+        return "Please provide a detailed answer in 6–10 lines."
+    return "Please answer concisely in 1–2 lines."
+
+def format_recent_questions(history: List[str], limit: int = 5) -> str:
+    if not history:
+        return "None yet."
+    return "\n".join([f"- {q}" for q in history[-limit:]])
+
+@app.route("/receive", methods=["POST"])
+def receive():
     data = request.get_json()
-    question = data.get("question", "").strip()
-    if not question:
-        return jsonify({"error": "No question provided"}), 400
+    message = data.get("message", "").strip()
+    if not message:
+        return jsonify({"error": "No message provided"}), 400
 
     try:
-        formatted_prompt = rag_prompt.format(context=context_text, question=question)
-        logging.info(f"🧠 Prompt:\n{formatted_prompt}")
-        answer = llm.invoke(formatted_prompt)
-        return jsonify({"answer": answer})
-    except Exception as e:
-        logging.error("❌ Error during LLM invocation", exc_info=True)
-        return jsonify({"error": str(e)}), 500
+        # Debug log for incoming message
+        logging.info(f"💬 Received message: {message}")
 
-@app.route("/debug", methods=["POST"])
-def debug():
-    data = request.get_json()
-    question = data.get("question", "").strip()
-    prompt = rag_prompt.format(context=context_text, question=question)
-    try:
-        response = llm.invoke(prompt)
-        return jsonify({"prompt": prompt, "response": response})
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
+        verbosity_instruction = get_verbosity_instruction(message)
+        recent_qs = format_recent_questions(question_history)
+        formatted_prompt = rag_prompt.format(
+            summary=context_data["summary"],
+            location=context_data["location"],
+            education=json.dumps(context_data["education"], indent=2),
+            certifications=", ".join(context_data["certifications"]),
+            skills=", ".join(context_data["skills"]),
+            experience=json.dumps(context_data["experience"], indent=2),
+            projects=json.dumps(context_data["projects"], indent=2),
+            research=json.dumps(context_data["research"], indent=2),
+            languages=", ".join(context_data["languages"]),
+            question=message,
+            verbosity_instruction=verbosity_instruction,
+            recent_questions=recent_qs
+        )
+        logging.info(f"📨 /receive Prompt:\n{formatted_prompt}")
+        response = llm.invoke(formatted_prompt)
 
+        question_history.append(message)
+        return jsonify({
+            "status": "ok",
+            "message": message,
+            "response": response
+        })
+    except Exception as e:
+        logging.error("❌ Error in /receive", exc_info=True)
+        return jsonify({"error": str(e)}), 500
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 10000))  # Render sets PORT env var
+    port = int(os.environ.get("PORT", 10000))
     app.run(host="0.0.0.0", port=port)
