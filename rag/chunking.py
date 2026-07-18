@@ -78,7 +78,36 @@ def build_chunks(knowledge: Dict[str, Any]) -> List[Dict[str, Any]]:
             }
         )
 
-    for proj in knowledge.get("projects", []):
+    projects = knowledge.get("projects", [])
+    if projects:
+        listing = "; ".join(
+            f"{p.get('title')} ({p.get('subtitle', '')})" for p in projects
+        )
+        chunks.append(
+            {
+                "id": "projects-index",
+                "text": (
+                    f"Complete list of {name}'s projects ({len(projects)} total): {listing}. "
+                    "Ask about any specific project for full details."
+                ),
+                "metadata": {"section": "projects-index"},
+            }
+        )
+
+    experiences = knowledge.get("experience", [])
+    if experiences:
+        roles = "; ".join(
+            f"{e.get('title')} at {e.get('company')} ({e.get('period', '')})" for e in experiences
+        )
+        chunks.append(
+            {
+                "id": "experience-index",
+                "text": f"Complete work history for {name}: {roles}.",
+                "metadata": {"section": "experience-index"},
+            }
+        )
+
+    for proj in projects:
         tech = ", ".join(proj.get("tech", []))
         chunks.append(
             {

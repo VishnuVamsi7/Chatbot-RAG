@@ -109,6 +109,20 @@
     }
   },
   {
+    "id": "projects-index",
+    "text": "Complete list of Sai Vishnu Vamsi Senagasetty's projects (9 total): TwinMind (Live transcription + suggestion agent); Personal Chatbot-RAG (Portfolio knowledge assistant with FAISS retrieval); DocReporter (Multi-service document RAG reporting pipeline); AutoDoc-AI (Long PDF to structured executive summary); E-commerce RAG Agent (Clean, embed, Redis semantic search); AlphaBot Trading System (Walk-forward optimized multi-agent trading stack); Immersive AI Portfolio (Next.js portfolio with chatbot and JD matcher); Nighttime Object Detection (Published low-light detection research); Battery Health Estimation via GPR (Gaussian Process regression for SoH). Ask about any specific project for full details.",
+    "metadata": {
+      "section": "projects-index"
+    }
+  },
+  {
+    "id": "experience-index",
+    "text": "Complete work history for Sai Vishnu Vamsi Senagasetty: AI Developer at Zibtek (April 2026 - Present); AI Backend Engineer (Client delivery via Zibtek) at PreachTogether (2026); Frontend Performance Contributor at PreachTogether and AskHeaven (2026); Software Engineering Fellow at Develop for Good (Client: Rasdo NGO) (November 2025 - Present); ML Engineer at AI/ML Research Intern (mobility) (January 2025 - Present); Instructional Assistant at University of Houston (September 2024 - Present); Software Developer at Yoshops (2024 - 2025); NLP Research Assistant at University of Houston (January 2024 - July 2024).",
+    "metadata": {
+      "section": "experience-index"
+    }
+  },
+  {
     "id": "project-twinmind",
     "text": "Project: TwinMind — Live transcription + suggestion agent. Three-pane meeting copilot: browser captures ~30s audio chunks, FastAPI proxies Groq Whisper with NDJSON streaming transcription, then returns exactly three typed suggestion cards plus grounded chat expand/continue. Prompt contracts enforce JSON schema; JSON-mode retry handles provider incompatibilities. Frontend Next.js 16 + TypeScript; backend FastAPI + httpx. Groq models: whisper-large-v3 and a configurable chat/reasoning model. Tech: Next.js, TypeScript, FastAPI, Groq, Whisper, Prompt Engineering, Netlify.",
     "metadata": {

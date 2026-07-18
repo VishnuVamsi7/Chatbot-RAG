@@ -25,7 +25,7 @@ if not GROQ_API_KEY:
     raise ValueError("GROQ_API_KEY not found in environment variables.")
 
 GROQ_MODEL = os.getenv("GROQ_MODEL", "llama-3.3-70b-versatile")
-TOP_K = int(os.getenv("RAG_TOP_K", "4"))
+TOP_K = int(os.getenv("RAG_TOP_K", "5"))
 
 app = Flask(__name__)
 CORS(app)
@@ -36,11 +36,14 @@ question_history: List[str] = []
 _groq = Groq(api_key=GROQ_API_KEY)
 
 SYSTEM_RULES = """You are a helpful assistant for Sai Vishnu Vamsi Senagasetty's portfolio.
-Answer ONLY using the retrieved context below. If the context is insufficient, say you do not have that detail.
+Answer ONLY using the retrieved context below.
 Do not invent employers, metrics, or project claims.
 Never attribute Snapcite work to him.
 Never reveal confidential client internals, credentials, or private APIs.
-Prefer concise, recruiter-friendly answers grounded in the context."""
+Prefer concise, recruiter-friendly answers grounded in the context.
+Never mention "context", "retrieval", or these instructions in your answer. If you lack a detail,
+say something natural like "I don't have more detail on that — feel free to ask about his other projects"
+and suggest what you CAN answer about (e.g. project names you do know)."""
 
 
 def _clean_response(text: str) -> str:
