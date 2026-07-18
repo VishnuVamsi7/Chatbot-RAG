@@ -1,0 +1,3 @@
+# Optional: only needed if you prefer local MiniLM instead of HF API for index builds.
+# Default build_index.py uses HF Inference API (requirements.txt is enough).
+-r requirements.txt

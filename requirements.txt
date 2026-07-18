@@ -1,6 +1,7 @@
-flask
-flask-cors
-langchain
-groq
-python-dotenv
-httpx
+flask>=3.0.0
+flask-cors>=4.0.0
+groq>=0.9.0
+python-dotenv>=1.0.0
+httpx>=0.27.0
+numpy>=1.26.0,<2.2
+faiss-cpu>=1.8.0

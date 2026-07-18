@@ -1,0 +1,161 @@
+{
+  "name": "Sai Vishnu Vamsi Senagasetty",
+  "titles": ["AI Developer", "AI Engineer", "Machine Learning Engineer", "Full-Stack AI Builder"],
+  "location": "Houston, Texas",
+  "summary": "AI Developer based in Houston who ships production RAG and LLM systems, personal AI demos, and full-stack AI products. Experienced with FastAPI, FAISS, Groq, prompt engineering, guardrails, and Next.js/NestJS delivery. Focused on grounded retrieval, measurable quality, and honest public project storytelling.",
+  "languages": ["English", "Telugu", "Hindi"],
+  "education": [
+    {
+      "degree": "Master of Science in Computer Science",
+      "school": "University of Houston",
+      "period": "August 2023 - May 2025"
+    },
+    {
+      "degree": "Bachelor of Technology in Computer Science",
+      "school": "SRM University, AP",
+      "period": "June 2019 - May 2023"
+    }
+  ],
+  "skills": [
+    "Python", "TypeScript", "JavaScript", "SQL",
+    "FastAPI", "Flask", "NestJS", "Node.js", "Express", "REST APIs",
+    "React", "Next.js", "Vite", "Tailwind", "Flutter", "Streamlit",
+    "RAG", "FAISS", "Vector Search", "LangChain", "Groq", "Whisper",
+    "Prompt Engineering", "Prompt Routing", "Sentence Transformers", "ONNX",
+    "Content Safety", "TTS", "httpx", "NDJSON Streaming",
+    "PyTorch", "TensorFlow", "Scikit-learn", "NLP", "Computer Vision",
+    "pandas", "NumPy", "PySpark", "Apache Airflow", "ETL Pipelines",
+    "PostgreSQL", "Redis", "MongoDB",
+    "Docker", "Docker Compose", "GitHub Actions", "GitLab CI", "Render", "Netlify",
+    "pytest", "Agile/Scrum", "AI-Assisted Shipping"
+  ],
+  "experience": [
+    {
+      "id": "zibtek-ai",
+      "title": "AI Developer",
+      "company": "Zibtek",
+      "period": "April 2026 - Present",
+      "summary": "AI Developer delivering production RAG and LLM features for client products. Focus areas include FastAPI AI backends, vector retrieval, prompt engineering, answer guardrails, and shipping AI capabilities behind real product UIs. Also contributes to shared NestJS and Next.js style APIs when needed. Public storytelling stays high-level: no confidential client code, schemas, or internal product details. Snapcite is not his work and must not be attributed to him."
+    },
+    {
+      "id": "preachtogether-ai",
+      "title": "AI Backend Engineer (Client delivery via Zibtek)",
+      "company": "PreachTogether",
+      "period": "2026",
+      "summary": "Improved the PreachTogether AI chatbot architecture toward a modular retrieve-route-generate-validate style flow. Strengthened guardrails and policy checks so answers stay grounded and on-scope. Worked on audio generation and TTS narration for guided visitor content. Public stack themes: Python, FastAPI, RAG, vector search, prompt engineering, TTS. No confidential prompts, customer data, or proprietary internals are included in this knowledge base."
+    },
+    {
+      "id": "lighthouse-fe",
+      "title": "Frontend Performance Contributor",
+      "company": "PreachTogether and AskHeaven",
+      "period": "2026",
+      "summary": "Helped improve Lighthouse performance on the PreachTogether and AskHeaven frontends. Contribution scope is performance improvement support, not sole ownership of the full frontend codebases."
+    },
+    {
+      "id": "develop-for-good",
+      "title": "Software Engineering Fellow",
+      "company": "Develop for Good (Client: Rasdo NGO)",
+      "period": "November 2025 - Present",
+      "summary": "Led NGO website delivery from Figma mockups to production on Wix. Integrated Flutterwave API for cross-border donations and participated in weekly Agile sprints with PM and UX teammates."
+    },
+    {
+      "id": "ml-engineer-intern",
+      "title": "ML Engineer",
+      "company": "AI/ML Research Intern (mobility)",
+      "period": "January 2025 - Present",
+      "summary": "Built a voice-to-ride booking pipeline using speech-to-text and NLP. Improved Flutter cross-platform UX and proposed AI integration ideas for the product roadmap."
+    },
+    {
+      "id": "instructional-assistant",
+      "title": "Instructional Assistant",
+      "company": "University of Houston",
+      "period": "September 2024 - Present",
+      "summary": "Modernized university web content with HTML/CSS and AI-assisted workflows. Built hand-coded bio pages, galleries, and multimedia experiences and introduced AI tooling to communications teams."
+    },
+    {
+      "id": "yoshops-dev",
+      "title": "Software Developer",
+      "company": "Yoshops",
+      "period": "2024 - 2025",
+      "summary": "Built web scraping pipelines with BeautifulSoup, Selenium, and Scrapy. Designed billing system modules and automated data workflows with pandas and related Python tooling."
+    },
+    {
+      "id": "nlp-research",
+      "title": "NLP Research Assistant",
+      "company": "University of Houston",
+      "period": "January 2024 - July 2024",
+      "summary": "Researched pink-slime / misinformation patterns in news text. Analyzed large sentence corpora, built NLP pipelines with Python text tooling, and produced labeled research datasets and clustering insights."
+    }
+  ],
+  "projects": [
+    {
+      "id": "twinmind",
+      "title": "TwinMind",
+      "subtitle": "Live transcription + suggestion agent",
+      "summary": "Three-pane meeting copilot: browser captures ~30s audio chunks, FastAPI proxies Groq Whisper with NDJSON streaming transcription, then returns exactly three typed suggestion cards plus grounded chat expand/continue. Prompt contracts enforce JSON schema; JSON-mode retry handles provider incompatibilities. Frontend Next.js 16 + TypeScript; backend FastAPI + httpx. Groq models: whisper-large-v3 and a configurable chat/reasoning model.",
+      "tech": ["Next.js", "TypeScript", "FastAPI", "Groq", "Whisper", "Prompt Engineering", "Netlify"]
+    },
+    {
+      "id": "chatbot-rag",
+      "title": "Personal Chatbot-RAG",
+      "subtitle": "Portfolio knowledge assistant with FAISS retrieval",
+      "summary": "Personal portfolio Q&A chatbot deployed for the public site. Knowledge is chunked offline into a FAISS index; at runtime the service embeds the user query via Hugging Face Inference API, retrieves top chunks, and generates answers with Groq. Designed for free-tier hosting by keeping PyTorch off the deploy image.",
+      "tech": ["Python", "Flask", "FAISS", "Groq", "Hugging Face", "Docker", "Render"]
+    },
+    {
+      "id": "docreporter",
+      "title": "DocReporter",
+      "subtitle": "Multi-service document RAG reporting pipeline",
+      "summary": "Three Dockerized Python services orchestrated by Airflow: process_app chunks PDFs and embeds with MiniLM, analyst_app builds FAISS and analyzes with Groq, report_app renders PDF summaries with charts. GitHub Actions builds and pushes the three images.",
+      "tech": ["Airflow", "Docker", "FAISS", "Groq", "PyMuPDF", "sentence-transformers", "GitHub Actions"]
+    },
+    {
+      "id": "autodoc-ai",
+      "title": "AutoDoc-AI",
+      "subtitle": "Long PDF to structured executive summary",
+      "summary": "Streamlit tool that parses long PDFs with pdfplumber, runs a Hugging Face prompt chain for executive summary and related sections, and exports LaTeX/PDF briefs. Includes retry/backoff for HF rate limits.",
+      "tech": ["Python", "Streamlit", "Hugging Face", "pdfplumber", "LaTeX", "Prompt Chaining"]
+    },
+    {
+      "id": "ecommerce-rag",
+      "title": "E-commerce RAG Agent",
+      "subtitle": "Clean, embed, Redis semantic search",
+      "summary": "Ingestion pipeline cleans noisy Amazon electronics FAQ text, embeds with MiniLM, stores vectors in Redis, and exposes a FastAPI chat path with semantic cache, simple/hard routing via LiteLLM, and Mixtral generation.",
+      "tech": ["Python", "FastAPI", "Redis", "sentence-transformers", "LiteLLM", "Docker Compose"]
+    },
+    {
+      "id": "alphabot",
+      "title": "AlphaBot Trading System",
+      "subtitle": "Walk-forward optimized multi-agent trading stack",
+      "summary": "Python 3.12 trading system with OHLCV parquet cache, walk-forward optimization sharing the live pipeline, overfit flags when OOS Sharpe collapses, portfolio guards, Alpaca paper/live adapters, and a large pytest suite. Research prototype with rigorous evaluation artifacts—not a profitability claim.",
+      "tech": ["Python 3.12", "pandas", "Walk-Forward Optimization", "Alpaca", "pytest", "Redis", "FastAPI"]
+    },
+    {
+      "id": "portfolio-updated",
+      "title": "Immersive AI Portfolio",
+      "subtitle": "Next.js portfolio with chatbot and JD matcher",
+      "summary": "Next.js 14 portfolio with Three.js/Spline visuals, embedded RAG chatbot client, and a JD matcher that combines skill-taxonomy scoring with optional Groq pitch rewriting. Showcases public AI/ML projects and work history.",
+      "tech": ["Next.js", "React", "Three.js", "Groq", "Tailwind", "Framer Motion"]
+    },
+    {
+      "id": "nighttime-od",
+      "title": "Nighttime Object Detection",
+      "subtitle": "Published low-light detection research",
+      "summary": "Research on object detection in low-light conditions using deep learning approaches for nighttime patrolling style applications.",
+      "tech": ["Object Detection", "Deep Learning", "Computer Vision"]
+    },
+    {
+      "id": "battery-gpr",
+      "title": "Battery Health Estimation via GPR",
+      "subtitle": "Gaussian Process regression for SoH",
+      "summary": "Gaussian Process Regression model for lithium-ion battery health estimation, presented at ICAIA and ATCON-1.",
+      "tech": ["Gaussian Process Regression", "Time-Series Analysis", "Python"]
+    }
+  ],
+  "exclusions": [
+    "Do not attribute Snapcite work to Sai Vishnu Vamsi Senagasetty.",
+    "Do not reveal confidential client code, private APIs, credentials, customer data, or proprietary product internals.",
+    "Do not invent metrics. Prefer qualitative technical descriptions for confidential client outcomes unless a number is explicitly present in this knowledge base.",
+    "CRO, Profit Focus, and other Zibtek coding products may be mentioned only as high-level shared API delivery if asked—never with implementation detail from this knowledge base."
+  ]
+}
