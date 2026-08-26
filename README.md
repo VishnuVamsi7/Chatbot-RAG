@@ -57,7 +57,7 @@ docker run -p 10000:10000 --env-file .env chatbot-rag
 |-----|----------|---------|
 | `GROQ_API_KEY` | yes | Chat generation |
 | `HF_API_TOKEN` | yes | Query (+ build) embeddings |
-| `GROQ_MODEL` | no | default `llama-3.3-70b-versatile` |
+| `GROQ_MODEL` | no | default `openai/gpt-oss-20b` |
 | `EMBED_MODEL` | no | default `sentence-transformers/all-MiniLM-L6-v2` |
 | `RAG_TOP_K` | no | default `4` |
 
