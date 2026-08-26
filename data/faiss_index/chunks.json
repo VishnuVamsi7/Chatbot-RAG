@@ -1,9 +1,23 @@
 [
   {
     "id": "summary",
-    "text": "Profile summary for Sai Vishnu Vamsi Senagasetty. Titles: AI Developer, AI Engineer, Machine Learning Engineer, Full-Stack AI Builder. Location: Houston, Texas. AI Developer based in Houston who ships production RAG and LLM systems, personal AI demos, and full-stack AI products. Experienced with FastAPI, FAISS, Groq, prompt engineering, guardrails, and Next.js/NestJS delivery. Focused on grounded retrieval, measurable quality, and honest public project storytelling.",
+    "text": "Profile summary for Sai Vishnu Vamsi Senagasetty. Titles: AI Developer, AI Engineer, Machine Learning Engineer, Full-Stack AI Builder. Job title: AI Developer / AI Engineer. Location: Houston, Texas. Sai Vishnu Vamsi Senagasetty is an AI Developer at Zibtek who ships confidential production RAG chatbots and LLM backends (Python/FastAPI, FAISS, React/Next/Nest)—improving grounding, lead conversion, and delivery speed by tens of percent through STAR-framed, measurable iteration. AI Developer shipping production RAG chatbots, retrieval pipelines, and LLM products — from existing prototypes to client-ready systems, fast. Sai Vishnu Vamsi Senagasetty is an AI Developer at Zibtek (Houston, Texas) who turns early chatbot prototypes into production RAG systems—with retrieval, policy routing, citations, lead capture, and LLM APIs. Outside client work he ships fast: TwinMind (Whisper + Groq agent), AlphaBot trading, ResumeLLM, AutoDoc-AI, e-commerce RAG, Flutter apps, and research in NLP, CV, and model serving.",
     "metadata": {
       "section": "summary"
+    }
+  },
+  {
+    "id": "open-to-work",
+    "text": "Sai Vishnu Vamsi Senagasetty is open to work: seeking Full-time AI Developer / AI Engineer roles. Work modes: remote, hybrid. Location preference: Houston, Texas based; open to remote and hybrid.",
+    "metadata": {
+      "section": "open-to-work"
+    }
+  },
+  {
+    "id": "contact",
+    "text": "Contact for Sai Vishnu Vamsi Senagasetty: email: saivishnuvamsis07@gmail.com; phone: +1 346 901 8158; LinkedIn: https://www.linkedin.com/in/vishnu-senagasetty/; GitHub: https://github.com/VishnuVamsi7; website: https://portfolio-updated.vercel.app.",
+    "metadata": {
+      "section": "contact"
     }
   },
   {
@@ -23,22 +37,107 @@
     }
   },
   {
-    "id": "skills",
-    "text": "Technical skills for Sai Vishnu Vamsi Senagasetty: Python, TypeScript, JavaScript, SQL, FastAPI, Flask, NestJS, Node.js, Express, REST APIs, React, Next.js, Vite, Tailwind, Flutter, Streamlit, RAG, FAISS, Vector Search, LangChain, Groq, Whisper, Prompt Engineering, Prompt Routing, Sentence Transformers, ONNX, Content Safety, TTS, httpx, NDJSON Streaming, PyTorch, TensorFlow, Scikit-learn, NLP, Computer Vision, pandas, NumPy, PySpark, Apache Airflow, ETL Pipelines, PostgreSQL, Redis, MongoDB, Docker, Docker Compose, GitHub Actions, GitLab CI, Render, Netlify, pytest, Agile/Scrum, AI-Assisted Shipping.",
+    "id": "skills-0",
+    "text": "Technical skills for Sai Vishnu Vamsi Senagasetty: Python, TypeScript, JavaScript, Dart, SQL, Bash, HTML/CSS, R, C++, CUDA, React, Next.js, Vite, Tailwind, Flutter, Streamlit, Component Systems, Cross-Platform UI, Android, iOS, FastAPI, Flask, NestJS, Node.js, Express, REST APIs, Pydantic, Firebase Auth, Firestore, Redis, PostgreSQL, httpx, NDJSON Streaming, Access Control, RAG, FAISS, Vector Search, LangChain, Groq, Whisper.",
     "metadata": {
       "section": "skills"
     }
   },
   {
-    "id": "languages",
-    "text": "Spoken languages: English, Telugu, Hindi.",
+    "id": "skills-1",
+    "text": "Technical skills for Sai Vishnu Vamsi Senagasetty: LLM Integration, Prompt Engineering, Prompt Routing, Prompt Chaining, Hugging Face, Sentence Transformers, ONNX, MCP, Content Safety, Async Jobs, AI Pipelines, PyTorch, TensorFlow, Scikit-learn, Transformers, Computer Vision, NLP, YOLOv5, Stable Diffusion, UNet, CNN, RNN, Deep Learning, Object Detection, Reinforcement Learning, Walk-Forward Optimization, Random Forest, Optuna, MLflow, SHAP, Model Tuning, Model Deployment, pandas, NumPy, PySpark, ETL Pipelines, Apache Airflow, EDA, Statistics, Predictive Analytics.",
     "metadata": {
-      "section": "languages"
+      "section": "skills"
+    }
+  },
+  {
+    "id": "skills-2",
+    "text": "Technical skills for Sai Vishnu Vamsi Senagasetty: Time-Series Modeling, Forecasting, Regression, PCA, K-Means, TF-IDF, Sentiment Analysis, Topic Modeling, Text Processing, Data Visualization, Layout Parsing, Reporting, Load Testing, pdfplumber, MoviePy, Web Scraping, Docker, Docker Compose, Kubernetes, Azure ML, TensorFlow Serving, TorchServe, Git, GitHub, GitHub Actions, GitLab CI, Conda, Render, Netlify, Google Colab, Jupyter, VS Code, Linux, Databricks, Spark, Hadoop, Palantir Foundry, Power BI, Tableau, Excel.",
+    "metadata": {
+      "section": "skills"
+    }
+  },
+  {
+    "id": "skills-3",
+    "text": "Technical skills for Sai Vishnu Vamsi Senagasetty: LaTeX, Gym API, PIL, Alpaca, Risk Management, AsyncIO, Reproducible Environments, CMS, Agile/Scrum, Problem Solving, Communication, Team Collaboration, Documentation, AI-Assisted Shipping, pytest.",
+    "metadata": {
+      "section": "skills"
+    }
+  },
+  {
+    "id": "skills-cat-languages",
+    "text": "Skill category Languages & Runtimes: Python, TypeScript, JavaScript, Dart, SQL, Bash, HTML/CSS, R, C++, CUDA.",
+    "metadata": {
+      "section": "skills-category",
+      "category": "Languages & Runtimes"
+    }
+  },
+  {
+    "id": "skills-cat-frontend",
+    "text": "Skill category Frontend & Mobile: React, Next.js, Vite, Tailwind, Flutter, Streamlit, Component Systems, Cross-Platform UI, Android, iOS.",
+    "metadata": {
+      "section": "skills-category",
+      "category": "Frontend & Mobile"
+    }
+  },
+  {
+    "id": "skills-cat-backend",
+    "text": "Skill category Backend & APIs: FastAPI, Flask, NestJS, Node.js, Express, REST APIs, Pydantic, Firebase Auth, Firestore, Redis, PostgreSQL, httpx, NDJSON Streaming, Access Control.",
+    "metadata": {
+      "section": "skills-category",
+      "category": "Backend & APIs"
+    }
+  },
+  {
+    "id": "skills-cat-ai-llm",
+    "text": "Skill category AI / LLM Systems: RAG, FAISS, Vector Search, LangChain, Groq, Whisper, LLM Integration, Prompt Engineering, Prompt Routing, Prompt Chaining, Hugging Face, Sentence Transformers, ONNX, MCP, Content Safety, Async Jobs, AI Pipelines.",
+    "metadata": {
+      "section": "skills-category",
+      "category": "AI / LLM Systems"
+    }
+  },
+  {
+    "id": "skills-cat-ml-dl",
+    "text": "Skill category Machine Learning & Deep Learning: PyTorch, TensorFlow, Scikit-learn, Transformers, Computer Vision, NLP, YOLOv5, Stable Diffusion, UNet, CNN, RNN, Deep Learning, Object Detection, Reinforcement Learning, Walk-Forward Optimization, Random Forest, Optuna, MLflow, SHAP, Model Tuning, Model Deployment.",
+    "metadata": {
+      "section": "skills-category",
+      "category": "Machine Learning & Deep Learning"
+    }
+  },
+  {
+    "id": "skills-cat-data",
+    "text": "Skill category Data Engineering & Analytics: pandas, NumPy, PySpark, ETL Pipelines, Apache Airflow, EDA, Statistics, Predictive Analytics, Time-Series Modeling, Forecasting, Regression, PCA, K-Means, TF-IDF, Sentiment Analysis, Topic Modeling, Text Processing, Data Visualization, Layout Parsing, Reporting, Load Testing, pdfplumber, MoviePy, Web Scraping.",
+    "metadata": {
+      "section": "skills-category",
+      "category": "Data Engineering & Analytics"
+    }
+  },
+  {
+    "id": "skills-cat-devops",
+    "text": "Skill category Cloud, DevOps & Tooling: Docker, Docker Compose, Kubernetes, Azure ML, TensorFlow Serving, TorchServe, Git, GitHub, GitHub Actions, GitLab CI, Conda, Render, Netlify, Google Colab, Jupyter, VS Code, Linux, Databricks, Spark, Hadoop, Palantir Foundry, Power BI, Tableau, Excel, LaTeX, Gym API, PIL, Alpaca, Risk Management, AsyncIO, Reproducible Environments, CMS.",
+    "metadata": {
+      "section": "skills-category",
+      "category": "Cloud, DevOps & Tooling"
+    }
+  },
+  {
+    "id": "skills-cat-soft",
+    "text": "Skill category Delivery & Collaboration: Agile/Scrum, Problem Solving, Communication, Team Collaboration, Documentation, AI-Assisted Shipping, pytest.",
+    "metadata": {
+      "section": "skills-category",
+      "category": "Delivery & Collaboration"
+    }
+  },
+  {
+    "id": "experience-index",
+    "text": "Complete work history for Sai Vishnu Vamsi Senagasetty: AI Developer at Zibtek (April 2026 - Present); Software Engineering Fellow at Develop for Good (Client: Rasdo NGO) (November 2025 - Present); ML Engineer at AI/ML Research Intern (January 2025 - Present); Instructional Assistant at University of Houston (September 2024 - Present); Software Developer at Yoshops (2024 - 2025); NLP Research Assistant at University of Houston (January 2024 - July 2024).",
+    "metadata": {
+      "section": "experience-index"
     }
   },
   {
     "id": "experience-zibtek-ai",
-    "text": "Experience: AI Developer at Zibtek (April 2026 - Present). AI Developer delivering production RAG and LLM features for client products. Focus areas include FastAPI AI backends, vector retrieval, prompt engineering, answer guardrails, and shipping AI capabilities behind real product UIs. Also contributes to shared NestJS and Next.js style APIs when needed. Public storytelling stays high-level: no confidential client code, schemas, or internal product details. Snapcite is not his work and must not be attributed to him.",
+    "text": "Experience: AI Developer at Zibtek (April 2026 - Present). Location: Remote / Client delivery. Type: Full-time. AI Developer using STAR delivery on confidential client work: evolved a basic chatbot into FastAPI/RAG with ~45% fewer ungrounded answers, plus NestJS/Next backends and AI-accelerated shipping (~40–50% faster milestones). Skills: RAG, LLMs, FastAPI, Python, FAISS, Prompt Engineering, Next.js, NestJS, React, Vector Search. Situation: Joined as AI Developer inheriting a basic chatbot with weak grounding and limited routing. Task: Own production LLM quality end-to-end across client chatbot, backend, and web surfaces. Action: Re-architected the chatbot into a modular RAG pipeline (Python, FastAPI, vector retrieval → intent route → generate → validate → respond). Result: Cut ungrounded / out-of-scope answers by ~45% vs the legacy flow. Action: Added retrieval boosting, citation-ready source labels, content-policy checks, and a soft-failure review queue. Result: Lifted answer relevance / grounding quality by ~35% on regression scenario suites. Action: Built intent routing for greetings, follow-ups, refusals, and redirects so the model stayed on-task. Result: Reduced misrouted turns by ~40% and tightened average reply structure for support-style chats. Action: Implemented conversational lead capture (field extraction, scoring, missing-field prompts, CTA thresholds) inside the same chat backend. Result: Improved qualified lead completion rate by ~30% without breaking chat UX. Action: Shipped React/Vite chat UI (markdown, sessions, safety filters) plus TTS narration for guided pages. Result: Raised guided-content completion/engagement by ~25% and cut front-end iteration cycle time by ~50% with AI-assisted delivery. Action: Built a second RAG backend for generative content (FAISS, prompt templates, sanitizers, guideline enforcement, async jobs). Result: Shortened content-generation turnaround by ~60% vs manual drafting workflows. Action: Hardened FastAPI AI services with typed contracts, scenario/regression tests, and CI. Result: Caught ~50% more failure modes pre-release and stabilized chatbot releases across weekly iterations. Action: Delivered NestJS + PostgreSQL + Redis backend APIs (auth, tiers, imports) consumed by Next.js clients. Result: Accelerated feature throughput by ~35% on shared API contracts across web + mobile consumers. Action: Contributed full-stack TypeScript/React/Node and Laravel surfaces alongside AI work so models shipped behind real product UIs. Result: Reduced handoff lag between AI prototype and client-ready UI by ~40%. Action: Built an internal AI learning platform (Next.js, Firebase Auth/Firestore) with leveled quizzes, cooldown, leaderboards, and admin controls. Result: Improved team onboarding/assessment completion by ~55% for AI skill tracks. Action: Used AI-accelerated development (agents, structured PRDs, eval loops) to go from requirements → demo → production hardening. Result: Compressed delivery timelines by ~40–50% on chatbot and RAG backend milestones.",
     "metadata": {
       "section": "experience",
       "company": "Zibtek",
@@ -46,26 +145,8 @@
     }
   },
   {
-    "id": "experience-preachtogether-ai",
-    "text": "Experience: AI Backend Engineer (Client delivery via Zibtek) at PreachTogether (2026). Improved the PreachTogether AI chatbot architecture toward a modular retrieve-route-generate-validate style flow. Strengthened guardrails and policy checks so answers stay grounded and on-scope. Worked on audio generation and TTS narration for guided visitor content. Public stack themes: Python, FastAPI, RAG, vector search, prompt engineering, TTS. No confidential prompts, customer data, or proprietary internals are included in this knowledge base.",
-    "metadata": {
-      "section": "experience",
-      "company": "PreachTogether",
-      "id": "preachtogether-ai"
-    }
-  },
-  {
-    "id": "experience-lighthouse-fe",
-    "text": "Experience: Frontend Performance Contributor at PreachTogether and AskHeaven (2026). Helped improve Lighthouse performance on the PreachTogether and AskHeaven frontends. Contribution scope is performance improvement support, not sole ownership of the full frontend codebases.",
-    "metadata": {
-      "section": "experience",
-      "company": "PreachTogether and AskHeaven",
-      "id": "lighthouse-fe"
-    }
-  },
-  {
     "id": "experience-develop-for-good",
-    "text": "Experience: Software Engineering Fellow at Develop for Good (Client: Rasdo NGO) (November 2025 - Present). Led NGO website delivery from Figma mockups to production on Wix. Integrated Flutterwave API for cross-border donations and participated in weekly Agile sprints with PM and UX teammates.",
+    "text": "Experience: Software Engineering Fellow at Develop for Good (Client: Rasdo NGO) (November 2025 - Present). Location: . Type: Volunteer. Led NGO website from Figma to production with payment API integration and Agile delivery. Skills: JavaScript, Wix, API Integration, Agile, Flutterwave API. Led NGO website from Figma mockups to production deployment on Wix. Integrated Flutterwave API for cross-border donations with 100% fund retention compliance. Delivered zero-maintenance platform as primary international fundraising tool. Conducted weekly Agile sprints and code reviews with PM and UX teams.",
     "metadata": {
       "section": "experience",
       "company": "Develop for Good (Client: Rasdo NGO)",
@@ -74,16 +155,16 @@
   },
   {
     "id": "experience-ml-engineer-intern",
-    "text": "Experience: ML Engineer at AI/ML Research Intern (mobility) (January 2025 - Present). Built a voice-to-ride booking pipeline using speech-to-text and NLP. Improved Flutter cross-platform UX and proposed AI integration ideas for the product roadmap.",
+    "text": "Experience: ML Engineer at AI/ML Research Intern (January 2025 - Present). Location: . Type: Full-time. Built ML voice-to-ride booking pipeline and accelerated product timelines with automation. Skills: Machine Learning, Flutter, NLP, Speech-to-Text, ML Pipelines. Accelerated product timelines by 10% through automation and ML-driven feature planning. Reduced UI/UX issues by 25% on core Flutter-based cross-platform app. Engineered ML voice-to-ride-booking pipeline with speech-to-text and NLP. Proposed AI integration strategies aligning product roadmap with mobility goals.",
     "metadata": {
       "section": "experience",
-      "company": "AI/ML Research Intern (mobility)",
+      "company": "AI/ML Research Intern",
       "id": "ml-engineer-intern"
     }
   },
   {
     "id": "experience-instructional-assistant",
-    "text": "Experience: Instructional Assistant at University of Houston (September 2024 - Present). Modernized university web content with HTML/CSS and AI-assisted workflows. Built hand-coded bio pages, galleries, and multimedia experiences and introduced AI tooling to communications teams.",
+    "text": "Experience: Instructional Assistant at University of Houston (September 2024 - Present). Location: Houston, TX. Type: Part-time. Modernized university websites and introduced AI-assisted content workflows. Skills: HTML/CSS, CMS, AI Workflows, Adobe, Web Development. Improved content update efficiency by 75% with HTML/CSS and AI-assisted workflows. Accelerated design delivery by 25% using AI-enhanced Adobe tooling. Built hand-coded bio pages, galleries, and multimedia without third-party plugins. Introduced AI capabilities to cross-functional communications teams.",
     "metadata": {
       "section": "experience",
       "company": "University of Houston",
@@ -92,7 +173,7 @@
   },
   {
     "id": "experience-yoshops-dev",
-    "text": "Experience: Software Developer at Yoshops (2024 - 2025). Built web scraping pipelines with BeautifulSoup, Selenium, and Scrapy. Designed billing system modules and automated data workflows with pandas and related Python tooling.",
+    "text": "Experience: Software Developer at Yoshops (2024 - 2025). Location: . Type: Project. Built scraping pipelines, billing modules, and automated data workflows. Skills: Python, Web Scraping, pandas, Automation, EDA. Reduced manual data processing effort by 60% via automated Python workflows. Built web scraping pipelines with BeautifulSoup, Selenium, and Scrapy for market intelligence. Designed billing system modules for transactions, invoicing, and payment tracking. Conducted EDA on large-scale datasets with pandas, NumPy, Matplotlib, and Seaborn.",
     "metadata": {
       "section": "experience",
       "company": "Yoshops",
@@ -101,7 +182,7 @@
   },
   {
     "id": "experience-nlp-research",
-    "text": "Experience: NLP Research Assistant at University of Houston (January 2024 - July 2024). Researched pink-slime / misinformation patterns in news text. Analyzed large sentence corpora, built NLP pipelines with Python text tooling, and produced labeled research datasets and clustering insights.",
+    "text": "Experience: NLP Research Assistant at University of Houston (January 2024 - July 2024). Location: Houston, TX. Type: Research. Pink slime misinformation research across 600k+ sentences and 27K labeled dataset. Skills: NLP, Python, Research, Text Processing. Analyzed 600k+ news article sentences for pink slime misinformation patterns. Produced labeled dataset of 27K sentences with up to 8 distinct topic clusters. Found 3× sentiment exaggeration in pink slime vs legitimate journalism. Built NLP pipeline with Python, NLTK, SpaCy, TextBlob, and TF-IDF vectorization.",
     "metadata": {
       "section": "experience",
       "company": "University of Houston",
@@ -110,21 +191,68 @@
   },
   {
     "id": "projects-index",
-    "text": "Complete list of Sai Vishnu Vamsi Senagasetty's projects (9 total): TwinMind (Live transcription + suggestion agent); Personal Chatbot-RAG (Portfolio knowledge assistant with FAISS retrieval); DocReporter (Multi-service document RAG reporting pipeline); AutoDoc-AI (Long PDF to structured executive summary); E-commerce RAG Agent (Clean, embed, Redis semantic search); AlphaBot Trading System (Walk-forward optimized multi-agent trading stack); Immersive AI Portfolio (Next.js portfolio with chatbot and JD matcher); Nighttime Object Detection (Published low-light detection research); Battery Health Estimation via GPR (Gaussian Process regression for SoH). Ask about any specific project for full details.",
+    "text": "Complete list of Sai Vishnu Vamsi Senagasetty's projects (24 total): Production RAG Chatbot (Confidential Client) (Grounded FastAPI chatbot with policy routing); Generative Content RAG Backend (Confidential) (FAISS-backed copy/media generation API); ResumeLLM (LLM product UX for resume intelligence); TwinMind (Live transcription + suggestion agent); AlphaBot Trading System (Backtest → walk-forward → paper/live); Personal Chatbot-RAG (Offline FAISS index + HF query embeds + Groq — powers the live portfolio chat); E-commerce RAG Agent (Clean → embed → Redis semantic search); AutoDoc-AI (Long PDFs → structured executive summaries); DocReporter (Layout-aware document reporting pipeline); MarketCanvas-Env (RL + MCP) (Semantic canvas env for banner layout agents); Notion-style Workspace Clone (AI-accelerated Next.js productivity UI); Boomers & Roomers (Node API + Next.js marketplace webapp); DriverApp (Flutter) (Cross-platform field driver client); Metro App (Flutter transit/mobile prototype); CAOP — Spark + MLflow Experiments (Distributed tuning with explainability); IntelliBrief (Dockerized AI briefing toolkit); Internal AI Learning Platform (Confidential) (Secured quizzes + leaderboards); TF Serving vs TorchServe on Azure (Model serving benchmark study); Energy Provider Churn Analysis (Predictive retention modeling); ImageCraft – Text-to-Image (UNet + Stable Diffusion fine-tuning); Video Keyword Extraction (Whisper transcription → NLP keywords); Pink Slime Journalism Analysis (NLP clustering of misinformation style); Utility Performance Analysis (Oil & gas forecasting + benchmarking); Night Objects Detection (YOLOv5 for low-light scenes). Ask about any specific project for full details.",
     "metadata": {
       "section": "projects-index"
     }
   },
   {
-    "id": "experience-index",
-    "text": "Complete work history for Sai Vishnu Vamsi Senagasetty: AI Developer at Zibtek (April 2026 - Present); AI Backend Engineer (Client delivery via Zibtek) at PreachTogether (2026); Frontend Performance Contributor at PreachTogether and AskHeaven (2026); Software Engineering Fellow at Develop for Good (Client: Rasdo NGO) (November 2025 - Present); ML Engineer at AI/ML Research Intern (mobility) (January 2025 - Present); Instructional Assistant at University of Houston (September 2024 - Present); Software Developer at Yoshops (2024 - 2025); NLP Research Assistant at University of Houston (January 2024 - July 2024).",
+    "id": "project-prod-rag-chatbot",
+    "text": "Project: Production RAG Chatbot (Confidential Client) — Grounded FastAPI chatbot with policy routing. Goal: Inherited a basic domain chatbot that answered loosely, missed edge cases (greetings, follow-ups, out-of-scope asks), and could not reliably capture leads. The job was to turn it into a production RAG system that stays grounded in approved knowledge, routes intents safely, validates quality before reply, and converts high-intent conversations into structured leads—without leaking proprietary product branding publicly. Outcome: ~45% fewer ungrounded / out-of-scope answers; ~35% higher relevance on regression scenario suites; ~30% better qualified lead completion; ~50% more failure modes caught pre-release via scenario + regression tests; ~40–50% faster iteration from requirement → hardened release using AI-assisted delivery. Approach: Replace “one prompt calls the model” with a modular orchestration loop owned by a FastAPI service: retrieve evidence from a vector store → classify conversational intent → generate a grounded answer (or controlled refusal/redirect) → run hard/soft validators → return typed ChatResponse with optional citations. Keep lead capture as a parallel state machine so sales collection never contaminates answer grounding. Cap session history and persist lead state per session id so multi-turn chat stays coherent and recoverable. Why this approach: Domain Q&A fails when answers are ungrounded or when edge intents share the same generation path as factual replies. Explicit routing is cheaper and more testable than hoping the LLM always behaves. Pre-response validation + a soft review queue catch policy/quality slips that pure prompting misses. Separating lead extraction from RAG generation keeps prompts focused and measurable. How built: Python FastAPI routers expose typed `/chat` contracts (`ChatRequest`/`ChatResponse`). Core logic lives in an orchestrator that loads/saves lead state under a session-safe path, appends capped history, and calls retrieval → generation → validation. Source display maps internal chunks to public citation labels. Frontend is React 19 + Vite + TypeScript with markdown rendering, axios API client, and content-safety utilities. Regression/scenario test suites exercise routing and retrieval. CI runs on GitLab. TTS batch utilities generate guided-page narration assets used by the UI. Evals: Scenario + retrieval regression suites for routing/grounding; soft-issue review queue for production drift; typed response statuses (`lead_submitted`, quality blocks, etc.) make offline analysis and UI branching deterministic. Tech: Python, FastAPI, RAG, Vector Search, Pydantic, React, Vite, TypeScript, TTS, Prompt Engineering, pytest, GitLab CI. Tags: AI, Full-Stack.",
     "metadata": {
-      "section": "experience-index"
+      "section": "project",
+      "id": "prod-rag-chatbot",
+      "title": "Production RAG Chatbot (Confidential Client)"
+    }
+  },
+  {
+    "id": "project-prod-rag-chatbot-pipeline",
+    "text": "Project Production RAG Chatbot (Confidential Client) pipeline: Ingest & index approved knowledge into a vector store (chunking + metadata such as source family) | Retrieve top chunks with boost heuristics keyed to the user query | Route intent: greeting · follow-up rewrite · out-of-scope · curiosity redirect · grounded answer · lead flow | Generate with history context (last ~5 turns) under policy constraints | Validate hard failures vs soft review issues; log soft cases to a review queue | Format public source labels/citations for the UI; optionally append CTA when visit threshold is met | If lead threshold hits: AI field extraction → missing-field prompts → submit API when complete. Components: **Orchestrator** — single chat entrypoint owning routing, history, lead branching, and response assembly | **Retriever + boost** — vector search with query-aware re-ranking heuristics | **Generator pack** — grounded answers, greeting, OOS, redirect, and follow-up query rewrite helpers | **Validators + review queue** — hard block vs soft warn with offline review logging | **Lead subsystem** — scoring, AI extraction, missing-field prompts, submit/fail statuses | **Audio/TTS path** — narration for guided visitor content pages | **React/Vite UI** — markdown answers, session cookies, safety filters, CTA surfaces.",
+    "metadata": {
+      "section": "project-pipeline",
+      "id": "prod-rag-chatbot",
+      "title": "Production RAG Chatbot (Confidential Client)"
+    }
+  },
+  {
+    "id": "project-content-rag-engine",
+    "text": "Project: Generative Content RAG Backend (Confidential) — FAISS-backed copy/media generation API. Goal: Manual drafting of domain copy/creative was slow and inconsistently on-brand. Build a backend that retrieves approved knowledge before generation, enforces guidelines after generation, and returns results via async jobs so heavier media/copy work does not block clients. Outcome: ~60% faster content turnaround vs manual drafting; stronger policy adherence through sanitizers + guideline enforcement; reusable prompt-contract pattern (identity → input rules → taxonomy → quality → output schema) for new content types. Approach: Build a second RAG lane beside chat: FAISS index over curated corpora → retrieve context → assemble locked prompt templates → generate → sanitize → run guideline enforcer → persist outputs through a job queue. Keep prompt packs modular so copy vs media paths share infrastructure but not prompts. Why this approach: Prompt-only generation drifts. Retrieval grounds drafts in approved material. FAISS is a strong fit for mid-size knowledge that still needs low-latency local/server search. Async jobs match CPU/GPU-heavy or multi-step creative work while letting HTTP APIs stay responsive. How built: Python modules for index build, FAISS store, RAG pipeline, sanitizers, guideline enforcement, storage, and media job orchestration. FastAPI routers expose copy and media APIs. Prompt text packs define ad/text and image prompts separately. Same service host as the chat backend so client products can call both lanes from one AI service footprint. Evals: Guideline enforcement unit checks plus manual brand review loops; job status tracking for failure visibility; sanitizers reduce unsafe/off-policy emissions before client UIs display drafts. Tech: Python, FAISS, RAG, FastAPI, Prompt Engineering, Async Jobs, Content Safety. Tags: AI.",
+    "metadata": {
+      "section": "project",
+      "id": "content-rag-engine",
+      "title": "Generative Content RAG Backend (Confidential)"
+    }
+  },
+  {
+    "id": "project-content-rag-engine-pipeline",
+    "text": "Project Generative Content RAG Backend (Confidential) pipeline: Build/rebuild FAISS index from curated knowledge sources | Accept generation request (copy and/or media) over FastAPI | Retrieve top context chunks for the brief | Fill prompt templates with identity, constraints, and schema | Generate draft → sanitize text/media descriptors | Enforce domain guideline rules; reject or rewrite on failures | Queue longer jobs; return job status + final artifacts. Components: **FAISS store + index builder** — vector persistence and rebuild tooling | **RAG engine** — retrieval + prompt assembly | **Sanitizers + guideline enforcer** — post-gen safety/brand gates | **Job queue / media jobs** — async execution for heavier work | **FastAPI routers** — text + media generation endpoints.",
+    "metadata": {
+      "section": "project-pipeline",
+      "id": "content-rag-engine",
+      "title": "Generative Content RAG Backend (Confidential)"
+    }
+  },
+  {
+    "id": "project-resume-llm",
+    "text": "Project: ResumeLLM — LLM product UX for resume intelligence. Goal: Ship a polished product experience where candidates can critique and iterate resumes with LLM help—demonstrating full-stack AI product judgment and how quickly a usable App Router product can be brought to life. Outcome: Production-shaped Next.js/TypeScript app with modern UI tooling, clear sectioned flows for resume intelligence, and a delivery path optimized for AI-accelerated iteration. Approach: Make the LLM a structured transform behind a guided product UI—not an unbounded chat. Map model outputs to resume sections with TypeScript types and constrained prompts so rewrites stay editable and reviewable. Why this approach: Unstructured chat dumps are hard for users to trust or paste into a resume. Sectioned UI + typed transforms create measurable product behavior and safer model usage for career content. How built: Next.js App Router + TypeScript + Tailwind in a create-next-app style project layout (`app`, `components`, `lib`). Focused on product polish and prompt quality over infrastructure complexity—intentionally a fast AI product demo of shipping discipline. Evals: Manual side-by-side review of rewrites for hallucinated claims; prompt constraints discourage inventing employers/dates; UI keeps human approval in the loop before anything is copied out. Tech: Next.js, TypeScript, React, LLM, Tailwind, Prompt Engineering. Tags: AI, Full-Stack.",
+    "metadata": {
+      "section": "project",
+      "id": "resume-llm",
+      "title": "ResumeLLM"
+    }
+  },
+  {
+    "id": "project-resume-llm-pipeline",
+    "text": "Project ResumeLLM pipeline: Capture resume section / target role context in the UI | Send constrained prompt + section payload to the LLM | Parse structured suggestions / rewrites | Render editable results in the product shell | Iterate until section quality meets user intent. Components: **Next.js App Router shell** — pages, layout, routing | **UI component layer** — form/results experience | **Prompt templates** — rewrite / critique / align-to-JD tasks | **TypeScript contracts** — keep model I/O predictable.",
+    "metadata": {
+      "section": "project-pipeline",
+      "id": "resume-llm",
+      "title": "ResumeLLM"
     }
   },
   {
     "id": "project-twinmind",
-    "text": "Project: TwinMind — Live transcription + suggestion agent. Three-pane meeting copilot: browser captures ~30s audio chunks, FastAPI proxies Groq Whisper with NDJSON streaming transcription, then returns exactly three typed suggestion cards plus grounded chat expand/continue. Prompt contracts enforce JSON schema; JSON-mode retry handles provider incompatibilities. Frontend Next.js 16 + TypeScript; backend FastAPI + httpx. Groq models: whisper-large-v3 and a configurable chat/reasoning model. Tech: Next.js, TypeScript, FastAPI, Groq, Whisper, Prompt Engineering, Netlify.",
+    "text": "Project: TwinMind — Live transcription + suggestion agent. Goal: Build a live meeting copilot: capture audio in ~30s chunks, stream transcription word-by-word to the UI, generate exactly three typed suggestion cards per segment, and support grounded chat expand/continue with independent transcript windows. Outcome: Working FastAPI + Next.js system with NDJSON streaming transcription, schema-locked suggestion JSON (with retry without `response_format` when providers reject JSON mode), temperature-per-task controls, and Netlify-ready frontend + separate backend hosting. Approach: Split client/server responsibilities hard: browser owns MediaRecorder chunking, transcript identity (`rowId` vs `chunkId`), and settings; FastAPI owns all Groq calls (Whisper + chat) so keys never live in `NEXT_PUBLIC_*`. Use NDJSON streaming for transcription UX. Force suggestion outputs through schema-in-prompt + JSON mode. Keep suggestion rolling window and chat grounding window as independent minute settings. Why this approach: Meetings punish latency and unstructured model output. Chunk streaming feels real-time. Strict JSON keeps the three-card UI stable. Independent context windows prevent “chat history” from polluting per-chunk suggestions (and vice versa). Server-side LLM calls are the only responsible key-handling pattern for a demo that still looks production-shaped. How built: Monorepo: `frontend/` (Next.js 16, React, TypeScript, Tailwind) and `backend/` (FastAPI, pydantic models, httpx). Transcription streams paced word deltas after Whisper returns. Suggestions use temperature ~0.65 and JSON mode with a compatibility retry. Chat expand/continue use lower temps (~0.5 / ~0.55). Settings persist in `localStorage`. Netlify `base=frontend`; backend deployed separately with CORS for the site origin. Evals: Manual latency/feel checks on streaming; JSON parse resilience via retry; UI regressions around duplicate `chunkId` rows and SSR clock mismatch handled with client-only time rendering; export artifact used for end-to-end review. Tech: Next.js, TypeScript, FastAPI, Groq, Whisper, httpx, NDJSON Streaming, Prompt Engineering, Netlify. Tags: AI, Full-Stack.",
     "metadata": {
       "section": "project",
       "id": "twinmind",
@@ -132,44 +260,17 @@
     }
   },
   {
-    "id": "project-chatbot-rag",
-    "text": "Project: Personal Chatbot-RAG — Portfolio knowledge assistant with FAISS retrieval. Personal portfolio Q&A chatbot deployed for the public site. Knowledge is chunked offline into a FAISS index; at runtime the service embeds the user query via Hugging Face Inference API, retrieves top chunks, and generates answers with Groq. Designed for free-tier hosting by keeping PyTorch off the deploy image. Tech: Python, Flask, FAISS, Groq, Hugging Face, Docker, Render.",
+    "id": "project-twinmind-pipeline",
+    "text": "Project TwinMind pipeline: Browser records audio; every ~30s restart recorder and POST blob (skip tiny chunks under a min byte threshold) | Backend posts to Groq Whisper (`whisper-large-v3`) then streams word deltas as NDJSON | UI upserts transcript rows (stable `rowId`, monotonic `chunkId`); edits can re-trigger suggestions | POST `/api/suggestions` with chunk + optional extended transcript → exactly 3 typed cards | “Open in chat” → `/api/chat-expand`; freeform → `/api/chat-continue` with separate grounding window | Export JSON snapshot (transcript, suggestion batches, chat, settings) for review/grading. Components: **Next.js dashboard** — transcript / suggestions / chat columns + Settings overrides | **FastAPI AI gateway** — `/transcribe`, `/api/suggestions`, `/api/chat-expand`, `/api/chat-continue`, `/health` | **Prompt contracts** — identity, input rules, taxonomy, quality rules, output JSON schema | **httpx async client** — Groq Whisper + `openai/gpt-oss-120b` (configurable) | **MarkdownLite** — lightweight chat rendering without heavy deps.",
     "metadata": {
-      "section": "project",
-      "id": "chatbot-rag",
-      "title": "Personal Chatbot-RAG"
-    }
-  },
-  {
-    "id": "project-docreporter",
-    "text": "Project: DocReporter — Multi-service document RAG reporting pipeline. Three Dockerized Python services orchestrated by Airflow: process_app chunks PDFs and embeds with MiniLM, analyst_app builds FAISS and analyzes with Groq, report_app renders PDF summaries with charts. GitHub Actions builds and pushes the three images. Tech: Airflow, Docker, FAISS, Groq, PyMuPDF, sentence-transformers, GitHub Actions.",
-    "metadata": {
-      "section": "project",
-      "id": "docreporter",
-      "title": "DocReporter"
-    }
-  },
-  {
-    "id": "project-autodoc-ai",
-    "text": "Project: AutoDoc-AI — Long PDF to structured executive summary. Streamlit tool that parses long PDFs with pdfplumber, runs a Hugging Face prompt chain for executive summary and related sections, and exports LaTeX/PDF briefs. Includes retry/backoff for HF rate limits. Tech: Python, Streamlit, Hugging Face, pdfplumber, LaTeX, Prompt Chaining.",
-    "metadata": {
-      "section": "project",
-      "id": "autodoc-ai",
-      "title": "AutoDoc-AI"
-    }
-  },
-  {
-    "id": "project-ecommerce-rag",
-    "text": "Project: E-commerce RAG Agent — Clean, embed, Redis semantic search. Ingestion pipeline cleans noisy Amazon electronics FAQ text, embeds with MiniLM, stores vectors in Redis, and exposes a FastAPI chat path with semantic cache, simple/hard routing via LiteLLM, and Mixtral generation. Tech: Python, FastAPI, Redis, sentence-transformers, LiteLLM, Docker Compose.",
-    "metadata": {
-      "section": "project",
-      "id": "ecommerce-rag",
-      "title": "E-commerce RAG Agent"
+      "section": "project-pipeline",
+      "id": "twinmind",
+      "title": "TwinMind"
     }
   },
   {
     "id": "project-alphabot",
-    "text": "Project: AlphaBot Trading System — Walk-forward optimized multi-agent trading stack. Python 3.12 trading system with OHLCV parquet cache, walk-forward optimization sharing the live pipeline, overfit flags when OOS Sharpe collapses, portfolio guards, Alpaca paper/live adapters, and a large pytest suite. Research prototype with rigorous evaluation artifacts—not a profitability claim. Tech: Python 3.12, pandas, Walk-Forward Optimization, Alpaca, pytest, Redis, FastAPI.",
+    "text": "Project: AlphaBot Trading System — Backtest → walk-forward → paper/live. Goal: Build an autonomous trading stack where research, walk-forward optimization, and live execution share one pipeline—so offline validation actually predicts production behavior—and live trading stays gated behind risk controls and an explicit cutover runbook. Outcome: Python 3.12 Conda environment with OHLCV parquet cache, walk-forward optimization (overfit flags when OOS Sharpe collapses vs IS), paper/live Alpaca adapters, portfolio guards, session restore, and LIVE_TRADING operational checklist. Approach: Architecture as a multi-agent / staged pipeline: market scan → signals → regime classification → confirmation → decision → risk/portfolio guards → broker execution → lifecycle tracking. Prefer local cached OHLCV for WFO grids (`cache_only` after prefetch) to avoid Yahoo rate limits. Run WFO on the same live pipeline code with mock sentiment during grids. Promote configs only after IS/OOS review. Why this approach: Trading ML dies from train/serve skew and silent overfit. Sharing the live pipeline in backtests is the reliability answer. Walk-forward is stricter than a single split. Caching makes Windows WFO practical. Kill-switches, confirmation gates, and paper-first execution exist because finance demos that skip ops controls are not “systems engineering.” How built: Installable Python package (`alphabot`) with `environment.yml` locked to 3.12 (Alpaca/aiohttp/PyYAML build constraints on Windows). YAML settings + `.env` secrets. pytest for WFO/live pipeline tests. Structured logging and decision stores for auditability. Documented live cutover (`CONFIRM_LIVE`, kill-switch drills, risk ramp). Evals: WFO JSON/Heatmap reports; overfit flag heuristic; pytest coverage on walk-forward live pipeline; paper trading before live keys; preflight validates Alpaca keys only when live mode is on. Tech: Python 3.12, pandas, yfinance, Alpaca, Walk-Forward Optimization, pytest, Conda, AsyncIO, Risk Management. Tags: AI, ML, Data.",
     "metadata": {
       "section": "project",
       "id": "alphabot",
@@ -177,56 +278,460 @@
     }
   },
   {
-    "id": "project-portfolio-updated",
-    "text": "Project: Immersive AI Portfolio — Next.js portfolio with chatbot and JD matcher. Next.js 14 portfolio with Three.js/Spline visuals, embedded RAG chatbot client, and a JD matcher that combines skill-taxonomy scoring with optional Groq pitch rewriting. Showcases public AI/ML projects and work history. Tech: Next.js, React, Three.js, Groq, Tailwind, Framer Motion.",
+    "id": "project-alphabot-pipeline",
+    "text": "Project AlphaBot Trading System pipeline: Prefetch OHLCV into `data/cache/ohlcv/{interval}/{SYMBOL}.parquet` | Run walk-forward grid on live pipeline (optional jobs parallelism; Windows-safe entrypoint) | Score IS vs OOS; flag OVERFITTED when Sharpe collapses >50% with positive IS | Promote strategy params into runtime settings | Orchestrator main loop: scanner cadence → signals → regime → confirmation → decisions | Portfolio allocator / rebalancer + portfolio guard risk checks | Broker adapter places/manages orders; lifecycle + decision logs persist; snapshots enable recovery. Components: **Orchestrator** — startup, market calendar awareness, graceful shutdown, session restore | **Signal / decision / confirmation / regime engines** — core trade logic | **MASTradePipeline + agents** — multi-stage message pipeline | **Backtest + WFO modules** — research path sharing live code | **BrokerFactory / OrderManager / TradeLifecycle** — paper & live execution | **Portfolio allocator, rebalancer, PortfolioGuard** — capital & risk layer | **Sentiment engine** — live path with mock mode for WFO.",
     "metadata": {
-      "section": "project",
-      "id": "portfolio-updated",
-      "title": "Immersive AI Portfolio"
+      "section": "project-pipeline",
+      "id": "alphabot",
+      "title": "AlphaBot Trading System"
     }
   },
   {
-    "id": "project-nighttime-od",
-    "text": "Project: Nighttime Object Detection — Published low-light detection research. Research on object detection in low-light conditions using deep learning approaches for nighttime patrolling style applications. Tech: Object Detection, Deep Learning, Computer Vision.",
+    "id": "project-chatbot-rag",
+    "text": "Project: Personal Chatbot-RAG — Offline FAISS index + HF query embeds + Groq — powers the live portfolio chat. Goal: Build a personal knowledge chatbot with real semantic retrieval that still deploys on free-tier hosts—without shipping PyTorch/sentence-transformers wheels that blow disk limits—and wire it into this portfolio so visitors can ask about skills, projects, and experience. Outcome: Slim Dockerized Flask RAG on Render: curated knowledge.json → offline HF embeddings → committed FAISS index; runtime HF query embeds + top-k retrieval + Groq (openai/gpt-oss-20b) grounded answers. Live Next.js Chatbot.jsx posts to /receive on the same service. Approach: Split build vs serve hard. Offline: structure-aware chunking of knowledge.json, embed with all-MiniLM-L6-v2 via HF Inference API, write FAISS + chunks into the repo. Online: embed the user question the same way, FAISS similarity search, inject only retrieved chunks into a Groq prompt (openai/gpt-oss-20b). Keep Render deps to Flask, faiss-cpu, httpx, and Groq—no local embedding model. Portfolio UI owns the chat surface; Render owns retrieval + generation. Why this approach: Free-tier disk killed local sentence-transformers/PyTorch installs. Prompt-stuffing the whole KB worked as a stopgap but is not RAG. Offline index + remote query embeds keep true retrieval and a portable Docker image that fits Render while staying grounded on curated profile facts. How built: Python package under rag/ (chunking, embeddings, retriever) plus Flask app.py. Index is rebuilt locally after knowledge edits and committed so production never downloads embedding weights. Env: GROQ_API_KEY, HF_API_TOKEN, optional GROQ_MODEL / RAG_TOP_K. Deployed on Render (chatbot-rag-mun6); portfolio Chatbot.jsx calls /receive. JD matcher on the site reuses the same skill/project taxonomy for recruiter workflows. Evals: Manual Q&A against known profile facts (list-all-projects, specific project deep-dives); retrieval checks that projects-index ranks first on aggregate queries; /health smoke for FAISS load; container rebuild to keep the slim dependency set under free-tier disk; live chat smoke from the portfolio UI. Tech: Python, RAG, FAISS, Hugging Face, Groq, Flask, Docker, httpx, Render, Next.js. Tags: AI, Full-Stack.",
     "metadata": {
       "section": "project",
-      "id": "nighttime-od",
-      "title": "Nighttime Object Detection"
+      "id": "chatbot-rag",
+      "title": "Personal Chatbot-RAG"
     }
   },
   {
-    "id": "project-battery-gpr",
-    "text": "Project: Battery Health Estimation via GPR — Gaussian Process regression for SoH. Gaussian Process Regression model for lithium-ion battery health estimation, presented at ICAIA and ATCON-1. Tech: Gaussian Process Regression, Time-Series Analysis, Python.",
+    "id": "project-chatbot-rag-pipeline",
+    "text": "Project Personal Chatbot-RAG pipeline: Curate data/knowledge.json (skills, experience, projects; exclude confidential client internals) | Chunk with structure-aware builders + projects/experience index chunks for listing queries | Offline embed via HF Inference API (all-MiniLM-L6-v2) and save FAISS under data/faiss_index/ | At runtime: embed question via HF → FAISS top-k → build grounded prompt → Groq generate | Serve Flask /receive + /health inside Docker; Next.js portfolio Chatbot.jsx posts to the Render URL. Components: **Knowledge pack** — curated knowledge.json as source of truth | **Offline index builder** — scripts/build_index.py → FAISS + chunks.json | **HF embed client** — httpx calls to Inference API (build + query) | **FaissRetriever** — L2-normalized similarity search over committed vectors | **Flask API** — /receive chat + /health; Groq openai/gpt-oss-20b | **Next.js chatbot client** — embedded portfolio UX calling Render | **Dockerfile** — slim Python image with faiss-cpu (no PyTorch).",
     "metadata": {
-      "section": "project",
-      "id": "battery-gpr",
-      "title": "Battery Health Estimation via GPR"
+      "section": "project-pipeline",
+      "id": "chatbot-rag",
+      "title": "Personal Chatbot-RAG"
     }
   },
   {
-    "id": "exclusion-0",
-    "text": "Answering policy: Do not attribute Snapcite work to Sai Vishnu Vamsi Senagasetty.",
+    "id": "project-ecommerce-rag",
+    "text": "Project: E-commerce RAG Agent — Clean → embed → Redis semantic search. Goal: Enable semantic product Q&A over noisy Amazon electronics FAQ/text by cleaning aggressively first, then retrieving with normalized MiniLM embeddings stored in Redis. Outcome: Batch ingestion with HTML/URL/email scrubbing, unicode normalization, dedupe, batch-32 embeddings (`all-MiniLM-L6-v2`), Redis JSON docs with vectors, and FastAPI API scaffold for phase-2 retrieval. Approach: Make retrieval a data-quality problem first. Clean every text field (HTML tags, entities, URLs, emails, special chars, unicode), drop empties/dupes, concatenate fields per row, embed with normalized MiniLM vectors, and store in Redis under prefixed keys for cosine similarity search. Why this approach: Retail text is hostile to embeddings when HTML/noise remains. MiniLM (384-d, ~80MB) is the right speed/quality tradeoff for FAQ search. Redis is an easy online store for demos without standing up a full vector DB cluster. How built: Python ingestion script with explicit cleaning helpers, Redis client load path, `.env` for HF/Redis/CSV config, docker-compose for Redis, and requirements locking torch/sentence-transformers/onnx runtime style deps for local runs. Evals: Count deltas logged at each cleaning stage; Redis ping + batch load progress; manual semantic spot checks on product questions after ingestion. Tech: Python, sentence-transformers, ONNX, Redis, Docker Compose, FastAPI, ETL, NumPy. Tags: AI, Data.",
+    "metadata": {
+      "section": "project",
+      "id": "ecommerce-rag",
+      "title": "E-commerce RAG Agent"
+    }
+  },
+  {
+    "id": "project-ecommerce-rag-pipeline",
+    "text": "Project E-commerce RAG Agent pipeline: Read CSV with multi-encoding fallback (utf-8 → latin-1 → …) | Remove empty rows + duplicates | clean_text on every string field | Batch encode texts (size 32) with normalize_embeddings=True | Write `{id, embedding, ...fields}` JSON docs to Redis | Expose FastAPI retrieval/generation in phase 2. Components: **Ingestion service** — cleaning + embedding + Redis load | **SentenceTransformer MiniLM** — HF auth via env token | **docker-compose Redis** — local vector/doc store | **FastAPI scaffold** — API surface for retrieval phase.",
+    "metadata": {
+      "section": "project-pipeline",
+      "id": "ecommerce-rag",
+      "title": "E-commerce RAG Agent"
+    }
+  },
+  {
+    "id": "project-autodoc-ai",
+    "text": "Project: AutoDoc-AI — Long PDFs → structured executive summaries. Goal: Compress 150+ page financial/SEC-style documents into readable ~8-page structured summaries. Outcome: Streamlit + Hugging Face chunked summarization with LaTeX/PDF export for executive-ready briefs. Approach: Parse PDF text, detect document type, chunk long content, summarize sections through an LLM API, then render a fixed template (exec summary, findings, highlights, analysis, recommendations). Why this approach: Single-shot summarization fails on long PDFs. Chunking + typed section templates preserves coverage and readability; LaTeX gives professional export for stakeholders. How built: Python pipeline with pdfplumber extraction, HF API prompt chain, Streamlit UI for upload/run, and LaTeX templates compiled to PDF when a TeX engine is available. Evals: Target length/coverage of the 8-page template; spot checks that financial documents emit a financial-highlights section; retry logic for HF rate limits. Tech: Python, Streamlit, Hugging Face, pdfplumber, LaTeX, Prompt Chaining. Tags: AI, Data.",
+    "metadata": {
+      "section": "project",
+      "id": "autodoc-ai",
+      "title": "AutoDoc-AI"
+    }
+  },
+  {
+    "id": "project-autodoc-ai-pipeline",
+    "text": "Project AutoDoc-AI pipeline: Upload PDF in Streamlit (document summarization mode) | Extract text with pdfplumber; detect financial vs general doc type | Chunk long documents for model context limits | Run Hugging Face prompt chain for exec summary, findings, highlights, analysis, recommendations | Render LaTeX template → optional PDF compile (Tectonic/TeX). Components: **Streamlit UI** — upload + mode selection | **Document parser** — PDF text extraction | **Prompt chain** — HF summarization calls with retries | **LaTeX formatter** — structured ~8-page brief export.",
+    "metadata": {
+      "section": "project-pipeline",
+      "id": "autodoc-ai",
+      "title": "AutoDoc-AI"
+    }
+  },
+  {
+    "id": "project-docreporter",
+    "text": "Project: DocReporter — Layout-aware document reporting pipeline. Goal: Parse complex 200+ page PDFs with layout awareness and produce concise structured reports with visuals—without forcing everything through a single brittle script. Outcome: Multi-service Docker/Airflow architecture coordinating parse → process → report generation across analyst, process, and report apps. Approach: Separate concerns into services (analyst/process/report) orchestrated by Airflow so OCR/layout parsing, enrichment, and report rendering can scale and fail independently. Why this approach: Heavy document pipelines stall as monoliths. Layout-aware parsing beats plain text extraction for charts/tables; workflow orchestration is the reliability layer for multi-stage jobs. How built: Docker Compose multi-app setup (`analyst_app`, `process_app`, `report_app`), Airflow DAGs under `dags/`, document stores, and report services that emit human-readable summaries with charts. Evals: Pipeline run success via Airflow task states; qualitative review that charts/tables survive better than plain-text baselines. Tech: Python, Airflow, Docker Compose, Layout Parsing, ETL, Reporting. Tags: AI, Data.",
+    "metadata": {
+      "section": "project",
+      "id": "docreporter",
+      "title": "DocReporter"
+    }
+  },
+  {
+    "id": "project-docreporter-pipeline",
+    "text": "Project DocReporter pipeline: Ingest long PDFs into the document store | Airflow DAG triggers parse/layout extraction jobs | Process/enrich extracted structure | Report service renders concise structured summary + charts | Store/export artifacts for reviewers. Components: **Airflow DAGs** — orchestration and retries | **Analyst / process / report apps** — separated workloads | **Docker Compose** — reproducible multi-service runtime | **Layout parsing stack** — preserve tables/figures semantics.",
+    "metadata": {
+      "section": "project-pipeline",
+      "id": "docreporter",
+      "title": "DocReporter"
+    }
+  },
+  {
+    "id": "project-market-canvas",
+    "text": "Project: MarketCanvas-Env (RL + MCP) — Semantic canvas env for banner layout agents. Goal: Build a deterministic Mini-Canva style environment where RL policies and LLM/MCP agents learn marketing-banner layout under explicit prompt constraints (headline, CTA, contrast), with bounded rewards that resist trivial hacking. Outcome: Gym-style env with semantic JSON observations, high-level actions, dense/terminal reward modes, WCAG contrast term (>=4.5), anti-duplication penalties, MCP tool interface, and a writeup covering PPO scaling to ~10k VLM rollouts. Approach: Prefer semantic actions (add/move/recolor) and JSON state (bbox, colors, overlaps, centering flags) over pixel mouse control early. Shape reward as weighted constraints (0.40) + aesthetics (0.25) + accessibility (0.25) + anti-hacking (0.10). Expose MCP for interactive agents while keeping direct Gym stepping for training throughput. Why this approach: Early RL learns faster with smaller action spaces and interpretable state. Keyword gaming still exists, but duplication penalties block the cheapest exploits. Dual MCP/Gym interfaces separate demo interoperability from actor-learner training paths. How built: Python packages for observation/action/reward/canvas env, optional PIL RGB renderer for multimodal experiments, MCP tool responses for agent tooling, and a detailed writeup on vectorizing envs / observation tiering for large parallel VLM rollouts. Evals: Reward bounded in [-1, 1]; known loopholes documented (keyword gaming, alignment inflation); anti-dupe tanh saturation tested conceptually against identical CTA spam. Tech: Python, Reinforcement Learning, MCP, Gym API, Reward Design, PIL. Tags: AI, ML.",
+    "metadata": {
+      "section": "project",
+      "id": "market-canvas",
+      "title": "MarketCanvas-Env (RL + MCP)"
+    }
+  },
+  {
+    "id": "project-market-canvas-pipeline",
+    "text": "Project MarketCanvas-Env (RL + MCP) pipeline: Reset env with prompt constraints (required headline/CTA/color rules) | Agent selects semantic actions: add_element / move / change_color | Env updates JSON state (geometry, overlaps, centering, content) | Compute dense or terminal reward with WCAG + anti-duplication terms | Optional RGB render for VLM observations; MCP for tool-based interaction. Components: **CanvasEnv** — Gym-style step/reset API | **Observation JSON** — semantic element graph | **Reward module** — constraints/aesthetics/accessibility/anti-hack | **Renderer** — optional RGB arrays | **MCP tools** — interactive agent interface.",
+    "metadata": {
+      "section": "project-pipeline",
+      "id": "market-canvas",
+      "title": "MarketCanvas-Env (RL + MCP)"
+    }
+  },
+  {
+    "id": "project-notion-clone",
+    "text": "Project: Notion-style Workspace Clone — AI-accelerated Next.js productivity UI. Goal: Recreate a Notion-like workspace quickly to demonstrate full-stack product velocity with modern React patterns and AI-assisted UI implementation. Outcome: Next.js App Router clone with componentized UI and polished interaction patterns suitable as a shipping demo of how fast a credible productivity shell can be built. Approach: Compose a modular block/workspace UI on Next.js with a shared design system (utility CSS + component primitives) rather than rebuilding every surface from scratch. Why this approach: Productivity UIs are composition problems. App Router + typed components + utility styling yields the fastest path to a credible clone while remaining maintainable. How built: Next.js/TypeScript/Tailwind (and shadcn-style primitives) with iterative AI-assisted UI implementation and routing for workspace pages under a standard App Router layout. Evals: Visual/UX review against product familiarity; build succeeds as a production-shaped Next app. Tech: Next.js, TypeScript, Tailwind, React, Component Systems. Tags: Full-Stack.",
+    "metadata": {
+      "section": "project",
+      "id": "notion-clone",
+      "title": "Notion-style Workspace Clone"
+    }
+  },
+  {
+    "id": "project-notion-clone-pipeline",
+    "text": "Project Notion-style Workspace Clone pipeline: Stand up Next.js App Router project + design tokens | Implement workspace shell/navigation | Add editable block/page interactions | Polish responsive layout and component consistency. Components: **App Router pages** — workspace navigation | **UI primitives** — buttons/inputs/layout building blocks | **Tailwind styling** — rapid visual iteration.",
+    "metadata": {
+      "section": "project-pipeline",
+      "id": "notion-clone",
+      "title": "Notion-style Workspace Clone"
+    }
+  },
+  {
+    "id": "project-boomersroomers",
+    "text": "Project: Boomers & Roomers — Node API + Next.js marketplace webapp. Goal: Deliver a production-minded marketplace with a clear split between API services and customer webapp so domain logic and UX can evolve independently. Outcome: Paired Node server (routes/controllers/services/models) and Next.js client with auth/config modules and deployment-ready structure. Approach: Classic API + web split: Node/Express-style backend for domain logic and persistence boundaries; Next.js for customer-facing pages/store; shared constants/services for contracts. Why this approach: Marketplace features (auth, listings, ops) need a real API boundary. Separating server and webapp keeps ownership clear and scales better than a single tangle. How built: JavaScript Node backend with controllers/routes/services/models/middlewares plus Next.js pages/components/store, environment configs, and modular folders for rapid feature work. Evals: Manual API→UI flow verification; modular structure reviewed for maintainability under new feature pressure. Tech: Node.js, Express, Next.js, JavaScript, REST APIs. Tags: Full-Stack.",
+    "metadata": {
+      "section": "project",
+      "id": "boomersroomers",
+      "title": "Boomers & Roomers"
+    }
+  },
+  {
+    "id": "project-boomersroomers-pipeline",
+    "text": "Project Boomers & Roomers pipeline: Model domain entities + auth on the API | Expose REST routes through controllers/services | Consume APIs from Next.js pages/store | Configure env + deploy-ready scripts. Components: **Node server** — Express-style HTTP API | **Next.js webapp** — customer UI | **Auth/config layers** — environment-driven setup | **Services/models** — domain logic boundary.",
+    "metadata": {
+      "section": "project-pipeline",
+      "id": "boomersroomers",
+      "title": "Boomers & Roomers"
+    }
+  },
+  {
+    "id": "project-driver-app",
+    "text": "Project: DriverApp (Flutter) — Cross-platform field driver client. Goal: Ship a single Flutter codebase targeting Android/iOS/web/desktop for driver field workflows. Outcome: Complete Flutter application with multi-platform targets and assets structured for iterative feature delivery. Approach: Use Flutter’s shared widget/layer model so business UI and navigation live once while platform runners handle OS packaging. Why this approach: Driver apps need mobile first but benefit from web/desktop for ops demos. Flutter is the efficient cross-platform choice when one team owns the whole client. How built: Dart/Flutter app with platform folders (Android/iOS/web/windows/macos/linux), shared lib UI, assets, and standard analysis/lint setup. Evals: Tech: Flutter, Dart, Android, iOS, Cross-Platform UI. Tags: Mobile, Full-Stack.",
+    "metadata": {
+      "section": "project",
+      "id": "driver-app",
+      "title": "DriverApp (Flutter)"
+    }
+  },
+  {
+    "id": "project-metro-app",
+    "text": "Project: Metro App — Flutter transit/mobile prototype. Goal: Prototype a transit-oriented Flutter client and prove packaging across platforms. Outcome: Runnable Flutter prototype with tests and multi-target build structure. Approach: Start from Flutter’s standard app architecture and iterate UI/flows for metro-style journeys before adding heavy backend coupling. Why this approach: Mobile UX should be validated early. Flutter prototypes expose navigation/state issues quickly without committing to native dual codebases. How built: Flutter/Dart project with lib UI, platform runners, and basic test harness for rapid UI validation. Evals: Tech: Flutter, Dart, Mobile UI. Tags: Mobile.",
+    "metadata": {
+      "section": "project",
+      "id": "metro-app",
+      "title": "Metro App"
+    }
+  },
+  {
+    "id": "project-caop-spark",
+    "text": "Project: CAOP — Spark + MLflow Experiments — Distributed tuning with explainability. Goal: Run distributed ML experiments with tracking and explainability instead of ad-hoc notebooks. Outcome: PySpark + Optuna + MLflow + SHAP lab ready for trainable pipelines and experiment comparison. Approach: Use Spark for scalable feature/model workloads, Optuna for hyperparameter search, MLflow for run tracking, and SHAP for post-hoc interpretability. Why this approach: When data or grids grow, local sklearn loops stall. Spark parallelizes; MLflow prevents lost experiments; SHAP explains decisions for stakeholders. How built: Python environment with PySpark, PyTorch CUDA wheels where needed, Optuna studies, MLflow tracking, and SHAP reporting utilities. Evals: Tech: PySpark, MLflow, Optuna, SHAP, PyTorch, scikit-learn. Tags: ML, Data.",
+    "metadata": {
+      "section": "project",
+      "id": "caop-spark",
+      "title": "CAOP — Spark + MLflow Experiments"
+    }
+  },
+  {
+    "id": "project-intellibrief",
+    "text": "Project: IntelliBrief — Dockerized AI briefing toolkit. Goal: Package briefing/analysis workflows into a reproducible containerized tool. Outcome: Docker-first toolkit that regenerates structured briefs from inputs with consistent environments. Approach: Containerize the whole briefing pipeline so dependencies, models/tools, and output paths are identical across machines. Why this approach: Briefing tools die from “works on my laptop.” Docker is the right portability layer for demoable AI utilities. How built: Docker images/scripts wrapping Python AI pipeline steps and a documented run path for generating briefs from data inputs. Evals: Tech: Docker, Python, AI Pipelines, Reproducible Environments. Tags: AI, Data.",
+    "metadata": {
+      "section": "project",
+      "id": "intellibrief",
+      "title": "IntelliBrief"
+    }
+  },
+  {
+    "id": "project-ai-learning-platform",
+    "text": "Project: Internal AI Learning Platform (Confidential) — Secured quizzes + leaderboards. Goal: Help a team upskill on AI with leveled assessments, fair attempts, and admin controls. Outcome: ~55% higher assessment/onboarding completion via leveled MCQs, cooldown, and daily leaderboards. Approach: Auth-gate the app, store progress in a managed document DB, enforce cooldowns and levels server-side in rules/app logic, and cache daily leaderboards for cheap reads. Why this approach: Internal learning needs trust (identity) and fairness (one active session/cooldown). Firebase + Next.js is a fast secure stack for gated org tools without standing up heavy infra. How built: Next.js frontend with Firebase Auth domain enforcement, Firestore user/attempt/leaderboard docs, admin whitelist tooling, and client anti-cheat complemented by security rules. Evals: Access control verified for domain + whitelist; session mismatch forces logout; cooldown prevents attempt spam; completion uplift tracked (~55%). Tech: Next.js, Firebase Auth, Firestore, TypeScript, Access Control. Tags: Full-Stack, AI.",
+    "metadata": {
+      "section": "project",
+      "id": "ai-learning-platform",
+      "title": "Internal AI Learning Platform (Confidential)"
+    }
+  },
+  {
+    "id": "project-ai-learning-platform-pipeline",
+    "text": "Project Internal AI Learning Platform (Confidential) pipeline: Google Sign-In with org-domain enforcement + Firestore whitelist | Single active session via sessionId (last login wins) | Serve leveled quizzes (beginner → intermediate → advanced) from question banks | Apply 24h cooldown via lastAttemptAt; progress scores/attempts | Update daily leaderboard cache doc; admin resets/whitelist tools. Components: **Next.js pages** — login, dashboard, quiz, results, leaderboard, admin | **Firebase Auth + Firestore** — identity and progress | **Quiz engine** — multi-level MCQs + progression | **Leaderboard cache** — daily aggregated scores.",
+    "metadata": {
+      "section": "project-pipeline",
+      "id": "ai-learning-platform",
+      "title": "Internal AI Learning Platform (Confidential)"
+    }
+  },
+  {
+    "id": "project-tensorflow-torchserve",
+    "text": "Project: TF Serving vs TorchServe on Azure — Model serving benchmark study. Goal: Compare TensorFlow Serving and TorchServe for CNN and RNN workloads in Azure on latency, throughput, and deployability under controlled load. Outcome: TorchServe edged CV latency; TensorFlow Serving was faster for NLP under load; 100% success across tested scenarios—documented in presentation + final report. Approach: Hold environment constant on Azure ML, deploy comparable CNN/RNN models to both servers, and sweep load tests while recording latency/throughput/error rates. Why this approach: Serving choice is workload-dependent. A controlled bake-off beats vendor lore and teaches production packaging differences between ecosystems. How built: Azure ML deployments, load harnesses, Python analysis of metrics, plus presentation/report artifacts summarizing tradeoffs for CNN vs RNN serving. Evals: Latency/throughput tables under matched loads; 100% request success in reported scenarios; qualitative deployability notes. Tech: TensorFlow Serving, TorchServe, Azure ML, Python, CNN, RNN, Load Testing. Tags: AI, ML.",
+    "metadata": {
+      "section": "project",
+      "id": "tensorflow-torchserve",
+      "title": "TF Serving vs TorchServe on Azure"
+    }
+  },
+  {
+    "id": "project-tensorflow-torchserve-pipeline",
+    "text": "Project TF Serving vs TorchServe on Azure pipeline: Package CNN (vision) and RNN (NLP) models for each serving stack | Deploy both frameworks on Azure ML with comparable hardware/profile | Run load sweeps; capture latency, throughput, success rate | Analyze and publish presentation + final report. Components: **TensorFlow Serving** — TF model server path | **TorchServe** — PyTorch model server path | **Azure ML** — cloud deploy + scaling surface | **Load test harness** — controlled traffic generation.",
+    "metadata": {
+      "section": "project-pipeline",
+      "id": "tensorflow-torchserve",
+      "title": "TF Serving vs TorchServe on Azure"
+    }
+  },
+  {
+    "id": "project-energy-churn",
+    "text": "Project: Energy Provider Churn Analysis — Predictive retention modeling. Goal: Identify customers at high churn risk and the behavioral/pricing drivers behind exits. Outcome: Random Forest at ~90% accuracy; tenure, usage, and pricing margins emerged as top predictors. Approach: EDA → feature engineering on contracts/usage → train tree ensembles → interpret feature importance for retention actions. Why this approach: Churn is tabular and nonlinear. Tree ensembles handle mixed features well and produce actionable importances for business teams. How built: Python with pandas/scikit-learn EDA and Random Forest classification, evaluation metrics, and explanatory visuals for stakeholders. Evals: Tech: Python, pandas, scikit-learn, Random Forest, EDA. Tags: ML, Data.",
+    "metadata": {
+      "section": "project",
+      "id": "energy-churn",
+      "title": "Energy Provider Churn Analysis"
+    }
+  },
+  {
+    "id": "project-imagecraft",
+    "text": "Project: ImageCraft – Text-to-Image — UNet + Stable Diffusion fine-tuning. Goal: Generate prompt-aligned images with a custom UNet/diffusion approach improved via Stable Diffusion fine-tuning. Outcome: Improved FID vs baseline and a modular Text2Image pipeline for demos/batch jobs. Approach: Condition a UNet diffusion backbone with transformer cross-attention on text embeddings, then fine-tune against Stable Diffusion checkpoints for quality. Why this approach: Diffusion + cross-attention remains the best open approach for controllable Text2Image; fine-tuning adapts quality without training from scratch. How built: PyTorch training/inference pipeline, SD checkpoint integration, evaluation via FID-style metrics, and Gradio-ready generation interface. Evals: Tech: Python, PyTorch, UNet, Stable Diffusion, Transformers. Tags: AI.",
+    "metadata": {
+      "section": "project",
+      "id": "imagecraft",
+      "title": "ImageCraft – Text-to-Image"
+    }
+  },
+  {
+    "id": "project-video-keywords",
+    "text": "Project: Video Keyword Extraction — Whisper transcription → NLP keywords. Goal: Automate spoken-content extraction from video so topics/keywords can be mined at scale. Outcome: Colab pipeline: audio extract → Whisper transcription → keyword/topic follow-on NLP. Approach: Convert video to audio, transcribe with Whisper for robust ASR, then apply text NLP for keyword/topic signals. Why this approach: Keywords from video need accurate transcripts first. Whisper is strong across accents/noise; separating ASR from NLP keeps each stage testable. How built: Python Colab workflow with MoviePy audio extraction, Whisper transcription, and NLP post-processing for keywords. Evals: Tech: Python, Whisper, MoviePy, NLP, Google Colab. Tags: AI, Data.",
+    "metadata": {
+      "section": "project",
+      "id": "video-keywords",
+      "title": "Video Keyword Extraction"
+    }
+  },
+  {
+    "id": "project-pink-slime",
+    "text": "Project: Pink Slime Journalism Analysis — NLP clustering of misinformation style. Goal: Find linguistic/stylistic signatures that separate pink-slime journalism from legitimate news. Outcome: Analyzed 27k+ labeled sentences; pink slime showed oversimplified language and ~3× sentiment exaggeration patterns. Approach: Vectorize text, score sentiment/readability, reduce with PCA, cluster with K-Means, and extract cluster signatures for downstream classifiers. Why this approach: Misinformation style is multi-feature. Unsupervised structure discovery surfaces patterns before committing to a supervised label model, and is auditable for research. How built: Python NLP stack (tokenization, TF-IDF/embeddings, sentiment tools), PCA + clustering, and reporting of category-wise stylistic divergence across Politics/Business/Health. Evals: Observed ~3× sentiment exaggeration patterns in pink slime vs legitimate journalism; cluster interpretability reviewed qualitatively across topic categories. Tech: Python, NLP, PCA, K-Means, Sentiment Analysis, TF-IDF. Tags: AI, ML, Data.",
+    "metadata": {
+      "section": "project",
+      "id": "pink-slime",
+      "title": "Pink Slime Journalism Analysis"
+    }
+  },
+  {
+    "id": "project-pink-slime-pipeline",
+    "text": "Project Pink Slime Journalism Analysis pipeline: Collect/label sentences from news corpora (27k+ labeled set; 600k+ sentences analyzed in research context) | Compute linguistic features: sentiment exaggeration, readability, lexical simplicity | Vectorize + reduce with PCA | Cluster (K-Means) and extract pink-slime vs legitimate signatures | Report cluster diagnostics for downstream classifiers. Components: **Feature extraction** — sentiment + readability signals | **PCA + K-Means** — structure discovery | **Signature reporting** — human-interpretable cluster traits | **Interactive Gradio demo** — portfolio notebook output.",
+    "metadata": {
+      "section": "project-pipeline",
+      "id": "pink-slime",
+      "title": "Pink Slime Journalism Analysis"
+    }
+  },
+  {
+    "id": "project-utility-performance",
+    "text": "Project: Utility Performance Analysis — Oil & gas forecasting + benchmarking. Goal: Benchmark U.S. utility performance and forecast revenue/demand to support strategy decisions. Outcome: Forecast models with R² ≈ 0.99 (Texas revenue) and ≈ 0.80 (demand). Approach: Segment utilities, engineer operational/financial features, and fit regression/forecasting models with clear holdouts and visualization for executives. Why this approach: Strategy questions need interpretable forecasts more than black-box depth. Classical forecasting with strong EDA is appropriate for regulated utility KPIs. How built: Python analytics with pandas, regression/forecast models, and visualization narratives for competitive and regional insights. Evals: Tech: Python, pandas, Regression, Forecasting, Data Visualization. Tags: ML, Data.",
+    "metadata": {
+      "section": "project",
+      "id": "utility-performance",
+      "title": "Utility Performance Analysis"
+    }
+  },
+  {
+    "id": "project-night-detection",
+    "text": "Project: Night Objects Detection — YOLOv5 for low-light scenes. Goal: Detect pedestrians/vehicles/infrastructure reliably in low-light conditions. Outcome: Custom-trained YOLOv5 demonstrating robust night-specific detection for surveillance/autonomy use cases. Approach: Fine-tune YOLOv5 on night-focused imagery so the detector specializes in low-light appearance statistics instead of relying on daytime weights alone. Why this approach: Generic detectors drop recall at night. Task-specific fine-tuning is the practical CV approach when lighting distribution shifts. How built: Python/TensorFlow-adjacent YOLO training workflow, evaluation on night scenes, and inference demos for detected classes. Evals: Tech: Python, YOLOv5, Computer Vision, Deep Learning, Object Detection. Tags: AI, ML.",
+    "metadata": {
+      "section": "project",
+      "id": "night-detection",
+      "title": "Night Objects Detection"
+    }
+  },
+  {
+    "id": "faq-0",
+    "text": "FAQ: What technologies does Sai Vishnu Vamsi Senagasetty specialize in? Answer: Sai Vishnu Vamsi Senagasetty specializes in production RAG/LLM systems (FastAPI, FAISS, prompt routing, grounded generation), Python, Next.js/React, NestJS, Groq/Whisper, TensorFlow/PyTorch, NLP, computer vision, and end-to-end ML pipelines with Docker and CI/CD.",
+    "metadata": {
+      "section": "faq"
+    }
+  },
+  {
+    "id": "faq-1",
+    "text": "FAQ: What is Sai Vishnu Vamsi Senagasetty's strongest project? Answer: At Zibtek, he took a legacy chatbot (Situation/Task) and rebuilt it as a production RAG system with Python/FastAPI, vector retrieval, intent routing, policy validation, React chat UI, and lead scoring (Action)—cutting ungrounded answers by ~45%, lifting relevance by ~35%, and improving lead completion by ~30% (Result).",
+    "metadata": {
+      "section": "faq"
+    }
+  },
+  {
+    "id": "faq-2",
+    "text": "FAQ: Is Sai Vishnu Vamsi Senagasetty available for hire? Answer: Yes. Sai Vishnu Vamsi Senagasetty is actively seeking full-time AI Developer / AI Engineer roles. Contact via email at saivishnuvamsis07@gmail.com or LinkedIn at linkedin.com/in/vishnu-senagasetty.",
+    "metadata": {
+      "section": "faq"
+    }
+  },
+  {
+    "id": "faq-3",
+    "text": "FAQ: What education does Sai Vishnu Vamsi Senagasetty have? Answer: Sai Vishnu Vamsi Senagasetty holds a Master of Science in Computer Science from the University of Houston (2023–2025) and a Bachelor of Technology in Computer Science from SRM University, AP (2019–2023), with coursework in Machine Learning, Deep Learning, Big Data Analytics, and AI Systems.",
+    "metadata": {
+      "section": "faq"
+    }
+  },
+  {
+    "id": "faq-4",
+    "text": "FAQ: Where is Sai Vishnu Vamsi Senagasetty located? Answer: Sai Vishnu Vamsi Senagasetty is based in Houston, Texas, and is open to remote and hybrid opportunities.",
+    "metadata": {
+      "section": "faq"
+    }
+  },
+  {
+    "id": "faq-5",
+    "text": "FAQ: Where does Sai Vishnu Vamsi Senagasetty currently work? Answer: He is an AI Developer at Zibtek (since April 2026), shipping confidential client chatbots and backends—RAG/LLM APIs, NestJS/Next services, and measurable quality/latency/throughput gains using a STAR delivery approach.",
+    "metadata": {
+      "section": "faq"
+    }
+  },
+  {
+    "id": "publication-0",
+    "text": "Publication: State of Health of Lithium-ion Batteries by Data-driven Technique with Optimized Gaussian Process Regression — ICAIA and ATCON-1 (May 2023). URL: https://ieeexplore.ieee.org/document/10169188.",
+    "metadata": {
+      "section": "publication"
+    }
+  },
+  {
+    "id": "publication-1",
+    "text": "Publication: Nighttime Object Detection: A Night-Patrolling Mechanism Using Deep Learning — IGI Global Book Chapter (January 2023). URL: https://www.igi-global.com/gateway/chapter/318080.",
+    "metadata": {
+      "section": "publication"
+    }
+  },
+  {
+    "id": "certification-0",
+    "text": "Certification: Oracle Cloud Infrastructure Generative AI from Oracle (2025). Category: AI/Cloud.",
+    "metadata": {
+      "section": "certification"
+    }
+  },
+  {
+    "id": "certification-1",
+    "text": "Certification: OCI Kubernetes Engine Specialist from Oracle (). Category: Cloud/DevOps.",
+    "metadata": {
+      "section": "certification"
+    }
+  },
+  {
+    "id": "certification-2",
+    "text": "Certification: Excel Skills Virtual Experience Program from JPmorgan Chase & Co. (). Category: Programming.",
+    "metadata": {
+      "section": "certification"
+    }
+  },
+  {
+    "id": "certification-3",
+    "text": "Certification: Analyzing Marketing Campaigns with pandas from DataCamp (). Category: Data Science.",
+    "metadata": {
+      "section": "certification"
+    }
+  },
+  {
+    "id": "certification-4",
+    "text": "Certification: Data Manipulation in SQL from DataCamp (). Category: Data Analytics.",
+    "metadata": {
+      "section": "certification"
+    }
+  },
+  {
+    "id": "badge-0",
+    "text": "Badge: Oracle Cloud Infrastructure Generative AI from Oracle (2025). GEN AI Specialist",
+    "metadata": {
+      "section": "badge"
+    }
+  },
+  {
+    "id": "badge-1",
+    "text": "Badge: OCI Kubernetes Engine Specialist from Oracle (). Cloud Infrastructure",
+    "metadata": {
+      "section": "badge"
+    }
+  },
+  {
+    "id": "badge-2",
+    "text": "Badge: C++ Programming from HPE Data Science Institute (). University of Houston",
+    "metadata": {
+      "section": "badge"
+    }
+  },
+  {
+    "id": "badge-3",
+    "text": "Badge: Excel for Applied Data Science from HPE Data Science Institute (). University of Houston",
+    "metadata": {
+      "section": "badge"
+    }
+  },
+  {
+    "id": "badge-4",
+    "text": "Badge: Excel & Power BI from HPE Data Science Institute (). University of Houston",
+    "metadata": {
+      "section": "badge"
+    }
+  },
+  {
+    "id": "badge-5",
+    "text": "Badge: GPU Programming from HPE Data Science Institute (). University of Houston",
+    "metadata": {
+      "section": "badge"
+    }
+  },
+  {
+    "id": "chatbot-architecture",
+    "text": "This portfolio Chatbot-RAG: Offline FAISS index from knowledge.json via Hugging Face Inference API (all-MiniLM-L6-v2); runtime HF query embeds → FAISS top-k → Groq openai/gpt-oss-20b; Flask /receive + /health in Docker on Render; Next.js Chatbot.jsx client. Live endpoint: https://chatbot-rag-mun6.onrender.com/receive. GitHub: https://github.com/VishnuVamsi7/Chatbot-RAG.",
+    "metadata": {
+      "section": "chatbot"
+    }
+  },
+  {
+    "id": "policy-persona",
+    "text": "Answering policy (persona): You are Sai Vishnu Vamsi Senagasetty's portfolio assistant. Answer using only this knowledge base.",
     "metadata": {
       "section": "policy"
     }
   },
   {
-    "id": "exclusion-1",
-    "text": "Answering policy: Do not reveal confidential client code, private APIs, credentials, customer data, or proprietary product internals.",
+    "id": "policy-style",
+    "text": "Answering policy (style): Concise, factual, recruiter-friendly. Prefer measurable STAR outcomes when available.",
     "metadata": {
       "section": "policy"
     }
   },
   {
-    "id": "exclusion-2",
-    "text": "Answering policy: Do not invent metrics. Prefer qualitative technical descriptions for confidential client outcomes unless a number is explicitly present in this knowledge base.",
+    "id": "policy-refusals",
+    "text": "Answering policy (refusals): If asked for confidential client product names or secrets not present here, decline and stay high-level.",
     "metadata": {
       "section": "policy"
     }
   },
   {
-    "id": "exclusion-3",
-    "text": "Answering policy: CRO, Profit Focus, and other Zibtek coding products may be mentioned only as high-level shared API delivery if asked—never with implementation detail from this knowledge base.",
+    "id": "policy-contacts",
+    "text": "Answering policy (contacts): For hiring outreach, direct people to email saivishnuvamsis07@gmail.com or LinkedIn https://www.linkedin.com/in/vishnu-senagasetty/",
+    "metadata": {
+      "section": "policy"
+    }
+  },
+  {
+    "id": "meta-note-0",
+    "text": "Knowledge rule: Confidential client product names are anonymized.",
+    "metadata": {
+      "section": "policy"
+    }
+  },
+  {
+    "id": "meta-note-1",
+    "text": "Knowledge rule: Use only facts in this document; do not invent employers, metrics, or project claims.",
+    "metadata": {
+      "section": "policy"
+    }
+  },
+  {
+    "id": "meta-note-2",
+    "text": "Knowledge rule: Prefer STAR framing when discussing Zibtek impact metrics.",
     "metadata": {
       "section": "policy"
     }
