@@ -44,6 +44,13 @@ python app.py
 # GET  http://localhost:10000/health
 ```
 
+### Render
+
+- **Build:** `pip install -r requirements.txt`
+- **Start:** leave blank to use `Procfile`, or set  
+  `gunicorn --bind 0.0.0.0:$PORT --workers 1 --timeout 120 app:app`
+- Python is pinned in `runtime.txt` (`3.11.x`). Avoid Render’s default 3.13 with FAISS.
+
 ### Docker
 
 ```bash
