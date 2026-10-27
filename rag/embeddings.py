@@ -13,10 +13,13 @@ import numpy as np
 logger = logging.getLogger(__name__)
 
 DEFAULT_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
+# Only the current HF Inference router is live. The legacy
+# api-inference.huggingface.co hosts are retired (they no longer answer),
+# so keeping them as fallbacks only masked the real error — a 401 from the
+# router surfaced as a DNS failure on the dead hosts after ~40 s of retries.
 HF_URL_TEMPLATES = (
     "https://router.huggingface.co/hf-inference/models/{model}/pipeline/feature-extraction",
-    "https://api-inference.huggingface.co/pipeline/feature-extraction/{model}",
-    "https://api-inference.huggingface.co/models/{model}",
+    "https://router.huggingface.co/hf-inference/models/{model}",
 )
 
 
@@ -58,6 +61,15 @@ def _embed_one(
                     headers=headers,
                     json={"inputs": text, "options": {"wait_for_model": True}},
                 )
+                if resp.status_code in (401, 403):
+                    # Auth will not fix itself by retrying — fail fast with the
+                    # real cause instead of falling through to dead endpoints.
+                    raise RuntimeError(
+                        f"Hugging Face Inference returned {resp.status_code} — "
+                        "the HF_API_TOKEN on Render is missing or invalid. Set a "
+                        "valid token (hf.co/settings/tokens, with Inference "
+                        "Providers permission) as HF_API_TOKEN on the Render service."
+                    )
                 if resp.status_code == 404:
                     last_err = RuntimeError(f"404 for {url}")
                     continue
@@ -69,6 +81,8 @@ def _embed_one(
                     continue
                 resp.raise_for_status()
                 return _flatten_embedding(resp.json())
+            except RuntimeError:
+                raise
             except Exception as exc:  # noqa: BLE001
                 last_err = exc
                 logger.warning("embed failed via %s: %s", url, exc)
@@ -91,7 +105,8 @@ def embed_texts(
         headers["Authorization"] = f"Bearer {token}"
     else:
         logger.warning(
-            "No HF_API_TOKEN/HF_TOKEN set — trying public HF Inference (rate limits likely). "
+            "No HF_API_TOKEN/HF_TOKEN set — HF Inference now requires a token, "
+            "so unauthenticated calls fail with 401. "
             "Add HF_API_TOKEN to .env for reliable builds and Render deploys."
         )
     vectors: List[List[float]] = []
