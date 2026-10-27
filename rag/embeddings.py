@@ -61,14 +61,24 @@ def _embed_one(
                     headers=headers,
                     json={"inputs": text, "options": {"wait_for_model": True}},
                 )
-                if resp.status_code in (401, 403):
-                    # Auth will not fix itself by retrying — fail fast with the
-                    # real cause instead of falling through to dead endpoints.
+                if resp.status_code in (401, 402, 403):
+                    # Auth/billing will not fix itself by retrying — fail fast
+                    # with the real cause instead of burning ~30 s of retries.
+                    if resp.status_code == 402:
+                        detail = (
+                            "the Hugging Face account has no Inference Providers "
+                            "credits (free accounts get none since Oct 2026). Buy "
+                            "credits or upgrade to PRO at "
+                            "huggingface.co/settings/billing."
+                        )
+                    else:
+                        detail = (
+                            "the HF_API_TOKEN on Render is missing or invalid. Set a "
+                            "valid token (hf.co/settings/tokens, with Inference "
+                            "Providers permission) as HF_API_TOKEN on the Render service."
+                        )
                     raise RuntimeError(
-                        f"Hugging Face Inference returned {resp.status_code} — "
-                        "the HF_API_TOKEN on Render is missing or invalid. Set a "
-                        "valid token (hf.co/settings/tokens, with Inference "
-                        "Providers permission) as HF_API_TOKEN on the Render service."
+                        f"Hugging Face Inference returned {resp.status_code} — {detail}"
                     )
                 if resp.status_code == 404:
                     last_err = RuntimeError(f"404 for {url}")
