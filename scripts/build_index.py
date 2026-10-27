@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Build FAISS index offline (laptop). Uses HF Inference API — no local PyTorch required.
+"""Build FAISS index offline (laptop). Uses local ONNX embeddings — no API,
+no torch, no HF credits required.
 
 Usage (from repo root):
-  set HF_API_TOKEN=...
   python scripts/build_index.py
 """
 

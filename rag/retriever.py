@@ -1,4 +1,4 @@
-"""FAISS retriever backed by offline index + HF query embeddings."""
+"""FAISS retriever backed by offline index + local ONNX query embeddings."""
 
 from __future__ import annotations
 
