@@ -36,6 +36,29 @@ GROQ_MODEL = os.getenv("GROQ_MODEL", "openai/gpt-oss-20b")
 TOP_K = int(os.getenv("RAG_TOP_K", "5"))
 MAX_MESSAGE_CHARS = int(os.getenv("RAG_MAX_MESSAGE_CHARS", "2000"))
 
+# Abstain threshold (calibrated 2026-10-28 on the 30-question eval set +
+# 10 extra off-topic probes; see workspace/portfolio/roadmap-tier2-report.md).
+# Signal: the best raw cosine (vector_score) across the returned top-K hits.
+# It must be the MAX over the hits, not the top-1 hit's score: the top fused
+# (RRF) hit can be a BM25 rescue whose vector_score is 0.0 because it was
+# outside the dense top-10 pool (e.g. "What was your Handshake fellowship
+# about?" retrieves the right chunk at cosine 0.0). On the calibration set
+# the lowest in-profile max-cosine is 0.237 (handshake-fellow) and the two
+# clearly off-profile eval questions score 0.095-0.098, so 0.20 abstains on
+# those with zero false abstains across the eval set. Ambiguous near-profile
+# questions (salary advice, other people) score above it and still go to the
+# model, whose SYSTEM_RULES tell it to say when it lacks a detail.
+ABSTAIN_THRESHOLD = float(os.getenv("RAG_ABSTAIN_THRESHOLD", "0.20"))
+
+# Deterministic abstain answer: no Groq call, no invented facts. The frontend
+# shows its suggested-question chips under this answer.
+ABSTAIN_MESSAGE = (
+    "I don't have that in Sai Vishnu Vamsi Senagasetty's profile — "
+    "I can only answer questions about him. I can tell you about his "
+    "projects, his roles at Zibtek and boomerroomers, his skills, and his "
+    "education. Try one of the suggestions below, or ask about a specific project."
+)
+
 app = Flask(__name__)
 # Render terminates TLS in front of the service; trust one proxy hop so
 # request.remote_addr (and therefore per-IP rate limiting) sees the client.
@@ -151,6 +174,20 @@ Recent conversation (this visitor only):
 Question: {question}
 Answer:"""
 
+def _retrieved_out(hits: List[dict]) -> List[dict]:
+    """Public shape of retrieved[]: id, fused score, section."""
+    return [
+        {"id": h.get("id"), "score": h.get("score"), "section": (h.get("metadata") or {}).get("section")}
+        for h in hits
+    ]
+
+
+def _should_abstain(hits: List[dict]) -> bool:
+    """True when no retrieved chunk is close enough to answer from."""
+    if not hits:
+        return True
+    best = max(float(h.get("vector_score") or 0.0) for h in hits)
+    return best < ABSTAIN_THRESHOLD
 
 @app.route("/health", methods=["GET"])
 @limiter.exempt
@@ -186,6 +223,18 @@ def receive():
         logger.info("Received message: %s", message[:200])
         retriever = get_retriever()
         hits = retriever.search(message, top_k=TOP_K)
+        if _should_abstain(hits):
+            session["turns"].append({"q": message, "a": ABSTAIN_MESSAGE})
+            return jsonify(
+                {
+                    "status": "ok",
+                    "message": message,
+                    "response": ABSTAIN_MESSAGE,
+                    "abstained": True,
+                    "session_id": session_id,
+                    "retrieved": _retrieved_out(hits),
+                }
+            )
         recent = format_recent_turns(session["turns"])
         prompt = build_prompt(message, hits, recent)
 
@@ -207,10 +256,7 @@ def receive():
                 "message": message,
                 "response": answer,
                 "session_id": session_id,
-                "retrieved": [
-                    {"id": h.get("id"), "score": h.get("score"), "section": (h.get("metadata") or {}).get("section")}
-                    for h in hits
-                ],
+                "retrieved": _retrieved_out(hits),
             }
         )
     except Exception as exc:  # noqa: BLE001
@@ -244,12 +290,22 @@ def receive_stream():
 
     retriever = get_retriever()
     hits = retriever.search(message, top_k=TOP_K)
+    retrieved_out = _retrieved_out(hits)
+    if _should_abstain(hits):
+        # No Groq call: emit the abstain text as one token, then done.
+        session["turns"].append({"q": message, "a": ABSTAIN_MESSAGE})
+        def _abstain_generate():
+            yield f"data: {_json.dumps({'token': ABSTAIN_MESSAGE})}\n\n"
+            yield (
+                f"data: {_json.dumps({'done': True, 'abstained': True, 'retrieved': retrieved_out, 'session_id': session_id})}\n\n"
+            )
+        return Response(
+            stream_with_context(_abstain_generate()),
+            mimetype="text/event-stream",
+            headers={"Cache-Control": "no-cache", "X-Accel-Buffering": "no"},
+        )
     recent = format_recent_turns(session["turns"])
     prompt = build_prompt(message, hits, recent)
-    retrieved_out = [
-        {"id": h.get("id"), "score": h.get("score"), "section": (h.get("metadata") or {}).get("section")}
-        for h in hits
-    ]
 
     def generate():
         full: list[str] = []
@@ -274,7 +330,7 @@ def receive_stream():
         answer = _clean_response("".join(full))
         session["turns"].append({"q": message, "a": answer})
         yield (
-            f"data: {_json.dumps({'done': True, 'retrieved': retrieved_out, 'session_id': session_id})}\n\n"
+            f"data: {_json.dumps({'done': True, 'abstained': False, 'retrieved': retrieved_out, 'session_id': session_id})}\n\n"
         )
 
     return Response(
