@@ -17,7 +17,7 @@ from collections import OrderedDict, deque
 from typing import Deque, Dict, List
 
 import dotenv
-from flask import Flask, jsonify, request
+from flask import Flask, Response, jsonify, request, stream_with_context
 from flask_cors import CORS
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
@@ -216,6 +216,72 @@ def receive():
     except Exception as exc:  # noqa: BLE001
         logger.error("Error in /receive", exc_info=True)
         return jsonify({"error": "The assistant hit an unexpected error. Please try again."}), 500
+
+
+@app.route("/receive/stream", methods=["POST"])
+@limiter.limit("20 per minute")
+def receive_stream():
+    """Streaming twin of /receive: Server-Sent Events.
+
+    Emits ``data: {"token": "..."}`` lines as Groq generates, then a final
+    ``data: {"done": true, "retrieved": [...], "session_id": ...}`` event.
+    Same validation, rate limit, and session memory as /receive. If the
+    model call fails mid-stream, the client sees an error event and falls
+    back to the non-streaming endpoint.
+    """
+    import json as _json
+
+    data = request.get_json(silent=True) or {}
+    message = (data.get("message") or "").strip()
+    if not message:
+        return jsonify({"error": "No message provided"}), 400
+    if len(message) > MAX_MESSAGE_CHARS:
+        return jsonify({"error": f"Message is too long (max {MAX_MESSAGE_CHARS} characters)."}), 400
+
+    raw_session = (data.get("session_id") or "").strip()
+    session_id = raw_session if _SESSION_ID_RE.match(raw_session) else uuid.uuid4().hex
+    session = _get_session(session_id)
+
+    retriever = get_retriever()
+    hits = retriever.search(message, top_k=TOP_K)
+    recent = format_recent_turns(session["turns"])
+    prompt = build_prompt(message, hits, recent)
+    retrieved_out = [
+        {"id": h.get("id"), "score": h.get("score"), "section": (h.get("metadata") or {}).get("section")}
+        for h in hits
+    ]
+
+    def generate():
+        full: list[str] = []
+        try:
+            stream = _groq.chat.completions.create(
+                model=GROQ_MODEL,
+                messages=[{"role": "user", "content": prompt}],
+                temperature=0.5,
+                max_completion_tokens=2048,
+                top_p=0.9,
+                stream=True,
+            )
+            for chunk in stream:
+                token = (chunk.choices[0].delta.content or "") if chunk.choices else ""
+                if token:
+                    full.append(token)
+                    yield f"data: {_json.dumps({'token': token})}\n\n"
+        except Exception:  # noqa: BLE001
+            logger.error("Error in /receive/stream", exc_info=True)
+            yield f"data: {_json.dumps({'error': 'The assistant hit an unexpected error. Please try again.'})}\n\n"
+            return
+        answer = _clean_response("".join(full))
+        session["turns"].append({"q": message, "a": answer})
+        yield (
+            f"data: {_json.dumps({'done': True, 'retrieved': retrieved_out, 'session_id': session_id})}\n\n"
+        )
+
+    return Response(
+        stream_with_context(generate()),
+        mimetype="text/event-stream",
+        headers={"Cache-Control": "no-cache", "X-Accel-Buffering": "no"},
+    )
 
 
 if __name__ == "__main__":
