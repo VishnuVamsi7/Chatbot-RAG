@@ -28,10 +28,6 @@ from rag.retriever import get_retriever
 
 dotenv.load_dotenv()
 
-GROQ_API_KEY = os.getenv("GROQ_API_KEY")
-if not GROQ_API_KEY:
-    raise ValueError("GROQ_API_KEY not found in environment variables.")
-
 GROQ_MODEL = os.getenv("GROQ_MODEL", "openai/gpt-oss-20b")
 TOP_K = int(os.getenv("RAG_TOP_K", "5"))
 MAX_MESSAGE_CHARS = int(os.getenv("RAG_MAX_MESSAGE_CHARS", "2000"))
@@ -98,7 +94,29 @@ SESSION_TTL_SECONDS = 1800
 _sessions: "OrderedDict[str, Dict[str, object]]" = OrderedDict()
 _SESSION_ID_RE = re.compile(r"^[A-Za-z0-9_-]{1,64}$")
 
-_groq = Groq(api_key=GROQ_API_KEY)
+# Groq client is built lazily, on first use — never at import. Two boot
+# fragilities this removes (both reproduced 2026-10-27):
+#  - a malformed proxy env (e.g. NO_PROXY containing "[::1]") makes
+#    Groq() raise httpx.InvalidURL at construction;
+#  - a missing GROQ_API_KEY used to raise ValueError at import.
+# Either used to kill the gunicorn worker before it could serve /health.
+# Now both surface only when a request actually needs the model, and the
+# callers turn them into a friendly 500 / SSE error event (never a raw
+# traceback or leaked config). The client is cached after the first
+# successful build; a failed build is retried on the next request so a
+# fixed env heals without a restart.
+_groq_client: "Groq | None" = None
+
+
+def get_groq_client() -> Groq:
+    """Return the cached Groq client, building it on first use."""
+    global _groq_client
+    if _groq_client is None:
+        api_key = os.getenv("GROQ_API_KEY")
+        if not api_key:
+            raise RuntimeError("GROQ_API_KEY is not configured.")
+        _groq_client = Groq(api_key=api_key)
+    return _groq_client
 
 SYSTEM_RULES = """You are a helpful assistant for Sai Vishnu Vamsi Senagasetty's portfolio.
 Answer ONLY using the retrieved context below.
@@ -238,7 +256,7 @@ def receive():
         recent = format_recent_turns(session["turns"])
         prompt = build_prompt(message, hits, recent)
 
-        completion = _groq.chat.completions.create(
+        completion = get_groq_client().chat.completions.create(
             model=GROQ_MODEL,
             messages=[{"role": "user", "content": prompt}],
             temperature=0.5,
@@ -310,7 +328,7 @@ def receive_stream():
     def generate():
         full: list[str] = []
         try:
-            stream = _groq.chat.completions.create(
+            stream = get_groq_client().chat.completions.create(
                 model=GROQ_MODEL,
                 messages=[{"role": "user", "content": prompt}],
                 temperature=0.5,
