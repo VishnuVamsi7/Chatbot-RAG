@@ -3,8 +3,75 @@
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
 from typing import Any, Dict, List
+
+
+# all-MiniLM-L6-v2 truncates at 256 tokens, silently dropping the tail of any
+# longer chunk. Cap chunks well under that so nothing is ever truncated.
+MAX_CHUNK_TOKENS = 200
+# Rough BPE estimate for English prose; deliberately conservative.
+_TOKEN_PER_WORD = 1.3
+
+
+def _estimate_tokens(text: str) -> int:
+    return max(1, int(len(text.split()) * _TOKEN_PER_WORD))
+
+
+def _split_sentences(text: str) -> List[str]:
+    return [p for p in re.split(r"(?<=[.!?])\s+", text.strip()) if p]
+
+
+def _split_words(text: str, max_tokens: int) -> List[str]:
+    words = text.split()
+    step = max(1, int(max_tokens / _TOKEN_PER_WORD))
+    return [" ".join(words[i : i + step]) for i in range(0, len(words), step)]
+
+
+def _split_long_text(text: str, max_tokens: int = MAX_CHUNK_TOKENS) -> List[str]:
+    """Sentence-based split of an over-long chunk.
+
+    Greedy-packs sentences into <=max_tokens parts. A single over-long
+    sentence is split on words. Every continuation part carries the first
+    sentence as a context header (e.g. "Project: X — ..." / "Experience: ..."),
+    so a split chunk still retrieves for the right question.
+    """
+    sentences = _split_sentences(text)
+    if not sentences:
+        return []
+    header = " ".join(sentences[0].split()[:15])
+
+    parts: List[str] = []
+    current: List[str] = []
+    for sent in sentences:
+        sent_tokens = _estimate_tokens(sent)
+        if sent_tokens > max_tokens:
+            if current:
+                parts.append(" ".join(current))
+                current = []
+            parts.extend(_split_words(sent, max_tokens))
+            continue
+        # Compare on the joined text: summing per-sentence floored estimates
+        # understates the total and could pack a part over the cap.
+        if current and _estimate_tokens(" ".join(current + [sent])) > max_tokens:
+            parts.append(" ".join(current))
+            current = []
+        current.append(sent)
+    if current:
+        parts.append(" ".join(current))
+
+    if len(parts) <= 1:
+        return parts
+    out = [parts[0]]
+    for part in parts[1:]:
+        if part.startswith(header):
+            out.append(part)
+        elif _estimate_tokens(header + " " + part) <= max_tokens:
+            out.append(header + " " + part)
+        else:
+            out.append(part)
+    return out
 
 
 def load_knowledge(path: str | Path) -> Dict[str, Any]:
@@ -25,13 +92,19 @@ def _add(
     text = " ".join((text or "").split())
     if not text:
         return
-    chunks.append(
-        {
-            "id": chunk_id,
-            "text": text,
-            "metadata": metadata or {"section": chunk_id},
-        }
-    )
+    base_meta = metadata or {"section": chunk_id}
+    if _estimate_tokens(text) <= MAX_CHUNK_TOKENS:
+        chunks.append({"id": chunk_id, "text": text, "metadata": base_meta})
+        return
+    parts = _split_long_text(text)
+    for i, part in enumerate(parts, start=1):
+        chunks.append(
+            {
+                "id": f"{chunk_id}-part-{i}",
+                "text": part,
+                "metadata": {**base_meta, "part": i, "parts": len(parts)},
+            }
+        )
 
 
 def build_chunks(knowledge: Dict[str, Any]) -> List[Dict[str, Any]]:

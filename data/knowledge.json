@@ -116,6 +116,23 @@
         "summary": "AI Developer using STAR delivery on confidential client work: evolved a basic chatbot into FastAPI/RAG with ~45% fewer ungrounded answers, plus NestJS/Next backends and AI-accelerated shipping (~40–50% faster milestones)."
       },
       {
+        "id": "boomerroomers-ai",
+        "title": "AI Software Engineer",
+        "company": "boomerroomers LLC",
+        "period": "January 2026 – April 2026",
+        "skills": [
+          "RAG",
+          "LLMs",
+          "Llama-3.3-70B",
+          "Groq",
+          "Gemini",
+          "MongoDB Atlas",
+          "Vector Search",
+          "Semantic Caching"
+        ],
+        "summary": "Built a multi-tier AI deflection system and scalable RAG pipeline for a global housing platform: automated resolution of 70% of user queries at zero marginal cost and cut operational costs by 98%; a Guided Discovery onboarding agent improved completion by 30%."
+      },
+      {
         "id": "develop-for-good",
         "title": "Software Engineering Fellow",
         "company": "Develop for Good (Client: Rasdo NGO)",
@@ -130,10 +147,23 @@
         "summary": "Led NGO website from Figma to production with payment API integration and Agile delivery."
       },
       {
-        "id": "ml-engineer-intern",
-        "title": "ML Engineer",
-        "company": "AI/ML Research Intern",
-        "period": "January 2025 - Present",
+        "id": "handshake-fellow",
+        "title": "AI Researcher Fellow",
+        "company": "Handshake",
+        "period": "December 2025 – February 2026",
+        "skills": [
+          "Red-Teaming",
+          "LLM Evaluation",
+          "Prompt Engineering",
+          "Research"
+        ],
+        "summary": "Constructed red-teaming prompt structures probing model boundaries and evaluated LLM code generation via end-to-end web-application stress tests, producing ground-truth datasets for iterative model training."
+      },
+      {
+        "id": "grandios-ai",
+        "title": "AI Research Intern",
+        "company": "Grandios Mobility",
+        "period": "August 2024 – December 2024",
         "skills": [
           "Machine Learning",
           "Flutter",
@@ -147,7 +177,7 @@
         "id": "instructional-assistant",
         "title": "Instructional Assistant",
         "company": "University of Houston",
-        "period": "September 2024 - Present",
+        "period": "September 2024 – February 2026",
         "skills": [
           "HTML/CSS",
           "CMS",
@@ -209,6 +239,19 @@
         ]
       },
       {
+        "id": "boomerroomers-ai",
+        "title": "AI Software Engineer",
+        "company": "boomerroomers LLC",
+        "date": "January 2026 – April 2026",
+        "type": "Full-time",
+        "diffStats": [
+          "Designed and deployed a multi-tier AI deflection system with a 5-stage response funnel and semantic caching, automating resolution of 70% of user queries at zero marginal cost for a global housing platform.",
+          "Engineered a scalable RAG pipeline using Llama-3.3-70B (Groq LPU) and Gemini embeddings, cutting operational costs by 98% while delivering low-latency, context-aware responses via real-time document retrieval.",
+          "Built a dynamic “Guided Discovery” onboarding agent that improved onboarding completion by 30%.",
+          "Developed AI governance infrastructure, including 768-dimension vector search (MongoDB Atlas), regex-based PII masking, and a hallucination-monitoring framework, improving retrieval precision and response reliability."
+        ]
+      },
+      {
         "id": "develop-for-good",
         "title": "Software Engineering Fellow",
         "company": "Develop for Good (Client: Rasdo NGO)",
@@ -222,10 +265,22 @@
         ]
       },
       {
-        "id": "ml-engineer-intern",
-        "title": "ML Engineer",
-        "company": "AI/ML Research Intern",
-        "date": "January 2025 – Present",
+        "id": "handshake-fellow",
+        "title": "AI Researcher Fellow",
+        "company": "Handshake",
+        "date": "December 2025 – February 2026",
+        "type": "Fellowship",
+        "location": "Remote",
+        "diffStats": [
+          "Constructed red-teaming prompt structures to probe model boundaries, identifying failure modes in negative constraints and spatial reasoning that automated metrics (CLIP, FID) failed to detect.",
+          "Evaluated LLM code-generation performance via end-to-end web-application stress tests (e.g. Kanban-style systems), producing ground-truth datasets that support iterative model training."
+        ]
+      },
+      {
+        "id": "grandios-ai",
+        "title": "AI Research Intern",
+        "company": "Grandios Mobility",
+        "date": "August 2024 – December 2024",
         "type": "Full-time",
         "diffStats": [
           "Accelerated product timelines by 10% through automation and ML-driven feature planning.",
@@ -238,7 +293,7 @@
         "id": "instructional-assistant",
         "title": "Instructional Assistant",
         "company": "University of Houston",
-        "date": "September 2024 – Present",
+        "date": "September 2024 – February 2026",
         "type": "Part-time",
         "location": "Houston, TX",
         "diffStats": [
@@ -1745,10 +1800,9 @@
     "liveEndpoint": "https://chatbot-rag-mun6.onrender.com/receive",
     "healthEndpoint": "https://chatbot-rag-mun6.onrender.com/health",
     "github": "https://github.com/VishnuVamsi7/Chatbot-RAG",
-    "architecture": "Offline FAISS index from knowledge.json via Hugging Face Inference API (all-MiniLM-L6-v2); runtime HF query embeds → FAISS top-k → Groq openai/gpt-oss-20b; Flask /receive + /health in Docker on Render; Next.js Chatbot.jsx client.",
+    "architecture": "Offline FAISS index from knowledge.json via local ONNX embeddings (all-MiniLM-L6-v2, no HF API, no torch); runtime local ONNX query embeds → FAISS top-k → Groq openai/gpt-oss-20b; Flask /receive + /health on Render; Next.js Chatbot.jsx client.",
     "envVars": [
       "GROQ_API_KEY",
-      "HF_API_TOKEN",
       "GROQ_MODEL",
       "RAG_TOP_K"
     ]
