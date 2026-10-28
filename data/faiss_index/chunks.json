@@ -38,28 +38,28 @@
   },
   {
     "id": "skills-0",
-    "text": "Technical skills for Sai Vishnu Vamsi Senagasetty: Python, TypeScript, JavaScript, Dart, SQL, Bash, HTML/CSS, R, C++, CUDA, React, Next.js, Vite, Tailwind, Flutter, Streamlit, Component Systems, Cross-Platform UI, Android, iOS, FastAPI, Flask, NestJS, Node.js, Express, REST APIs, Pydantic, Firebase Auth, Firestore, Redis, PostgreSQL, httpx, NDJSON Streaming, Access Control, RAG, FAISS, Vector Search, LangChain, Groq, Whisper.",
+    "text": "Technical skills for Sai Vishnu Vamsi Senagasetty: Python, TypeScript, JavaScript, Dart, SQL, Bash, HTML/CSS, R, C++, CUDA, React, Next.js, Vite, Tailwind, Flutter, Streamlit, Component Systems, Cross-Platform UI, Android, iOS, FastAPI, NestJS, Node.js, Express, REST APIs, Pydantic, Firebase Auth, Firestore, Redis, PostgreSQL, httpx, NDJSON Streaming, Access Control, RAG, FAISS, Vector Search, LangChain, Groq, Whisper, LLM Integration.",
     "metadata": {
       "section": "skills"
     }
   },
   {
     "id": "skills-1",
-    "text": "Technical skills for Sai Vishnu Vamsi Senagasetty: LLM Integration, Prompt Engineering, Prompt Routing, Prompt Chaining, Hugging Face, Sentence Transformers, ONNX, MCP, Content Safety, Async Jobs, AI Pipelines, PyTorch, TensorFlow, Scikit-learn, Transformers, Computer Vision, NLP, YOLOv5, Stable Diffusion, UNet, CNN, RNN, Deep Learning, Object Detection, Reinforcement Learning, Walk-Forward Optimization, Random Forest, Optuna, MLflow, SHAP, Model Tuning, Model Deployment, pandas, NumPy, PySpark, ETL Pipelines, Apache Airflow, EDA, Statistics, Predictive Analytics.",
+    "text": "Technical skills for Sai Vishnu Vamsi Senagasetty: Prompt Engineering, Prompt Routing, Prompt Chaining, Sentence Transformers, ONNX, MCP, Content Safety, Async Jobs, AI Pipelines, PyTorch, TensorFlow, Scikit-learn, Transformers, Computer Vision, NLP, YOLOv5, Stable Diffusion, UNet, CNN, RNN, Deep Learning, Object Detection, Reinforcement Learning, Walk-Forward Optimization, Random Forest, Optuna, MLflow, SHAP, Model Tuning, Model Deployment, pandas, NumPy, PySpark, ETL Pipelines, Apache Airflow, EDA, Statistics, Predictive Analytics, Time-Series Modeling, Forecasting.",
     "metadata": {
       "section": "skills"
     }
   },
   {
     "id": "skills-2",
-    "text": "Technical skills for Sai Vishnu Vamsi Senagasetty: Time-Series Modeling, Forecasting, Regression, PCA, K-Means, TF-IDF, Sentiment Analysis, Topic Modeling, Text Processing, Data Visualization, Layout Parsing, Reporting, Load Testing, pdfplumber, MoviePy, Web Scraping, Docker, Docker Compose, Kubernetes, Azure ML, TensorFlow Serving, TorchServe, Git, GitHub, GitHub Actions, GitLab CI, Conda, Render, Netlify, Google Colab, Jupyter, VS Code, Linux, Databricks, Spark, Hadoop, Palantir Foundry, Power BI, Tableau, Excel.",
+    "text": "Technical skills for Sai Vishnu Vamsi Senagasetty: Regression, PCA, K-Means, TF-IDF, Sentiment Analysis, Topic Modeling, Text Processing, Data Visualization, Layout Parsing, Reporting, Load Testing, pdfplumber, MoviePy, Web Scraping, Docker, Docker Compose, Kubernetes, Azure ML, TensorFlow Serving, TorchServe, Git, GitHub, GitHub Actions, GitLab CI, Conda, Render, Netlify, Google Colab, Jupyter, VS Code, Linux, Databricks, Spark, Hadoop, Palantir Foundry, Power BI, Tableau, Excel, LaTeX, Gym API.",
     "metadata": {
       "section": "skills"
     }
   },
   {
     "id": "skills-3",
-    "text": "Technical skills for Sai Vishnu Vamsi Senagasetty: LaTeX, Gym API, PIL, Alpaca, Risk Management, AsyncIO, Reproducible Environments, CMS, Agile/Scrum, Problem Solving, Communication, Team Collaboration, Documentation, AI-Assisted Shipping, pytest.",
+    "text": "Technical skills for Sai Vishnu Vamsi Senagasetty: PIL, Alpaca, Risk Management, AsyncIO, Reproducible Environments, CMS, Agile/Scrum, Problem Solving, Communication, Team Collaboration, Documentation, AI-Assisted Shipping, pytest.",
     "metadata": {
       "section": "skills"
     }
@@ -82,7 +82,7 @@
   },
   {
     "id": "skills-cat-backend",
-    "text": "Skill category Backend & APIs: FastAPI, Flask, NestJS, Node.js, Express, REST APIs, Pydantic, Firebase Auth, Firestore, Redis, PostgreSQL, httpx, NDJSON Streaming, Access Control.",
+    "text": "Skill category Backend & APIs: FastAPI, NestJS, Node.js, Express, REST APIs, Pydantic, Firebase Auth, Firestore, Redis, PostgreSQL, httpx, NDJSON Streaming, Access Control.",
     "metadata": {
       "section": "skills-category",
       "category": "Backend & APIs"
@@ -90,7 +90,7 @@
   },
   {
     "id": "skills-cat-ai-llm",
-    "text": "Skill category AI / LLM Systems: RAG, FAISS, Vector Search, LangChain, Groq, Whisper, LLM Integration, Prompt Engineering, Prompt Routing, Prompt Chaining, Hugging Face, Sentence Transformers, ONNX, MCP, Content Safety, Async Jobs, AI Pipelines.",
+    "text": "Skill category AI / LLM Systems: RAG, FAISS, Vector Search, LangChain, Groq, Whisper, LLM Integration, Prompt Engineering, Prompt Routing, Prompt Chaining, Sentence Transformers, ONNX, MCP, Content Safety, Async Jobs, AI Pipelines.",
     "metadata": {
       "section": "skills-category",
       "category": "AI / LLM Systems"
@@ -246,7 +246,7 @@
   },
   {
     "id": "projects-index-part-1",
-    "text": "Complete list of Sai Vishnu Vamsi Senagasetty's projects (24 total): Production RAG Chatbot (Confidential Client) (Grounded FastAPI chatbot with policy routing); Generative Content RAG Backend (Confidential) (FAISS-backed copy/media generation API); ResumeLLM (LLM product UX for resume intelligence); TwinMind (Live transcription + suggestion agent); AlphaBot Trading System (Backtest → walk-forward → paper/live); Personal Chatbot-RAG (Offline FAISS index + HF query embeds + Groq — powers the live portfolio chat); E-commerce RAG Agent (Clean → embed → Redis semantic search); AutoDoc-AI (Long PDFs → structured executive summaries); DocReporter (Layout-aware document reporting pipeline); MarketCanvas-Env (RL + MCP) (Semantic canvas env for banner layout agents); Notion-style Workspace Clone (AI-accelerated Next.js productivity UI); Boomers & Roomers (Node API + Next.js marketplace webapp); DriverApp (Flutter) (Cross-platform field driver client); Metro App (Flutter transit/mobile prototype); CAOP — Spark + MLflow Experiments (Distributed tuning with explainability); IntelliBrief (Dockerized AI briefing toolkit); Internal AI Learning Platform (Confidential) (Secured quizzes + leaderboards); TF",
+    "text": "Complete list of Sai Vishnu Vamsi Senagasetty's projects (25 total): Production RAG Chatbot (Confidential Client) (Grounded FastAPI chatbot with policy routing); Generative Content RAG Backend (Confidential) (FAISS-backed copy/media generation API); ResumeLLM (LLM product UX for resume intelligence); TwinMind (Live transcription + suggestion agent); AlphaBot Trading System (Backtest → walk-forward → paper/live); AI-Powered Portfolio Personal Assistant (Low-latency Groq RAG over profile knowledge); Personal Chatbot-RAG (Offline FAISS index + local ONNX embeds + Groq Q&A); E-commerce RAG Agent (Clean → embed → Redis semantic search); AutoDoc-AI (Long PDFs → structured executive summaries); DocReporter (Layout-aware document reporting pipeline); MarketCanvas-Env (RL + MCP) (Semantic canvas env for banner layout agents); Notion-style Workspace Clone (AI-accelerated Next.js productivity UI); Boomers & Roomers (Node API + Next.js marketplace webapp); DriverApp (Flutter) (Cross-platform field driver client); Metro App (Flutter transit/mobile prototype); CAOP — Spark + MLflow Experiments (Distributed tuning with explainability); IntelliBrief (Dockerized AI briefing toolkit); Internal AI Learning Platform (Confidential)",
     "metadata": {
       "section": "projects-index",
       "part": 1,
@@ -255,7 +255,7 @@
   },
   {
     "id": "projects-index-part-2",
-    "text": "Complete list of Sai Vishnu Vamsi Senagasetty's projects (24 total): Production RAG Chatbot (Confidential Client) Serving vs TorchServe on Azure (Model serving benchmark study); Energy Provider Churn Analysis (Predictive retention modeling); ImageCraft – Text-to-Image (UNet + Stable Diffusion fine-tuning); Video Keyword Extraction (Whisper transcription → NLP keywords); Pink Slime Journalism Analysis (NLP clustering of misinformation style); Utility Performance Analysis (Oil & gas forecasting + benchmarking); Night Objects Detection (YOLOv5 for low-light scenes).",
+    "text": "Complete list of Sai Vishnu Vamsi Senagasetty's projects (25 total): Production RAG Chatbot (Confidential Client) (Secured quizzes + leaderboards); TF Serving vs TorchServe on Azure (Model serving benchmark study); Energy Provider Churn Analysis (Predictive retention modeling); ImageCraft – Text-to-Image (UNet + Stable Diffusion fine-tuning); Video Keyword Extraction (Whisper transcription → NLP keywords); Pink Slime Journalism Analysis (NLP clustering of misinformation style); Utility Performance Analysis (Oil & gas forecasting + benchmarking); Night Objects Detection (YOLOv5 for low-light scenes).",
     "metadata": {
       "section": "projects-index",
       "part": 2,
@@ -264,7 +264,7 @@
   },
   {
     "id": "projects-index-part-3",
-    "text": "Complete list of Sai Vishnu Vamsi Senagasetty's projects (24 total): Production RAG Chatbot (Confidential Client) Ask about any specific project for full details.",
+    "text": "Complete list of Sai Vishnu Vamsi Senagasetty's projects (25 total): Production RAG Chatbot (Confidential Client) Ask about any specific project for full details.",
     "metadata": {
       "section": "projects-index",
       "part": 3,
@@ -451,8 +451,17 @@
     }
   },
   {
+    "id": "project-portfolio-rag",
+    "text": "Project: AI-Powered Portfolio Personal Assistant — Low-latency Groq RAG over profile knowledge. Goal: Turn a static portfolio into an interactive product: visitors ask about skills, projects, and experience and get accurate, low-latency answers with conversational memory. Outcome: ~40–50% faster response generation via Groq vs prior baseline; FastAPI + Next.js + Render deployment proves end-to-end LLM product delivery; powers JD-match style interactions from structured profile facts. Approach: Why this approach: How built: Evals: Tech: Groq, RAG, FastAPI, Python, Next.js, Render, Prompt Engineering. Tags: AI, Full-Stack.",
+    "metadata": {
+      "section": "project",
+      "id": "portfolio-rag",
+      "title": "AI-Powered Portfolio Personal Assistant"
+    }
+  },
+  {
     "id": "project-chatbot-rag-part-1",
-    "text": "Project: Personal Chatbot-RAG — Offline FAISS index + HF query embeds + Groq — powers the live portfolio chat. Goal: Build a personal knowledge chatbot with real semantic retrieval that still deploys on free-tier hosts—without shipping PyTorch/sentence-transformers wheels that blow disk limits—and wire it into this portfolio so visitors can ask about skills, projects, and experience. Outcome: Slim Dockerized Flask RAG on Render: curated knowledge.json → offline HF embeddings → committed FAISS index; runtime HF query embeds + top-k retrieval + Groq (openai/gpt-oss-20b) grounded answers. Live Next.js Chatbot.jsx posts to /receive on the same service. Approach: Split build vs serve hard. Offline: structure-aware chunking of knowledge.json, embed with all-MiniLM-L6-v2 via HF Inference API, write FAISS + chunks into the repo. Online: embed the user question the same way, FAISS similarity search, inject only retrieved chunks into a Groq prompt (openai/gpt-oss-20b). Keep Render deps to Flask, faiss-cpu, httpx, and Groq—no local embedding model.",
+    "text": "Project: Personal Chatbot-RAG — Offline FAISS index + local ONNX embeds + Groq Q&A. Goal: Build a personal knowledge chatbot with real semantic retrieval that still deploys on free-tier hosts—without shipping PyTorch/sentence-transformers wheels that blow disk limits. Outcome: Slim Dockerized Flask RAG service: curated knowledge.json → offline ONNX embeddings → FAISS index; runtime embeds each question locally with ONNX Runtime, retrieves top-k (hybrid BM25 + vector), and generates grounded answers with Groq for the live portfolio chatbot. Approach: Split build vs serve hard. Offline: structure-aware chunking of knowledge.json, embed with all-MiniLM-L6-v2 via local ONNX Runtime, write FAISS + chunks into the repo. Online: embed the user question the same way, hybrid BM25 + vector search (RRF), inject only retrieved chunks into a Groq prompt (openai/gpt-oss-20b). Keep Render deps to Flask, faiss-cpu, onnxruntime, and Groq—no PyTorch, no paid embedding API. Why this approach: Free-tier disk killed local sentence-transformers/PyTorch installs.",
     "metadata": {
       "section": "project",
       "id": "chatbot-rag",
@@ -463,7 +472,7 @@
   },
   {
     "id": "project-chatbot-rag-part-2",
-    "text": "Portfolio UI owns the chat surface; Render owns retrieval + generation. Why this approach: Free-tier disk killed local sentence-transformers/PyTorch installs. Prompt-stuffing the whole KB worked as a stopgap but is not RAG. Offline index + remote query embeds keep true retrieval and a portable Docker image that fits Render while staying grounded on curated profile facts. How built: Python package under rag/ (chunking, embeddings, retriever) plus Flask app.py. Index is rebuilt locally after knowledge edits and committed so production never downloads embedding weights. Env: GROQ_API_KEY, HF_API_TOKEN, optional GROQ_MODEL / RAG_TOP_K. Deployed on Render (chatbot-rag-mun6); portfolio Chatbot.jsx calls /receive. JD matcher on the site reuses the same skill/project taxonomy for recruiter workflows. Evals: Manual Q&A against known profile facts (list-all-projects, specific project deep-dives); retrieval checks that projects-index ranks first on aggregate queries; /health smoke for FAISS load; container rebuild to keep the slim dependency set under free-tier disk; live chat smoke from the portfolio UI.",
+    "text": "Project: Personal Chatbot-RAG — Offline FAISS index + local ONNX embeds + Groq Q&A. Prompt-stuffing the whole KB worked as a stopgap but is not RAG. Offline index + remote query embeds keep true retrieval and a portable Docker image that fits Render while staying grounded on curated profile facts. How built: Python package under rag/ (chunking, embeddings, retriever) plus Flask app.py. Index is rebuilt locally after knowledge edits and committed so production never downloads embedding weights; the retriever also rebuilds a stale shipped index at startup. Env: GROQ_API_KEY, optional GROQ_MODEL / RAG_TOP_K. Deployed on Render (chatbot-rag-mun6); portfolio Chatbot.jsx calls /receive. JD matcher on the site reuses the same skill/project taxonomy for recruiter workflows.",
     "metadata": {
       "section": "project",
       "id": "chatbot-rag",
@@ -474,7 +483,7 @@
   },
   {
     "id": "project-chatbot-rag-part-3",
-    "text": "Project: Personal Chatbot-RAG — Offline FAISS index + HF query embeds + Groq — powers Tech: Python, RAG, FAISS, Hugging Face, Groq, Flask, Docker, httpx, Render, Next.js. Tags: AI, Full-Stack.",
+    "text": "Project: Personal Chatbot-RAG — Offline FAISS index + local ONNX embeds + Groq Q&A. Evals: 30-question eval set (scripts/eval_set.json) + groundedness script (scripts/run_eval.py) run after every knowledge change; manual Q&A against known profile facts (list-all-projects, specific project deep-dives); retrieval checks that projects-index ranks first on aggregate queries; /health smoke for FAISS load; container rebuild to keep the slim dependency set under free-tier disk; live chat smoke from the portfolio UI. Tech: Python, RAG, FAISS, ONNX Runtime, Groq, Flask, Docker, Render. Tags: AI.",
     "metadata": {
       "section": "project",
       "id": "chatbot-rag",
@@ -485,7 +494,7 @@
   },
   {
     "id": "project-chatbot-rag-pipeline",
-    "text": "Project Personal Chatbot-RAG pipeline: Curate data/knowledge.json (skills, experience, projects; exclude confidential client internals) | Chunk with structure-aware builders + projects/experience index chunks for listing queries | Offline embed via HF Inference API (all-MiniLM-L6-v2) and save FAISS under data/faiss_index/ | At runtime: embed question via HF → FAISS top-k → build grounded prompt → Groq generate | Serve Flask /receive + /health inside Docker; Next.js portfolio Chatbot.jsx posts to the Render URL. Components: **Knowledge pack** — curated knowledge.json as source of truth | **Offline index builder** — scripts/build_index.py → FAISS + chunks.json | **HF embed client** — httpx calls to Inference API (build + query) | **FaissRetriever** — L2-normalized similarity search over committed vectors | **Flask API** — /receive chat + /health; Groq openai/gpt-oss-20b | **Next.js chatbot client** — embedded portfolio UX calling Render | **Dockerfile** — slim Python image with faiss-cpu (no PyTorch).",
+    "text": "Project Personal Chatbot-RAG pipeline: Curate data/knowledge.json (skills, experience, projects; exclude confidential client internals) | Chunk with structure-aware builders + projects/experience index chunks for listing queries | Offline embed via local ONNX Runtime (all-MiniLM-L6-v2, quantized) and save FAISS under data/faiss_index/ | At runtime: embed question locally with ONNX → hybrid BM25 + vector top-k → build grounded prompt → Groq generate | Serve Flask /receive + /health inside Docker; Next.js portfolio Chatbot.jsx posts to the Render URL. Components: **Knowledge pack** — curated knowledge.json as source of truth | **Offline index builder** — scripts/build_index.py → FAISS + chunks.json | **ONNX embedder** — local onnxruntime + tokenizers, no API, no torch (build + query) | **FaissRetriever** — L2-normalized similarity search over committed vectors | **Flask API** — /receive chat + /health; Groq openai/gpt-oss-20b | **Next.js chatbot client** — embedded portfolio UX calling Render | **Dockerfile** — slim Python image with faiss-cpu (no PyTorch).",
     "metadata": {
       "section": "project-pipeline",
       "id": "chatbot-rag",

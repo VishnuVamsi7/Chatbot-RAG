@@ -7,7 +7,9 @@
       "Confidential client product names are anonymized.",
       "Use only facts in this document; do not invent employers, metrics, or project claims.",
       "Prefer STAR framing when discussing Zibtek impact metrics."
-    ]
+    ],
+    "syncedFrom": "app/data/profile.js (+ projects.js, skills.js)",
+    "syncedAt": "2026-10-28T04:03:53Z"
   },
   "identity": {
     "name": "Sai Vishnu Vamsi Senagasetty",
@@ -355,7 +357,6 @@
       "Android",
       "iOS",
       "FastAPI",
-      "Flask",
       "NestJS",
       "Node.js",
       "Express",
@@ -378,7 +379,6 @@
       "Prompt Engineering",
       "Prompt Routing",
       "Prompt Chaining",
-      "Hugging Face",
       "Sentence Transformers",
       "ONNX",
       "MCP",
@@ -508,7 +508,6 @@
         "name": "Backend & APIs",
         "skills": [
           "FastAPI",
-          "Flask",
           "NestJS",
           "Node.js",
           "Express",
@@ -537,7 +536,6 @@
           "Prompt Engineering",
           "Prompt Routing",
           "Prompt Chaining",
-          "Hugging Face",
           "Sentence Transformers",
           "ONNX",
           "MCP",
@@ -670,14 +668,10 @@
         "cnn",
         "rnn",
         "transformer",
-        "pytorch",
-        "tensorflow",
         "unet"
       ],
       "python": [
         "python",
-        "pytorch",
-        "tensorflow",
         "scikit-learn",
         "pandas",
         "fastapi",
@@ -708,15 +702,11 @@
         "yolo",
         "yolov5",
         "opencv",
-        "image",
-        "detection",
         "stable diffusion"
       ],
       "docker": [
         "docker",
-        "kubernetes",
         "container",
-        "k8s",
         "docker compose"
       ],
       "azure": [
@@ -1025,47 +1015,64 @@
         "featured": true
       },
       {
-        "id": "chatbot-rag",
-        "title": "Personal Chatbot-RAG",
-        "subtitle": "Offline FAISS index + HF query embeds + Groq — powers the live portfolio chat",
-        "shortTitle": "Chatbot RAG",
-        "goal": "Build a personal knowledge chatbot with real semantic retrieval that still deploys on free-tier hosts—without shipping PyTorch/sentence-transformers wheels that blow disk limits—and wire it into this portfolio so visitors can ask about skills, projects, and experience.",
-        "outcome": "Slim Dockerized Flask RAG on Render: curated knowledge.json → offline HF embeddings → committed FAISS index; runtime HF query embeds + top-k retrieval + Groq (openai/gpt-oss-20b) grounded answers. Live Next.js Chatbot.jsx posts to /receive on the same service.",
-        "approach": "Split build vs serve hard. Offline: structure-aware chunking of knowledge.json, embed with all-MiniLM-L6-v2 via HF Inference API, write FAISS + chunks into the repo. Online: embed the user question the same way, FAISS similarity search, inject only retrieved chunks into a Groq prompt (openai/gpt-oss-20b). Keep Render deps to Flask, faiss-cpu, httpx, and Groq—no local embedding model. Portfolio UI owns the chat surface; Render owns retrieval + generation.",
-        "whyApproach": "Free-tier disk killed local sentence-transformers/PyTorch installs. Prompt-stuffing the whole KB worked as a stopgap but is not RAG. Offline index + remote query embeds keep true retrieval and a portable Docker image that fits Render while staying grounded on curated profile facts.",
-        "pipeline": [
-          "Curate data/knowledge.json (skills, experience, projects; exclude confidential client internals)",
-          "Chunk with structure-aware builders + projects/experience index chunks for listing queries",
-          "Offline embed via HF Inference API (all-MiniLM-L6-v2) and save FAISS under data/faiss_index/",
-          "At runtime: embed question via HF → FAISS top-k → build grounded prompt → Groq generate",
-          "Serve Flask /receive + /health inside Docker; Next.js portfolio Chatbot.jsx posts to the Render URL"
-        ],
-        "components": [
-          "**Knowledge pack** — curated knowledge.json as source of truth",
-          "**Offline index builder** — scripts/build_index.py → FAISS + chunks.json",
-          "**HF embed client** — httpx calls to Inference API (build + query)",
-          "**FaissRetriever** — L2-normalized similarity search over committed vectors",
-          "**Flask API** — /receive chat + /health; Groq openai/gpt-oss-20b",
-          "**Next.js chatbot client** — embedded portfolio UX calling Render",
-          "**Dockerfile** — slim Python image with faiss-cpu (no PyTorch)"
-        ],
-        "howBuilt": "Python package under rag/ (chunking, embeddings, retriever) plus Flask app.py. Index is rebuilt locally after knowledge edits and committed so production never downloads embedding weights. Env: GROQ_API_KEY, HF_API_TOKEN, optional GROQ_MODEL / RAG_TOP_K. Deployed on Render (chatbot-rag-mun6); portfolio Chatbot.jsx calls /receive. JD matcher on the site reuses the same skill/project taxonomy for recruiter workflows.",
-        "evals": "Manual Q&A against known profile facts (list-all-projects, specific project deep-dives); retrieval checks that projects-index ranks first on aggregate queries; /health smoke for FAISS load; container rebuild to keep the slim dependency set under free-tier disk; live chat smoke from the portfolio UI.",
+        "title": "AI-Powered Portfolio Personal Assistant",
+        "subtitle": "Low-latency Groq RAG over profile knowledge",
         "tags": [
           "AI",
           "Full-Stack"
         ],
         "techStack": [
+          "Groq",
+          "RAG",
+          "FastAPI",
+          "Python",
+          "Next.js",
+          "Render",
+          "Prompt Engineering"
+        ],
+        "goal": "Turn a static portfolio into an interactive product: visitors ask about skills, projects, and experience and get accurate, low-latency answers with conversational memory.",
+        "outcome": "~40–50% faster response generation via Groq vs prior baseline; FastAPI + Next.js + Render deployment proves end-to-end LLM product delivery; powers JD-match style interactions from structured profile facts.",
+        "id": "portfolio-rag"
+      },
+      {
+        "id": "chatbot-rag",
+        "title": "Personal Chatbot-RAG",
+        "subtitle": "Offline FAISS index + local ONNX embeds + Groq Q&A",
+        "shortTitle": "Chatbot RAG",
+        "goal": "Build a personal knowledge chatbot with real semantic retrieval that still deploys on free-tier hosts—without shipping PyTorch/sentence-transformers wheels that blow disk limits.",
+        "outcome": "Slim Dockerized Flask RAG service: curated knowledge.json → offline ONNX embeddings → FAISS index; runtime embeds each question locally with ONNX Runtime, retrieves top-k (hybrid BM25 + vector), and generates grounded answers with Groq for the live portfolio chatbot.",
+        "approach": "Split build vs serve hard. Offline: structure-aware chunking of knowledge.json, embed with all-MiniLM-L6-v2 via local ONNX Runtime, write FAISS + chunks into the repo. Online: embed the user question the same way, hybrid BM25 + vector search (RRF), inject only retrieved chunks into a Groq prompt (openai/gpt-oss-20b). Keep Render deps to Flask, faiss-cpu, onnxruntime, and Groq—no PyTorch, no paid embedding API.",
+        "whyApproach": "Free-tier disk killed local sentence-transformers/PyTorch installs. Prompt-stuffing the whole KB worked as a stopgap but is not RAG. Offline index + remote query embeds keep true retrieval and a portable Docker image that fits Render while staying grounded on curated profile facts.",
+        "pipeline": [
+          "Curate data/knowledge.json (skills, experience, projects; exclude confidential client internals)",
+          "Chunk with structure-aware builders + projects/experience index chunks for listing queries",
+          "Offline embed via local ONNX Runtime (all-MiniLM-L6-v2, quantized) and save FAISS under data/faiss_index/",
+          "At runtime: embed question locally with ONNX → hybrid BM25 + vector top-k → build grounded prompt → Groq generate",
+          "Serve Flask /receive + /health inside Docker; Next.js portfolio Chatbot.jsx posts to the Render URL"
+        ],
+        "components": [
+          "**Knowledge pack** — curated knowledge.json as source of truth",
+          "**Offline index builder** — scripts/build_index.py → FAISS + chunks.json",
+          "**ONNX embedder** — local onnxruntime + tokenizers, no API, no torch (build + query)",
+          "**FaissRetriever** — L2-normalized similarity search over committed vectors",
+          "**Flask API** — /receive chat + /health; Groq openai/gpt-oss-20b",
+          "**Next.js chatbot client** — embedded portfolio UX calling Render",
+          "**Dockerfile** — slim Python image with faiss-cpu (no PyTorch)"
+        ],
+        "howBuilt": "Python package under rag/ (chunking, embeddings, retriever) plus Flask app.py. Index is rebuilt locally after knowledge edits and committed so production never downloads embedding weights; the retriever also rebuilds a stale shipped index at startup. Env: GROQ_API_KEY, optional GROQ_MODEL / RAG_TOP_K. Deployed on Render (chatbot-rag-mun6); portfolio Chatbot.jsx calls /receive. JD matcher on the site reuses the same skill/project taxonomy for recruiter workflows.",
+        "evals": "30-question eval set (scripts/eval_set.json) + groundedness script (scripts/run_eval.py) run after every knowledge change; manual Q&A against known profile facts (list-all-projects, specific project deep-dives); retrieval checks that projects-index ranks first on aggregate queries; /health smoke for FAISS load; container rebuild to keep the slim dependency set under free-tier disk; live chat smoke from the portfolio UI.",
+        "tags": [
+          "AI"
+        ],
+        "techStack": [
           "Python",
           "RAG",
           "FAISS",
-          "Hugging Face",
+          "ONNX Runtime",
           "Groq",
           "Flask",
           "Docker",
-          "httpx",
-          "Render",
-          "Next.js"
+          "Render"
         ],
         "github": "https://github.com/VishnuVamsi7/Chatbot-RAG",
         "presentation": null,
