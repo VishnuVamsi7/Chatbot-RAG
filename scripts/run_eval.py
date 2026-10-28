@@ -52,6 +52,9 @@ _NUMBER_RE = re.compile(r"\$?\d[\d,]*(?:\.\d+)?%?")
 
 def _norm(text: str) -> str:
     # Normalize curly quotes/dashes so checks match model output either way.
+    # U+2011 (non-breaking hyphen, which gpt-oss emits in "red-teaming" and
+    # "production-ready") must map to "-" too, and "45 %" (space before the
+    # percent sign, which the model also emits) must read as "45%".
     text = (
         text.replace("\u2019", "'")
         .replace("\u2018", "'")
@@ -59,7 +62,9 @@ def _norm(text: str) -> str:
         .replace("\u201d", '"')
         .replace("\u2013", "-")
         .replace("\u2014", "-")
+        .replace("\u2011", "-")
     )
+    text = re.sub(r"(\d)\s+%", r"\1%", text)
     return re.sub(r"\s+", " ", text.lower()).strip()
 
 
