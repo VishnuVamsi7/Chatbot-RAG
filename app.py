@@ -24,6 +24,7 @@ from flask_limiter.util import get_remote_address
 from groq import Groq
 from werkzeug.middleware.proxy_fix import ProxyFix
 
+from rag.critic import verify_answer
 from rag.retriever import get_retriever
 
 dotenv.load_dotenv()
@@ -45,6 +46,34 @@ MAX_MESSAGE_CHARS = int(os.getenv("RAG_MAX_MESSAGE_CHARS", "2000"))
 # questions (salary advice, other people) score above it and still go to the
 # model, whose SYSTEM_RULES tell it to say when it lacks a detail.
 ABSTAIN_THRESHOLD = float(os.getenv("RAG_ABSTAIN_THRESHOLD", "0.20"))
+
+# Answer critic (Tier 3): one cheap Groq call verifying the draft against the
+# retrieved chunks, one repair pass max, then abstain. Default ON; set
+# RAG_CRITIC_ENABLED=false to disable without a code change. Read per
+# request so tests can toggle it via the environment.
+def _critic_enabled() -> bool:
+    return os.getenv("RAG_CRITIC_ENABLED", "true").strip().lower() in (
+        "1",
+        "true",
+        "yes",
+        "on",
+    )
+
+
+def _split_for_stream(text: str, words_per_token: int = 8) -> List[str]:
+    """Split verified text into word-group chunks for SSE token events.
+
+    The stream path buffers the draft, verifies it, and only then emits
+    tokens — so an unsupported claim is never shown to the visitor. The
+    cost is first-token latency (full generation + critic instead of
+    token-by-token); correctness wins for a recruiter-facing assistant.
+    """
+    words = (text or "").split(" ")
+    return [
+        " ".join(words[i : i + words_per_token])
+        + (" " if i + words_per_token < len(words) else "")
+        for i in range(0, len(words), words_per_token)
+    ] or [""]
 
 # Deterministic abstain answer: no Groq call, no invented facts. The frontend
 # shows its suggested-question chips under this answer.
@@ -249,6 +278,7 @@ def receive():
                     "message": message,
                     "response": ABSTAIN_MESSAGE,
                     "abstained": True,
+                    "critic_status": "not-run",
                     "session_id": session_id,
                     "retrieved": _retrieved_out(hits),
                 }
@@ -267,12 +297,50 @@ def receive():
         raw = (completion.choices[0].message.content or "").strip()
         answer = _clean_response(raw)
 
+        # Tier 3 critic: verify the draft against the retrieved chunks
+        # (one cheap call, one repair pass max, then abstain). A critic
+        # outage fails open to the draft (logged in rag/critic.py); a
+        # verdict of "unsupported" never does.
+        critic_status = "disabled"
+        if _critic_enabled():
+            try:
+                final_answer, critic_status = verify_answer(
+                    get_groq_client(),
+                    GROQ_MODEL,
+                    message,
+                    answer,
+                    hits,
+                    get_verbosity_instruction(message),
+                )
+            except Exception:  # noqa: BLE001 - critic must never 500 a good answer
+                logger.warning(
+                    "Critic failed unexpectedly; returning un-criticised answer.",
+                    exc_info=True,
+                )
+                critic_status = "critic-error"
+                final_answer = answer
+            if critic_status == "abstained":
+                session["turns"].append({"q": message, "a": ABSTAIN_MESSAGE})
+                return jsonify(
+                    {
+                        "status": "ok",
+                        "message": message,
+                        "response": ABSTAIN_MESSAGE,
+                        "abstained": True,
+                        "critic_status": critic_status,
+                        "session_id": session_id,
+                        "retrieved": _retrieved_out(hits),
+                    }
+                )
+            answer = final_answer  # "ok", "repaired", or "critic-error" (fail open)
+
         session["turns"].append({"q": message, "a": answer})
         return jsonify(
             {
                 "status": "ok",
                 "message": message,
                 "response": answer,
+                "critic_status": critic_status,
                 "session_id": session_id,
                 "retrieved": _retrieved_out(hits),
             }
@@ -326,6 +394,10 @@ def receive_stream():
     prompt = build_prompt(message, hits, recent)
 
     def generate():
+        # Buffer the whole draft first: the critic needs the complete
+        # answer before it can verify it, and an unsupported claim must
+        # never be streamed to the visitor. Tokens are emitted only after
+        # verification (see _split_for_stream).
         full: list[str] = []
         try:
             stream = get_groq_client().chat.completions.create(
@@ -340,15 +412,42 @@ def receive_stream():
                 token = (chunk.choices[0].delta.content or "") if chunk.choices else ""
                 if token:
                     full.append(token)
-                    yield f"data: {_json.dumps({'token': token})}\n\n"
         except Exception:  # noqa: BLE001
             logger.error("Error in /receive/stream", exc_info=True)
             yield f"data: {_json.dumps({'error': 'The assistant hit an unexpected error. Please try again.'})}\n\n"
             return
-        answer = _clean_response("".join(full))
-        session["turns"].append({"q": message, "a": answer})
+        draft = _clean_response("".join(full))
+        critic_status = "disabled"
+        text = draft
+        abstained = False
+        if _critic_enabled():
+            try:
+                final_answer, critic_status = verify_answer(
+                    get_groq_client(),
+                    GROQ_MODEL,
+                    message,
+                    draft,
+                    hits,
+                    get_verbosity_instruction(message),
+                )
+            except Exception:  # noqa: BLE001 - critic must never kill the stream
+                logger.warning(
+                    "Critic failed unexpectedly; returning un-criticised answer.",
+                    exc_info=True,
+                )
+                critic_status = "critic-error"
+                final_answer = draft
+            if critic_status == "abstained":
+                text = ABSTAIN_MESSAGE
+                abstained = True
+            else:
+                text = final_answer
+        for piece in _split_for_stream(text):
+            if piece:
+                yield f"data: {_json.dumps({'token': piece})}\n\n"
+        session["turns"].append({"q": message, "a": text})
         yield (
-            f"data: {_json.dumps({'done': True, 'abstained': False, 'retrieved': retrieved_out, 'session_id': session_id})}\n\n"
+            f"data: {_json.dumps({'done': True, 'abstained': abstained, 'critic_status': critic_status, 'retrieved': retrieved_out, 'session_id': session_id})}\n\n"
         )
 
     return Response(
